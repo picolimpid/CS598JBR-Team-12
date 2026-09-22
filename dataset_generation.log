@@ -1,0 +1,13 @@
+NetIDs ['hanqim2', 'pochunk2', 'yhl7'] with seed 191374802308824446074400153398805442526
+
+Downloading readme: 0.00B [00:00, ?B/s]
+Downloading readme: 6.52kB [00:00, 12.2MB/s]
+
+Downloading data:   0%|          | 0.00/83.9k [00:00<?, ?B/s]
+Downloading data: 100%|██████████| 83.9k/83.9k [00:00<00:00, 421kB/s]
+Downloading data: 100%|██████████| 83.9k/83.9k [00:00<00:00, 419kB/s]
+
+Generating test split:   0%|          | 0/164 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 164/164 [00:00<00:00, 5101.42 examples/s]
+Entire Dataset saved to humaneval.jsonl
+Selected 20 problems saved to selected_humaneval_191374802308824446074400153398805442526.jsonl

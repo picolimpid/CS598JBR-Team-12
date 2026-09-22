@@ -3,7 +3,7 @@
 ###################################################################
 
 # TODO: Update Your NetIDs in alphabetical order
-NetIDs = ["sampleID1", "sampleID2", "sampleID3", "sampleID4"]
+NetIDs = ["hanqim2", ,"pochunk2","yhl7"]
 NetIDs_str = " ".join(NetIDs)
 
 # TODO: Clone your GitHub repository

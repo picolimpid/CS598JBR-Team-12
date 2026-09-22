@@ -17,7 +17,7 @@ def select_random_problems(netIDs, num_problems=20):
     random.seed(seed)
     print(f"NetIDs {netIDs} with seed {seed}")
     
-    dataset = load_dataset("openai_humaneval")
+    dataset = load_dataset("openai/openai_humaneval")
     all_problems_output = "humaneval.jsonl"
     with jsonlines.open(all_problems_output, "w") as f:
         for item in dataset['test']:
