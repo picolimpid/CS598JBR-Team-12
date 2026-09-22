@@ -1,9 +1,9 @@
 # CS598JBR-Team-0
 
 ## Group members
-- [Team member1], [NetID]
-- [Team member2], [NetID]
-- [Team member3], [NetID]
+- Andy Mao, hanqim2
+- Yun-Han Lee, yhl7
+- Po-Chun Kuo, pochunk2
 - [Team member4], [NetID]
 
 ## Link of Google Colab Notebook
