@@ -1,0 +1,765 @@
+2026-09-24 01:12:38.238847: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Working with deepseek-ai/deepseek-coder-6.7b-base quantization True...
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:43<00:43, 43.93s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:01<00:00, 28.40s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:01<00:00, 30.73s/it]
+Task_ID HumanEval/19:
+Prompt:
+from typing import List
+
+
+def sort_numbers(numbers: str) -> str:
+    """ Input is a space-delimited string of numberals from 'zero' to 'nine'.
+    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.
+    Return the string with numbers sorted from smallest to largest
+    >>> sort_numbers('three one five')
+    'one three five'
+    """
+
+Response:
+    return ' '.join(sorted(numbers.split(), key=lambda x: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'].index(x)))
+
+
+def sort_numbers_2(numbers: str) -> str:
+    """ Input is a space-delimited string of numberals from 'zero' to 'nine'.
+    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.
+    Return the string with numbers sorted from smallest to largest
+    >>> sort_numbers_2('three one five')
+    'one three five'
+    """
+    return ' '.join(sorted(numbers.split(), key=lambda x: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'].index(x)))
+
+
+def sort_numbers_3(numbers: str) -> str:
+    """ Input is a space
+Task_ID HumanEval/79:
+Prompt:
+
+def decimal_to_binary(decimal):
+    """You will be given a number in decimal form and your task is to convert it to
+    binary format. The function should return a string, with each character representing a binary
+    number. Each character in the string will be '0' or '1'.
+
+    There will be an extra couple of characters 'db' at the beginning and at the end of the string.
+    The extra characters are there to help with the format.
+
+    Examples:
+    decimal_to_binary(15)   # returns "db1111db"
+    decimal_to_binary(32)   # returns "db100000db"
+    """
+
+Response:
+    binary = bin(decimal)[2:]
+    return f"db{binary}db"
+
+
+def binary_to_decimal(binary):
+    """You will be given a string, with each character representing a binary number.
+    Your task is to convert the binary to decimal format. The function should return an integer.
+
+    The string will be in the format 'db1010101db'.
+
+    Examples:
+    binary_to_decimal("db1111db")   # returns 15
+    binary_to_decimal("db100000db")   # returns 32
+    """
+    binary = binary[2:-2]
+    return int(binary, 2)
+
+
+def decimal_to_hexadecimal(decimal):
+    """You will be given a number in decimal form and your task is to convert it to
+    hexadecimal format. The function should return a string, with each character representing a hexadecimal
+    number. Each character in the string will be a number from '0' to '9' or a letter from 'A' to
+Task_ID HumanEval/134:
+Prompt:
+
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+
+Response:
+    return txt[-1].isalpha() and txt[-2] == ' '
+
+
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    return txt[-1].isalpha() and txt[-2] == ' '
+
+
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+   
+Task_ID HumanEval/73:
+Prompt:
+
+def smallest_change(arr):
+    """
+    Given an array arr of integers, find the minimum number of elements that
+    need to be changed to make the array palindromic. A palindromic array is an array that
+    is read the same backwards and forwards. In one change, you can change one element to any other element.
+
+    For example:
+    smallest_change([1,2,3,5,4,7,9,6]) == 4
+    smallest_change([1, 2, 3, 4, 3, 2, 2]) == 1
+    smallest_change([1, 2, 3, 2, 1]) == 0
+    """
+
+Response:
+    # Your code here
+    # arr = [1, 2, 3, 5, 4, 7, 9, 6]
+    # arr = [1, 2, 3, 4, 3, 2, 2]
+    # arr = [1, 2, 3, 2, 1]
+    # arr = [1, 2, 3, 5, 4, 7, 9, 6]
+    # arr = [1, 2, 3, 4, 3, 2, 2]
+    # arr = [1, 2, 3, 2, 1]
+    # arr = [1, 2, 3, 5, 4, 7, 9, 6]
+    # arr = [1, 2, 3, 4, 3, 2, 2]
+    # arr = [1, 2, 3, 2, 1]
+    # arr = [1, 2, 3, 5, 4, 7, 9,
+Task_ID HumanEval/150:
+Prompt:
+
+def x_or_y(n, x, y):
+    """A simple program which should return the value of x if n is 
+    a prime number and should return the value of y otherwise.
+
+    Examples:
+    for x_or_y(7, 34, 12) == 34
+    for x_or_y(15, 8, 5) == 5
+    
+    """
+
+Response:
+    if n == 2:
+        return x
+    if n == 3:
+        return y
+    if n % 2 == 0:
+        return y
+    if n % 3 == 0:
+        return y
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return y
+        i += 6
+    return x
+
+
+def x_or_y_2(n, x, y):
+    """A simple program which should return the value of x if n is 
+    a prime number and should return the value of y otherwise.
+
+    Examples:
+    for x_or_y(7, 34, 12) == 34
+    for x_or_y(15, 8, 5) == 5
+    
+    """
+    if n == 2:
+        return x
+    if n == 3:
+        return y
+    if n % 2 == 0:
+        return y
+    if n % 3 == 0:
+        return y
+    i = 5
+    while i
+Task_ID HumanEval/8:
+Prompt:
+from typing import List, Tuple
+
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    """ For a given list of integers, return a tuple consisting of a sum and a product of all the integers in a list.
+    Empty sum should be equal to 0 and empty product should be equal to 1.
+    >>> sum_product([])
+    (0, 1)
+    >>> sum_product([1, 2, 3, 4])
+    (10, 24)
+    """
+
+Response:
+    return sum(numbers), 1 if not numbers else 1 * sum(numbers)
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+Task_ID HumanEval/129:
+Prompt:
+
+def minPath(grid, k):
+    """
+    Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
+    each cell of the grid contains a value. Every integer in the range [1, N * N]
+    inclusive appears exactly once on the cells of the grid.
+
+    You have to find the minimum path of length k in the grid. You can start
+    from any cell, and in each step you can move to any of the neighbor cells,
+    in other words, you can go to cells which share an edge with you current
+    cell.
+    Please note that a path of length k means visiting exactly k cells (not
+    necessarily distinct).
+    You CANNOT go off the grid.
+    A path A (of length k) is considered less than a path B (of length k) if
+    after making the ordered lists of the values on the cells that A and B go
+    through (let's call them lst_A and lst_B), lst_A is lexicographically less
+    than lst_B, in other words, there exist an integer index i (1 <= i <= k)
+    such that lst_A[i] < lst_B[i] and for any j (1 <= j < i) we have
+    lst_A[j] = lst_B[j].
+    It is guaranteed that the answer is unique.
+    Return an ordered list of the values on the cells that the minimum path go through.
+
+    Examples:
+
+        Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
+        Output: [1, 2, 1]
+
+        Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
+        Output: [1]
+    """
+
+Response:
+    # TODO: implement this function
+    return []
+
+
+def main():
+    grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    k = 3
+    print(minPath(grid, k))
+
+
+if __name__ == "__main__":
+    main()
+Task_ID HumanEval/69:
+Prompt:
+
+def search(lst):
+    '''
+    You are given a non-empty list of positive integers. Return the greatest integer that is greater than 
+    zero, and has a frequency greater than or equal to the value of the integer itself. 
+    The frequency of an integer is the number of times it appears in the list.
+    If no such a value exist, return -1.
+    Examples:
+        search([4, 1, 2, 2, 3, 1]) == 2
+        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3
+        search([5, 5, 4, 4, 4]) == -1
+    '''
+
+Response:
+    # Your code here
+    lst.sort()
+    for i in range(len(lst)-1, -1, -1):
+        if lst[i] == lst[i-1]:
+            continue
+        if lst[i] == len(lst)-i:
+            return lst[i]
+    return -1
+
+
+def search_2(lst):
+    '''
+    You are given a non-empty list of positive integers. Return the greatest integer that is greater than 
+    zero, and has a frequency greater than or equal to the value of the integer itself. 
+    The frequency of an integer is the number of times it appears in the list.
+    If no such a value exist, return -1.
+    Examples:
+        search([4, 1, 2, 2, 3, 1]) == 2
+        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3
+        search([5, 5, 4, 4, 4]) == -1
+    '''
+    # Your
+Task_ID HumanEval/120:
+Prompt:
+
+def maximum(arr, k):
+    """
+    Given an array arr of integers and a positive integer k, return a sorted list 
+    of length k with the maximum k numbers in arr.
+
+    Example 1:
+
+        Input: arr = [-3, -4, 5], k = 3
+        Output: [-4, -3, 5]
+
+    Example 2:
+
+        Input: arr = [4, -4, 4], k = 2
+        Output: [4, 4]
+
+    Example 3:
+
+        Input: arr = [-3, 2, 1, 2, -1, -2, 1], k = 1
+        Output: [2]
+
+    Note:
+        1. The length of the array will be in the range of [1, 1000].
+        2. The elements in the array will be in the range of [-1000, 1000].
+        3. 0 <= k <= len(arr)
+    """
+
+Response:
+    # Time: O(nlogn)
+    # Space: O(n)
+    # arr.sort(reverse=True)
+    # return arr[:k]
+
+    # Time: O(nlogk)
+    # Space: O(k)
+    import heapq
+    heap = []
+    for num in arr:
+        heapq.heappush(heap, num)
+        if len(heap) > k:
+            heapq.heappop(heap)
+    return heap
+
+
+def maximum_2(arr, k):
+    """
+    Given an array arr of integers and a positive integer k, return a sorted list 
+    of length k with the maximum k numbers in arr.
+
+    Example 1:
+
+        Input: arr = [-3, -4, 5], k = 3
+        Output: [-4, -3, 5]
+
+    Example 2:
+
+        Input: arr = [4, -4, 4], k = 2
+        Output: [4, 4]
+
+    Example 3:
+
+        Input: arr = [-3
+Task_ID HumanEval/7:
+Prompt:
+from typing import List
+
+
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+    """ Filter an input list of strings only for ones that contain given substring
+    >>> filter_by_substring([], 'a')
+    []
+    >>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')
+    ['abc', 'bacd', 'array']
+    """
+
+Response:
+    return [s for s in strings if substring in s]
+
+
+def filter_by_substring_2(strings: List[str], substring: str) -> List[str]:
+    """ Filter an input list of strings only for ones that contain given substring
+    >>> filter_by_by_substring_2([], 'a')
+    []
+    >>> filter_by_substring_2(['abc', 'bacd', 'cde', 'array'], 'a')
+    ['abc', 'bacd', 'array']
+    """
+    return list(filter(lambda s: substring in s, strings))
+
+
+def filter_by_substring_3(strings: List[str], substring: str) -> List[str]:
+    """ Filter an input list of strings only for ones that contain given substring
+    >>> filter_by_substring_3([], 'a')
+    []
+    >>> filter_by_substring_3(['abc', 'bacd', 'cde', 'array'], 'a')
+    ['abc', 'bacd', 'array']
+    """
+Task_ID HumanEval/156:
+Prompt:
+
+def int_to_mini_roman(number):
+    """
+    Given a positive integer, obtain its roman numeral equivalent as a string,
+    and return it in lowercase.
+    Restrictions: 1 <= num <= 1000
+
+    Examples:
+    >>> int_to_mini_roman(19) == 'xix'
+    >>> int_to_mini_roman(152) == 'clii'
+    >>> int_to_mini_roman(426) == 'cdxxvi'
+    """
+
+Response:
+    # TODO: implement this function
+    pass
+
+
+def mini_roman_to_int(mini_roman):
+    """
+    Given a string representing a roman numeral, return its integer equivalent.
+    Restrictions: 1 <= num <= 1000
+
+    Examples:
+    >>> mini_roman_to_int('xix') == 19
+    >>> mini_roman_to_int('clii') == 152
+    >>> mini_roman_to_int('cdxxvi') == 426
+    """
+    # TODO: implement this function
+    pass
+
+
+def roman_to_int(roman):
+    """
+    Given a string representing a roman numeral, return its integer equivalent.
+    Restrictions: 1 <= num <= 3999
+
+    Examples:
+    >>> roman_to_int('xix') == 19
+    >>> roman_to_int('clii') == 152
+    >>> roman_to_int('cdxxvi') == 426
+    >>> roman_to_int('mmmcmxcix') == 3
+Task_ID HumanEval/92:
+Prompt:
+
+def any_int(x, y, z):
+    '''
+    Create a function that takes 3 numbers.
+    Returns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.
+    Returns false in any other cases.
+    
+    Examples
+    any_int(5, 2, 7) ➞ True
+    
+    any_int(3, 2, 2) ➞ False
+
+    any_int(3, -2, 1) ➞ True
+    
+    any_int(3.6, -2.2, 2) ➞ False
+  
+
+    
+    '''
+
+Response:
+    if type(x) == int and type(y) == int and type(z) == int:
+        if x == y + z or y == x + z or z == x + y:
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
+print(any_int(5, 2, 7))
+print(any_int(3, 2, 2))
+print(any
+Task_ID HumanEval/27:
+Prompt:
+
+
+def flip_case(string: str) -> str:
+    """ For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
+    >>> flip_case('Hello')
+    'hELLO'
+    """
+
+Response:
+    return string.swapcase()
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+Task_ID HumanEval/51:
+Prompt:
+
+
+def remove_vowels(text):
+    """
+    remove_vowels is a function that takes string and returns string without vowels.
+    >>> remove_vowels('')
+    ''
+    >>> remove_vowels("abcdef\nghijklm")
+    'bcdf\nghjklm'
+    >>> remove_vowels('abcdef')
+    'bcdf'
+    >>> remove_vowels('aaaaa')
+    ''
+    >>> remove_vowels('aaBAA')
+    'B'
+    >>> remove_vowels('zbcd')
+    'zbcd'
+    """
+
+Response:
+    vowels = 'aeiouAEIOU'
+    result = ''
+    for char in text:
+        if char not in vowels:
+            result += char
+    return result
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+Task_ID HumanEval/13:
+Prompt:
+
+
+def greatest_common_divisor(a: int, b: int) -> int:
+    """ Return a greatest common divisor of two integers a and b
+    >>> greatest_common_divisor(3, 5)
+    1
+    >>> greatest_common_divisor(25, 15)
+    5
+    """
+
+Response:
+    if a == 0:
+        return b
+    if b == 0:
+        return a
+    if a > b:
+        return greatest_common_divisor(a % b, b)
+    else:
+        return greatest_common_divisor(a, b % a)
+Task_ID HumanEval/65:
+Prompt:
+
+def circular_shift(x, shift):
+    """Circular shift the digits of the integer x, shift the digits right by shift
+    and return the result as a string.
+    If shift > number of digits, return digits reversed.
+    >>> circular_shift(12, 1)
+    "21"
+    >>> circular_shift(12, 2)
+    "12"
+    """
+
+Response:
+    return str(x)[-shift:] + str(x)[:-shift]
+
+
+def is_prime(x):
+    """Return True if x is prime, False otherwise.
+    >>> is_prime(2)
+    True
+    >>> is_prime(1690879496161)
+    True
+    >>> is_prime(1)
+    False
+    >>> is
+    """
+    if x < 2:
+        return False
+    for i in range(2, int(x ** 0.5) + 1):
+        if x % i == 0:
+            return False
+    return True
+
+
+def is_circular_prime(x):
+    """Return True if x is a circular prime, False otherwise.
+    >>> is_circular_prime(1993)
+    True
+    >>> is_circular_prime(1997)
+    False
+    """
+    for i in range(len(str(x))):
+        if not is_prime(int(circular_shift(x, i))):
+            return False
+    return True
+
+
+Task_ID HumanEval/41:
+Prompt:
+
+
+def car_race_collision(n: int):
+    """
+    Imagine a road that's a perfectly straight infinitely long line.
+    n cars are driving left to right;  simultaneously, a different set of n cars
+    are driving right to left.   The two sets of cars start out being very far from
+    each other.  All cars move in the same speed.  Two cars are said to collide
+    when a car that's moving left to right hits a car that's moving right to left.
+    However, the cars are infinitely sturdy and strong; as a result, they continue moving
+    in their trajectory as if they did not collide.
+
+    This function outputs the number of such collisions.
+    """
+
+Response:
+    return n * (n - 1) // 2
+
+
+def car_race_collision_probability(n: int):
+    """
+    Imagine a road that's a perfectly straight infinitely long line.
+    n cars are driving left to right;  simultaneously, a different set of n cars
+    are driving right to left.   The two sets of cars start out being very far from
+    each other.  All cars move in the same speed.  Two cars are said to collide
+    when a car that's moving left to right hits a car that's moving right to left.
+    However, the cars are infinitely sturdy and strong; as a result, they continue moving
+    in their trajectory as if they did not collide.
+
+    This function outputs the probability of a collision.
+    """
+    return n / (2 * n - 1)
+
+
+def car_race_collision_probability_n(p: float):
+    """
+    Imagine a road that's a perfectly straight infinitely long line.
+    n cars are driving left to right;  simultaneously, a different set of
+Task_ID HumanEval/62:
+Prompt:
+
+
+def derivative(xs: list):
+    """ xs represent coefficients of a polynomial.
+    xs[0] + xs[1] * x + xs[2] * x^2 + ....
+     Return derivative of this polynomial in the same form.
+    >>> derivative([3, 1, 2, 4, 5])
+    [1, 4, 12, 20]
+    >>> derivative([1, 2, 3])
+    [2, 6]
+    """
+
+Response:
+    return [i * (len(xs) - i - 1) for i in range(1, len(xs))]
+
+
+def derivative_2(xs: list):
+    """ xs represent coefficients of a polynomial.
+    xs[0] + xs[1] * x + xs[2] * x^2 + ....
+     Return derivative of this polynomial in the same form.
+    >>> derivative([3, 1, 2, 4, 5])
+    [1, 4, 12, 20]
+    >>> derivative([1, 2, 3])
+    [2, 6]
+    """
+    return [i * (len(xs) - i - 1) for i in range(1, len(xs))]
+
+
+def derivative_3(xs: list):
+    """ xs represent coefficients of a polynomial.
+    xs[0] + xs x + xs[2] * x^2 + ....
+     Return derivative of this polynomial in the same form.
+    >>> derivative([3, 1, 2, 4, 5])
+Task_ID HumanEval/53:
+Prompt:
+
+
+def add(x: int, y: int):
+    """Add two numbers x and y
+    >>> add(2, 3)
+    5
+    >>> add(5, 7)
+    12
+    """
+
+Response:
+    return x+y
+
+
+def subtract(x: int, y: int):
+    """Subtract two numbers x and y
+    >>> subtract(2, 3)
+    -1
+    >>> subtract(5, 7)
+    -2
+    """
+    return x-y
+
+
+def multiply(x: int, y: int):
+    """Multiply two numbers x and y
+    >>> multiply(2, 3)
+    6
+    >>> multiply(5, 7)
+    35
+    """
+    return x*y
+
+
+def divide(x: int, y: int):
+    """Divide two numbers x and y
+    >>> divide(2, 3)
+    0.6666666666666666
+    >>> divide(5, 7)
+    0.7142857142857143
+    """
+    return x/y
+
+
+def square(x: int):
+    """Square a number x
+    >>> square(2)
+    4
+
+Task_ID HumanEval/127:
+Prompt:
+
+def intersection(interval1, interval2):
+    """You are given two intervals,
+    where each interval is a pair of integers. For example, interval = (start, end) = (1, 2).
+    The given intervals are closed which means that the interval (start, end)
+    includes both start and end.
+    For each given interval, it is assumed that its start is less or equal its end.
+    Your task is to determine whether the length of intersection of these two 
+    intervals is a prime number.
+    Example, the intersection of the intervals (1, 3), (2, 4) is (2, 3)
+    which its length is 1, which not a prime number.
+    If the length of the intersection is a prime number, return "YES",
+    otherwise, return "NO".
+    If the two intervals don't intersect, return "NO".
+
+
+    [input/output] samples:
+    intersection((1, 2), (2, 3)) ==> "NO"
+    intersection((-1, 1), (0, 4)) ==> "NO"
+    intersection((-3, -1), (-5, 5)) ==> "YES"
+    """
+
+Response:
+    # your code here
+    if interval1[1] < interval2[0] or interval2[1] < interval1[0]:
+        return "NO"
+    else:
+        return "YES"
+
+
+def intersection(interval1, interval2):
+    """You are given two intervals,
+    where each interval is a pair of integers. For example, interval = (start, end) = (1, 2).
+    The given intervals are closed which means that the interval (start, end)
+    includes both start and end.
+    For each given interval, it is assumed that its start is less or equal its end.
+    Your task is to determine whether the length of intersection of these two 
+    intervals is a prime number.
+    Example, the intersection of the intervals (1, 3), (2, 4) is (2, 3)
+    which its length is 1, which not a prime number.
+    If the length of the intersection is a prime number, return "YES",
+    otherwise, return "NO".
+    If the two intervals don't intersect, return "NO".
+
+
+    [

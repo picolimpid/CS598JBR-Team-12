@@ -1,0 +1,20 @@
+{"task_id": "HumanEval/19", "completion": "    return ' '.join(sorted(numbers.split(), key=lambda x: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'].index(x)))\n\n"}
+{"task_id": "HumanEval/79", "completion": "    binary = bin(decimal)[2:]\n    return f\"db{binary}db\"\n\n"}
+{"task_id": "HumanEval/134", "completion": "    return txt[-1].isalpha() and txt[-2] == ' '\n\n"}
+{"task_id": "HumanEval/73", "completion": "    # Your code here\n    # arr = [1, 2, 3, 5, 4, 7, 9, 6]\n    # arr = [1, 2, 3, 4, 3, 2, 2]\n    # arr = [1, 2, 3, 2, 1]\n    # arr = [1, 2, 3, 5, 4, 7, 9, 6]\n    # arr = [1, 2, 3, 4, 3, 2, 2]\n    # arr = [1, 2, 3, 2, 1]\n    # arr = [1, 2, 3, 5, 4, 7, 9, 6]\n    # arr = [1, 2, 3, 4, 3, 2, 2]\n    # arr = [1, 2, 3, 2, 1]\n    # arr = [1, 2, 3, 5, 4, 7, 9,"}
+{"task_id": "HumanEval/150", "completion": "    if n == 2:\n        return x\n    if n == 3:\n        return y\n    if n % 2 == 0:\n        return y\n    if n % 3 == 0:\n        return y\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return y\n        i += 6\n    return x\n\n"}
+{"task_id": "HumanEval/8", "completion": "    return sum(numbers), 1 if not numbers else 1 * sum(numbers)\n\n\nif __name__ == \"__main__\":\n    import doctest\n    doctest.testmod()"}
+{"task_id": "HumanEval/129", "completion": "    # TODO: implement this function\n    return []\n\n"}
+{"task_id": "HumanEval/69", "completion": "    # Your code here\n    lst.sort()\n    for i in range(len(lst)-1, -1, -1):\n        if lst[i] == lst[i-1]:\n            continue\n        if lst[i] == len(lst)-i:\n            return lst[i]\n    return -1\n\n"}
+{"task_id": "HumanEval/120", "completion": "    # Time: O(nlogn)\n    # Space: O(n)\n    # arr.sort(reverse=True)\n    # return arr[:k]\n\n    # Time: O(nlogk)\n    # Space: O(k)\n    import heapq\n    heap = []\n    for num in arr:\n        heapq.heappush(heap, num)\n        if len(heap) > k:\n            heapq.heappop(heap)\n    return heap\n\n"}
+{"task_id": "HumanEval/7", "completion": "    return [s for s in strings if substring in s]\n\n"}
+{"task_id": "HumanEval/156", "completion": "    # TODO: implement this function\n    pass\n\n"}
+{"task_id": "HumanEval/92", "completion": "    if type(x) == int and type(y) == int and type(z) == int:\n        if x == y + z or y == x + z or z == x + y:\n            return True\n        else:\n            return False\n    else:\n        return False\n\n\nprint(any_int(5, 2, 7))\nprint(any_int(3, 2, 2))\nprint(any"}
+{"task_id": "HumanEval/27", "completion": "    return string.swapcase()\n\n\nif __name__ == '__main__':\n    import doctest\n    doctest.testmod()"}
+{"task_id": "HumanEval/51", "completion": "    vowels = 'aeiouAEIOU'\n    result = ''\n    for char in text:\n        if char not in vowels:\n            result += char\n    return result\n\n\nif __name__ == '__main__':\n    import doctest\n    doctest.testmod()"}
+{"task_id": "HumanEval/13", "completion": "    if a == 0:\n        return b\n    if b == 0:\n        return a\n    if a > b:\n        return greatest_common_divisor(a % b, b)\n    else:\n        return greatest_common_divisor(a, b % a)"}
+{"task_id": "HumanEval/65", "completion": "    return str(x)[-shift:] + str(x)[:-shift]\n\n"}
+{"task_id": "HumanEval/41", "completion": "    return n * (n - 1) // 2\n\n"}
+{"task_id": "HumanEval/62", "completion": "    return [i * (len(xs) - i - 1) for i in range(1, len(xs))]\n\n"}
+{"task_id": "HumanEval/53", "completion": "    return x+y\n\n"}
+{"task_id": "HumanEval/127", "completion": "    # your code here\n    if interval1[1] < interval2[0] or interval2[1] < interval1[0]:\n        return \"NO\"\n    else:\n        return \"YES\"\n\n"}

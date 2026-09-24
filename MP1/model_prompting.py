@@ -17,34 +17,34 @@ def prompt_model(dataset, model_name = "deepseek-ai/deepseek-coder-6.7b-base", q
     
     # TODO: download the model
     tokenizer = AutoTokenizer.from_pretrained(
-    model_name,
-    trust_remote_code=True,
+        model_name,
+        trust_remote_code=True,
     )
   
     if quantization:
         # TODO: load the model with quantization
-      quantization_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.float16,
-        bnb_4bit_use_double_quant=True,
-      )
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_use_double_quant=True,
+        )
 
-      model = AutoModelForCausalLM.from_pretrained(
-          model_name,
-          trust_remote_code=True,
-          quantization_config=quantization_config,
-          torch_dtype=torch.float16,
-          device_map="auto",
-      )
+        model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            trust_remote_code=True,
+            quantization_config=quantization_config,
+            torch_dtype=torch.float16,
+            device_map="auto",
+        )
     else:
         # TODO: load the model without quantization
-      model = AutoModelForCausalLM.from_pretrained(
-        model_name,
-        trust_remote_code=True,
-        torch_dtype=torch.float16,
-        device_map="auto",
-      )
+        model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            trust_remote_code=True,
+            torch_dtype=torch.float16,
+            device_map="auto",
+        )
     model.eval()
 
     results = []
@@ -86,11 +86,21 @@ def prompt_model(dataset, model_name = "deepseek-ai/deepseek-coder-6.7b-base", q
         elif "```" in response_processed:
             response_processed = response_processed.split("```", 1)[1]
             response_processed = response_processed.split("```", 1)[0]
+        
+        # remove redundant top-level function
+        lines = response_processed.splitlines()
+
+        cleaned_lines = []
+        for line in lines:
+            if line.startswith("def "):
+                break
+            cleaned_lines.append(line)
+
+        response_processed = "\n".join(cleaned_lines)
 
         # 只移除开头多余的换行，保留 Python 缩进
         response_processed = response_processed.lstrip("\r\n")
         
-        response_processed = ""
         results_processed.append(dict(task_id=case["task_id"], completion=response_processed))
     return results, results_processed
 

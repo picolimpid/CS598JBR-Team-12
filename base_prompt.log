@@ -1,7 +1,0 @@
-2026-09-22 02:12:57.584512: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
-2026-09-22 02:12:59.559784: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
-WARNING:bitsandbytes.cextension:The 8-bit optimizer is not available on your device, only available on CUDA for now.
-Working with deepseek-ai/deepseek-coder-6.7b-base quantization True...
-Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]

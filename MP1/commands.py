@@ -3,12 +3,12 @@
 ###################################################################
 
 # TODO: Update Your NetIDs in alphabetical order
-NetIDs = ["hanqim2", ,"pochunk2","yhl7"]
+NetIDs = ["hanqim2","pochunk2","yhl7"]
 NetIDs_str = " ".join(NetIDs)
 
 # TODO: Clone your GitHub repository
-! git clone [Your GitHub Link]
-%cd [Your GitHub Repo]
+! git clone https://github.com/picolimpid/CS598JBR-Team-12.git
+%cd CS598JBR-Team-12
 
 # Set up requirements for dataset generation
 ! bash -x MP1/setup_dataset.sh
