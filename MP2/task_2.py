@@ -1,6 +1,8 @@
 import jsonlines
 import sys
 import torch
+import subprocess
+import json
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 #####################################################
@@ -15,20 +17,83 @@ def prompt_model(dataset, model_name = "deepseek-ai/deepseek-coder-6.7b-instruct
     print(f"Working with {model_name} prompt type {vanilla}...")
     
     # TODO: download the model
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_name,
+        trust_remote_code=True,
+    )
+
     # TODO: load the model with quantization
-    
+    quantization_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.float16,
+        bnb_4bit_use_double_quant=True,
+    )
+
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        trust_remote_code=True,
+        quantization_config=quantization_config,
+        torch_dtype=torch.float16,
+        device_map="auto",
+    )
+
+    prompt_type = "vanilla" if vanilla else "crafted"
+
     results = []
     for entry in dataset:
+        ID = entry["task_id"].replace('/', '_')
+
         # TODO: create prompt for the model
         # Tip : Use can use any data from the dataset to create 
         #       the prompt including prompt, canonical_solution, test, etc.
-        prompt = ""
+        prompt = '''
+Generate a pytest test suite for the following code.
+Only write unit tests in the output and nothing else.
+'''
+        prompt += f"Inside the test suite, import the original function from the module {ID}"
+        if not vanilla:
+            prompt += "Come up with at least 6 tests and ask yourself how "
+            "the next test case covers a different scenario from previous cases."
+
+        program = entry["prompt"] + '\n' + entry["canonical_solution"] + '\n'
+        prompt += "```python\n"
+        prompt += program
+        prompt += "```\n"
         
         # TODO: prompt the model and get the response
-        response = ""
+        inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+        with torch.inference_mode():
+            outputs = model.generate(
+                **inputs,
+                max_new_tokens=256,
+                do_sample=False,
+                pad_token_id=tokenizer.eos_token_id,
+            )
+        input_length = inputs["input_ids"].shape[1]
+        new_tokens = outputs[0, input_length:]
+        response = tokenizer.decode(new_tokens, skip_special_tokens=True)
+        test_filepath = f'{ID}_test_{prompt_type}.py'
+        cov_filepath = f'Coverage/{ID}_test_{prompt_type}.json'
 
         # TODO: process the response, generate coverage and save it to results
-        coverage = ""
+        if "```python" in response:
+            response = response.split("```python", 1)[1]
+            response = response.split("```", 1)[0]
+        elif "```" in response:
+            response = response.split("```", 1)[1]
+            response = response.split("```", 1)[0]
+        with open(f"{test_filepath}", "w", encoding="utf-8") as file:
+            file.write(response)
+        with open(f"{ID}.py", "w", encoding="utf-8") as file:
+            file.write(program)
+
+        coverage = 0.0
+        result = subprocess.run(['pytest', test_filepath, '--cov', str(ID), '--cov-report', f'json:{cov_filepath}'])
+        if result.returncode == 0:
+            with open(cov_filepath, 'r') as file:
+                data = json.load(file)
+                coverage = data["totals"]["percent_covered"]
 
         print(f"Task_ID {entry['task_id']}:\nprompt:\n{prompt}\nresponse:\n{response}\ncoverage:\n{coverage}")
         results.append({
