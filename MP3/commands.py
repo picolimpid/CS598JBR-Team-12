@@ -4,7 +4,7 @@
 
 # TODO: Clone your GitHub repository
 ! git clone clone https://github.com/picolimpid/CS598JBR-Team-12.git
-%cd CS598JBR-Team-12/MP2
+%cd CS598JBR-Team-12/MP3
 
 # TODO: Update seed generated in MP1
 seed = "191374802308824446074400153398805442526"
