@@ -1,10 +1,10 @@
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1793222588.119033   71586 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+I0000 00:00:1793315806.999582   20676 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1793222590.733586   71586 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1793315813.589802   20676 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
 Working with deepseek-ai/deepseek-coder-6.7b-instruct prompt type True...
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:32<00:32, 32.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:47<00:00, 21.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:47<00:00, 23.64s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:50<00:50, 50.30s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:07<00:00, 30.76s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:07<00:00, 33.69s/it]
 Task_ID HumanEval/19:
 prompt:
 You are an AI programming assistant. Can you determine the correctness of the following python code?

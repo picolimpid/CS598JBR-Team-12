@@ -58,9 +58,50 @@ Your response will be rejected if you don't include your prediction in tags at t
 Do not try and fix the snippet if it's buggy, simply answer whether it is buggy or correct.
 """
         if not vanilla:
-            prompt += f"""### Hints
-1. Look out for common bug types such as {entry["bug_type"]}
-2. Look out for potential symptoms such as {entry["failure_symptoms"]}
+            prompt = f"""You are an expert Python code reviewer.
+
+Determine whether the implementation satisfies the ORIGINAL
+function specification. A program is buggy if there exists
+at least one valid input for which its behavior differs
+from the specification.
+
+### Original Specification
+{entry["prompt"]}
+
+### Implementation to Review
+```python
+{python_code}
+```
+
+### Bug Information
+- Suspected bug category: {entry["bug_type"]}
+- Possible failure symptom: {entry["failure_symptoms"]}
+
+### Review Instructions
+1. Identify what the specification requires, including
+   examples, return values, and edge cases.
+2. Trace the implementation carefully. Pay special attention
+   to operators, variable usage, return statements, loop
+   conditions, and Python built-in function behavior.
+3. Test the specification's examples mentally. Try to find
+   a valid counterexample showing a mismatch.
+4. If a valid counterexample exists, the code is buggy.
+   If no mismatch can be identified, classify it as correct.
+   Do not rely solely on the suspected bug category.
+
+### Required Output
+Briefly state the expected behavior, actual behavior, and
+any concrete counterexample you found.
+Limit your explanation to 80 words.
+
+Then write your FINAL prediction on a separate last line,
+using exactly one tag:
+<start>buggy<end> or <start>correct<end>
+
+Do not output a prediction tag before the final line.
+Do not output both tags.
+Do not revise your prediction after writing it.
+Do not rewrite or fix the code.
 """
         # print(prompt)
         messages = [{ "role": "user", "content": prompt }]
