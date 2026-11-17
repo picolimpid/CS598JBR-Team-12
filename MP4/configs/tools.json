@@ -1,0 +1,262 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "list_files",
+      "description": "List files (with line counts) under a directory. Use 'c_src' for the original C project, 'rust_spec' for the benchmark interface/tests as shipped, or a crate-relative path such as '.' or 'src' for the Rust crate you are writing.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Directory to list, default '.'"
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "read_file",
+      "description": "Read a text file. Output lines are prefixed with 'NNNNN| ' line numbers which are NOT part of the file. Paths: 'c_src/...', 'rust_spec/...', or crate-relative like 'src/lib.rs'.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "start_line": {
+            "type": "integer",
+            "description": "1-based first line (optional)"
+          },
+          "end_line": {
+            "type": "integer",
+            "description": "1-based last line, inclusive (optional)"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "search",
+      "description": "Regex search (Python syntax) over files under a path; returns 'path:line: text' matches. Useful to find where a C function, macro or struct is defined or used.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "pattern": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string",
+            "description": "File or directory, default '.' (the crate). Use 'c_src' to search the C project."
+          }
+        },
+        "required": [
+          "pattern"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "write_file",
+      "description": "Create or completely overwrite a Rust source file under src/ of the crate (e.g. 'src/satc.rs'). Benchmark tests (src/bin/*), Cargo.toml and Cargo.lock are protected. For very large files, write the first part here and continue with append_file.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string",
+            "description": "The full file content"
+          }
+        },
+        "required": [
+          "path",
+          "content"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "append_file",
+      "description": "Append text to the end of a Rust source file under src/ (use to write large files in several chunks).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "content"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "edit_file",
+      "description": "Replace an exact text snippet in a Rust source file. old_string must match the file exactly (including indentation, without the read_file line-number prefix) and be unique unless replace_all is true. Preferred for small repairs.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "old_string": {
+            "type": "string"
+          },
+          "new_string": {
+            "type": "string"
+          },
+          "replace_all": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "path",
+          "old_string",
+          "new_string"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cargo_check",
+      "description": "Run `cargo +nightly-2025-05-13 check --all-targets` (type-checks the library, binaries and the benchmark tests). Returns compiler errors (with codes and spans) or the warnings in your files.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "description": "Optional: why you are running this now (logged in the trajectory)"
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cargo_build",
+      "description": "Run `cargo +nightly-2025-05-13 build` exactly as the graders do.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "description": "Optional: why you are running this now (logged in the trajectory)"
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cargo_test",
+      "description": "Run `cargo +nightly-2025-05-13 test --no-fail-fast` (optionally filtered by a test name). Reports pass/fail for every benchmark test plus the panic messages / assertion diffs of failing tests.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "test_name": {
+            "type": "string",
+            "description": "Optional substring filter"
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cargo_clippy",
+      "description": "Run `cargo +nightly-2025-05-13 clippy --all-targets --all-features -- -W clippy::correctness -W clippy::style -W clippy::complexity -W clippy::perf` (the grading command). Lists Clippy and rustc warnings in your files; warnings inside protected test files are only counted.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "description": "Optional: why you are running this now (logged in the trajectory)"
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "unsafe_metrics",
+      "description": "Run the course's unsafe-metrics tool (cargo newmetrics): unsafe lines, unsafe calls, unsafe casts, pointer arithmetic, raw pointer dereferences/declarations, plus a lexical scan locating unsafe/raw-pointer/FFI code in your files. Target: all primary metrics 0.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "description": "Optional: why you are running this now (logged in the trajectory)"
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "check_interface",
+      "description": "Check that every public function, struct (fields, derives), enum (variants) and const of the benchmark interface exists in your modules with the exact required signature, and list remaining unimplemented!/todo! calls.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "description": "Optional: why you are running this now (logged in the trajectory)"
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "finish",
+      "description": "End this iteration when you believe the translation compiles, passes the tests and is safe and idiomatic (or you cannot make further progress). The controller then runs a full verification and may start another repair iteration with its feedback.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "summary": {
+            "type": "string",
+            "description": "What you changed in this iteration, what is still failing, and what you would try next"
+          }
+        },
+        "required": [
+          "summary"
+        ]
+      }
+    }
+  }
+]

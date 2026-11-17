@@ -1,0 +1,1 @@
+You did not call any tool. Continue the work by calling a tool (read, write/edit, cargo_check, cargo_test, cargo_clippy, unsafe_metrics, check_interface). If everything is done, or you cannot make further progress, call `finish` with a summary.

@@ -1,0 +1,18 @@
+{
+  "project_1": {
+    "name": "satc",
+    "description": "Separating Axis Theorem 2D collision detection (circles, polygons, boxes), single-header C library.",
+    "c_dir": "subjects/project_1/c",
+    "spec_dir": "subjects/project_1/rust_spec",
+    "translation_dir": "translations/project_1",
+    "trajectory_dir": "trajectories/project_1"
+  },
+  "project_2": {
+    "name": "jccc",
+    "description": "JabaCat C Compiler: lexer, token types, block list, hashmap, tiny parser and x86 code generator.",
+    "c_dir": "subjects/project_2/c",
+    "spec_dir": "subjects/project_2/rust_spec",
+    "translation_dir": "translations/project_2",
+    "trajectory_dir": "trajectories/project_2"
+  }
+}

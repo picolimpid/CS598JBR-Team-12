@@ -1,0 +1,1 @@
+Your previous reply was cut off by the output-token limit, so nothing was executed. Work in smaller steps: write a large file in several parts (`write_file` with the first part, then `append_file` for each following part, each part at most ~300 lines), or use `edit_file` for local changes.

@@ -1,0 +1,14 @@
+{
+  "_comment": "Google Gemini through its OpenAI-compatible endpoint (free tier available at https://aistudio.google.com/apikey). Usage: python3 MP4/src/pipeline.py --project 1 --config MP4/configs/config.gemini.json",
+  "extends": "config.json",
+  "llm": {
+    "provider": "google-gemini",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+    "api_key_env": "GEMINI_API_KEY",
+    "model": "gemini-2.5-flash",
+    "seed": null,
+    "top_p": null,
+    "extra_headers": {},
+    "min_seconds_between_requests": 7
+  }
+}

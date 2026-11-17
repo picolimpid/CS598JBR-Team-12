@@ -1,0 +1,5 @@
+# build outputs (never commit)
+target/
+__pycache__/
+*.pyc
+trajectories/*/pre_format/
