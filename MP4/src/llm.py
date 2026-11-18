@@ -140,10 +140,12 @@ class LLMClient:
             self._throttle()
             t0 = time.time()
             try:
+                # a stream that sends nothing for stream_idle_timeout_s, or runs past stream_max_s, is stalled:
+                # give up on it and retry instead of waiting for the full request timeout
                 resp = requests.post(url, headers=self._headers(), json=body, stream=stream,
-                                     timeout=(30, self.timeout) if stream else self.timeout)
+                                     timeout=(30, self.cfg.get("stream_idle_timeout_s", 300)) if stream else self.timeout)
                 if stream and resp.status_code < 400:
-                    data = _read_sse(resp)
+                    data = _read_sse(resp, t0 + self.cfg.get("stream_max_s", 1500))
                     text = json.dumps(data)[:300]
                 else:
                     data = None
@@ -296,12 +298,15 @@ class LLMClient:
         time.sleep(delay)
 
 
-def _read_sse(resp) -> dict:
+def _read_sse(resp, deadline: float | None = None) -> dict:
     """Assemble an OpenAI-style streamed chat completion (server-sent events) into one non-streamed response."""
     content, reasoning = [], []
     calls: dict[int, dict] = {}
     finish, usage, model, error = None, {}, None, None
     for raw in resp.iter_lines(decode_unicode=True):
+        if deadline is not None and time.time() > deadline:
+            resp.close()
+            raise requests.exceptions.Timeout("stream exceeded stream_max_s")
         if not raw or not raw.startswith("data:"):
             continue
         payload = raw[5:].strip()

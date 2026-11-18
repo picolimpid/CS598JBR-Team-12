@@ -27,6 +27,8 @@
     "top_p": 0.95,
     "max_tokens": 8192,
     "stream": true,
+    "stream_idle_timeout_s": 300,
+    "stream_max_s": 1500,
     "request_timeout_s": 600,
     "max_retries": 8,
     "min_seconds_between_requests": 2,
