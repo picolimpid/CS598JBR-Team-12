@@ -1,0 +1,199 @@
+{
+  "label": "iter_01",
+  "build_ok": true,
+  "check": {
+    "errors": [],
+    "warnings_own": []
+  },
+  "build_output_tail": "Compiling jccc v0.1.0 (/content/CS598JBR-Team-12/MP4/translations/project_2)\nwarning: unused import: `jccc::list`\n  --> src/bin/test_main.rs:54:5\n   |\n54 | use jccc::list;\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\nwarning: function `testing_single_test_internal` is never used\n   --> src/bin/test_main.rs:178:4\n    |\n178 | fn testing_single_test_internal(func_name: &str) {\n    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\nwarning: `jccc` (bin \"test_main\") generated 2 warnings (run `cargo fix --bin \"test_main\"` to apply 1 suggestion)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.51s",
+  "tests": {
+    "compiled": true,
+    "timed_out": false,
+    "os_blocked": false,
+    "total": 4,
+    "passed": 4,
+    "benchmark_status": {
+      "src/bin/test_main.rs::test_lexer": "ok",
+      "src/bin/test_main.rs::basic_100_test": "ok",
+      "src/bin/test_main.rs::test_list": "ok",
+      "src/bin/test_main.rs::test_util": "ok"
+    },
+    "all_results": [
+      {
+        "target": "",
+        "name": "test_lexer",
+        "status": "ok"
+      },
+      {
+        "target": "",
+        "name": "basic_100_test",
+        "status": "ok"
+      },
+      {
+        "target": "",
+        "name": "test_list",
+        "status": "ok"
+      },
+      {
+        "target": "",
+        "name": "test_util",
+        "status": "ok"
+      }
+    ],
+    "failed": [],
+    "failure_details": {},
+    "raw_tail": "",
+    "duration_s": 0.46
+  },
+  "clippy": {
+    "ok": true,
+    "by_group": {
+      "correctness": {
+        "own": 0,
+        "protected": 0
+      },
+      "style": {
+        "own": 0,
+        "protected": 4
+      },
+      "complexity": {
+        "own": 0,
+        "protected": 0
+      },
+      "perf": {
+        "own": 0,
+        "protected": 0
+      },
+      "other": {
+        "own": 0,
+        "protected": 0
+      }
+    },
+    "own": [],
+    "protected": [
+      {
+        "group": "style",
+        "lint": "clippy::uninlined_format_args",
+        "file": "src/bin/test_main.rs",
+        "line": 171,
+        "message": "variables can be used directly in the `format!` string",
+        "rendered": "warning: variables can be used directly in the `format!` string\n   --> src/bin/test_main.rs:171:1\n    |\n171 | println!(\"Running tests from \\\"{}\\\" ...\", func_name);\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n    = note: `-W clippy::uninlined-format-args` implied by `-W clippy::style`\n    = help: to override `-W clippy::style` add `#[allow(clippy::uninlined_format_args)]`\nhelp: change this to\n    |\n171 - println!(\"Running tests from \\\"{}\\\" ...\", func_name);\n171 + println!(\"Running tests from \\\"{func_name}\\\" ...\");\n    |"
+      },
+      {
+        "group": "style",
+        "lint": "clippy::uninlined_format_args",
+        "file": "src/bin/test_main.rs",
+        "line": 175,
+        "message": "variables can be used directly in the `format!` string",
+        "rendered": "warning: variables can be used directly in the `format!` string\n   --> src/bin/test_main.rs:175:1\n    |\n175 | println!(\"Concluded tests from \\\"{}\\\"\", func_name);\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n175 - println!(\"Concluded tests from \\\"{}\\\"\", func_name);\n175 + println!(\"Concluded tests from \\\"{func_name}\\\"\");\n    |"
+      },
+      {
+        "group": "style",
+        "lint": "clippy::uninlined_format_args",
+        "file": "src/bin/test_main.rs",
+        "line": 179,
+        "message": "variables can be used directly in the `format!` string",
+        "rendered": "warning: variables can be used directly in the `format!` string\n   --> src/bin/test_main.rs:179:1\n    |\n179 | println!(\"Running \\\"{}\\\"\", func_name);\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n179 - println!(\"Running \\\"{}\\\"\", func_name);\n179 + println!(\"Running \\\"{func_name}\\\"\");\n    |"
+      },
+      {
+        "group": "style",
+        "lint": "clippy::uninlined_format_args",
+        "file": "src/bin/test_main.rs",
+        "line": 232,
+        "message": "variables can be used directly in the `format!` string",
+        "rendered": "warning: variables can be used directly in the `format!` string\n   --> src/bin/test_main.rs:232:9\n    |\n232 | None => panic!(\"Expected element at index {}, found None\", i),\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n232 - None => panic!(\"Expected element at index {}, found None\", i),\n232 + None => panic!(\"Expected element at index {i}, found None\"),\n    |"
+      }
+    ],
+    "rustc_own": [],
+    "total_all_files": 4
+  },
+  "safety": {
+    "tool": "newmetrics",
+    "ok": true,
+    "metrics": {
+      "pointer_arithmetic": 0,
+      "unsafe_lines": 0,
+      "unsafe_calls": 0,
+      "unsafe_casts": 0,
+      "total_spans": 51572,
+      "raw_pointer_dereferences": 0,
+      "raw_pointer_declarations": 0,
+      "unsafe_ratio": 0.0
+    },
+    "lexical": {
+      "unimplemented": 0,
+      "unsafe_keyword": 0,
+      "raw_pointer_casts": 0,
+      "transmute": 0,
+      "ffi": 0,
+      "pointer_ops": 0,
+      "clippy_allow": 0,
+      "unwrap_expect_panic": 3,
+      "locations": {
+        "unimplemented": [],
+        "unsafe_keyword": [],
+        "raw_pointer_casts": [],
+        "transmute": [],
+        "ffi": [],
+        "pointer_ops": [],
+        "clippy_allow": [],
+        "unwrap_expect_panic": [
+          "src/hashmap.rs:100: let got = hm_get(&h, \"test\").expect(\"stored key must be retrievable\");",
+          "src/hashmap.rs:165: let index = bucket_index(&h, \"test\").expect(\"nonzero capacity\");",
+          "src/hashmap.rs:178: let got = hm_get(&h, \"test\").expect(\"stored key must survive rehashing\");"
+        ]
+      }
+    },
+    "primary_total": 0
+  },
+  "interface": [],
+  "static": {
+    "unimplemented": 0,
+    "unsafe_keyword": 0,
+    "raw_pointer_casts": 0,
+    "transmute": 0,
+    "ffi": 0,
+    "pointer_ops": 0,
+    "clippy_allow": 0,
+    "unwrap_expect_panic": 3,
+    "locations": {
+      "unimplemented": [],
+      "unsafe_keyword": [],
+      "raw_pointer_casts": [],
+      "transmute": [],
+      "ffi": [],
+      "pointer_ops": [],
+      "clippy_allow": [],
+      "unwrap_expect_panic": [
+        "src/hashmap.rs:100: let got = hm_get(&h, \"test\").expect(\"stored key must be retrievable\");",
+        "src/hashmap.rs:165: let index = bucket_index(&h, \"test\").expect(\"nonzero capacity\");",
+        "src/hashmap.rs:178: let got = hm_get(&h, \"test\").expect(\"stored key must survive rehashing\");"
+      ]
+    }
+  },
+  "protected_restored": [],
+  "own_files": [
+    "src/codegen.rs",
+    "src/cst.rs",
+    "src/hashmap.rs",
+    "src/lex.rs",
+    "src/lib.rs",
+    "src/list.rs",
+    "src/main.rs",
+    "src/out.rs",
+    "src/parse.rs",
+    "src/token.rs"
+  ],
+  "score": [
+    1,
+    4,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "success": true,
+  "headline": "build=OK | tests 4/4 | interface problems=0 | unimplemented!=0 | unsafe[newmetrics] lines=0 calls=0 casts=0 ptr_arith=0 | clippy(own) correctness=0 style=0 complexity=0 perf=0 other=0 | rustc warnings(own)=0",
+  "duration_s": 7.7
+}

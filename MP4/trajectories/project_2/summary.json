@@ -1,0 +1,159 @@
+{
+  "project": "project_2",
+  "name": "jccc",
+  "status": "success",
+  "stop_reason": "success: all tests pass, interface conformant, zero unsafe, Clippy target met",
+  "agent_iterations": 1,
+  "best_iteration": 1,
+  "llm_calls": 30,
+  "prompt_tokens": 1461338,
+  "completion_tokens": 42148,
+  "tool_calls": 69,
+  "model": "moonshotai/kimi-k3.1-pro",
+  "endpoint": "https://integrate.api.nvidia.com/v1",
+  "toolchain": {
+    "cargo": "cargo 1.89.0-nightly (056f5f4f3 2025-05-09)",
+    "rustc": "rustc 1.89.0-nightly (8405332bd 2025-05-12)",
+    "clippy": "clippy 0.1.88 (8405332bdf 2025-05-12)",
+    "newmetrics": "/root/.cargo/bin/cargo-newmetrics"
+  },
+  "final": {
+    "compiles": true,
+    "tests_passed": 4,
+    "tests_total": 4,
+    "pass_rate": 1.0,
+    "benchmark_status": {
+      "src/bin/test_main.rs::test_lexer": "ok",
+      "src/bin/test_main.rs::basic_100_test": "ok",
+      "src/bin/test_main.rs::test_list": "ok",
+      "src/bin/test_main.rs::test_util": "ok"
+    },
+    "interface_problems": [],
+    "unimplemented": 0,
+    "unsafe_tool": "newmetrics",
+    "unsafe_metrics": {
+      "pointer_arithmetic": 0,
+      "unsafe_lines": 0,
+      "unsafe_calls": 0,
+      "unsafe_casts": 0,
+      "total_spans": 51831,
+      "raw_pointer_dereferences": 0,
+      "raw_pointer_declarations": 0,
+      "unsafe_ratio": 0.0
+    },
+    "unsafe_primary_total": 0,
+    "clippy_own_by_group": {
+      "correctness": 0,
+      "style": 0,
+      "complexity": 0,
+      "perf": 0,
+      "other": 0
+    },
+    "clippy_protected_by_group": {
+      "correctness": 0,
+      "style": 4,
+      "complexity": 0,
+      "perf": 0,
+      "other": 0
+    },
+    "rustc_warnings_own": 0,
+    "success": true
+  },
+  "history": [
+    {
+      "iteration": 0,
+      "build_ok": true,
+      "tests_passed": 0,
+      "tests_total": 4,
+      "interface_problems": 0,
+      "unimplemented": 56,
+      "unsafe_primary": 0,
+      "unsafe_metrics": {
+        "pointer_arithmetic": 0,
+        "unsafe_lines": 0,
+        "unsafe_calls": 0,
+        "unsafe_casts": 0,
+        "total_spans": 21062,
+        "raw_pointer_dereferences": 0,
+        "raw_pointer_declarations": 0,
+        "unsafe_ratio": 0.0
+      },
+      "clippy_own": 0,
+      "clippy_by_group": {
+        "correctness": 0,
+        "style": 0,
+        "complexity": 0,
+        "perf": 0,
+        "other": 0
+      },
+      "rustc_warnings_own": 152,
+      "score": [
+        1,
+        0,
+        -56,
+        0,
+        0,
+        0,
+        -152
+      ],
+      "success": false,
+      "headline": "build=OK | tests 0/4 | interface problems=0 | unimplemented!=56 | unsafe[newmetrics] lines=0 calls=0 casts=0 ptr_arith=0 | clippy(own) correctness=0 style=0 complexity=0 perf=0 other=0 | rustc warnings(own)=152",
+      "agent_steps": null,
+      "agent_stop_reason": null,
+      "agent_summary": "",
+      "files_written": []
+    },
+    {
+      "iteration": 1,
+      "build_ok": true,
+      "tests_passed": 4,
+      "tests_total": 4,
+      "interface_problems": 0,
+      "unimplemented": 0,
+      "unsafe_primary": 0,
+      "unsafe_metrics": {
+        "pointer_arithmetic": 0,
+        "unsafe_lines": 0,
+        "unsafe_calls": 0,
+        "unsafe_casts": 0,
+        "total_spans": 51572,
+        "raw_pointer_dereferences": 0,
+        "raw_pointer_declarations": 0,
+        "unsafe_ratio": 0.0
+      },
+      "clippy_own": 0,
+      "clippy_by_group": {
+        "correctness": 0,
+        "style": 0,
+        "complexity": 0,
+        "perf": 0,
+        "other": 0
+      },
+      "rustc_warnings_own": 0,
+      "score": [
+        1,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "success": true,
+      "headline": "build=OK | tests 4/4 | interface problems=0 | unimplemented!=0 | unsafe[newmetrics] lines=0 calls=0 casts=0 ptr_arith=0 | clippy(own) correctness=0 style=0 complexity=0 perf=0 other=0 | rustc warnings(own)=0",
+      "agent_steps": 30,
+      "agent_stop_reason": "max_steps",
+      "agent_summary": "",
+      "files_written": [
+        "src/codegen.rs",
+        "src/cst.rs",
+        "src/hashmap.rs",
+        "src/lex.rs",
+        "src/list.rs",
+        "src/main.rs",
+        "src/parse.rs",
+        "src/token.rs"
+      ]
+    }
+  ]
+}

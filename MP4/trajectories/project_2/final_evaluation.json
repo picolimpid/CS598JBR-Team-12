@@ -1,0 +1,85 @@
+{
+  "project": "project_2",
+  "name": "jccc",
+  "compiles": true,
+  "tests_passed": 4,
+  "tests_total": 4,
+  "pass_rate": 1.0,
+  "all_cargo_tests": {
+    "passed": 4,
+    "total": 4
+  },
+  "benchmark_status": {
+    "src/bin/test_main.rs::test_lexer": "ok",
+    "src/bin/test_main.rs::basic_100_test": "ok",
+    "src/bin/test_main.rs::test_list": "ok",
+    "src/bin/test_main.rs::test_util": "ok"
+  },
+  "agent_iterations": 1,
+  "clippy_all_targets": {
+    "correctness": 0,
+    "style": 4,
+    "complexity": 0,
+    "perf": 0,
+    "other": 0
+  },
+  "clippy_own_files": {
+    "correctness": 0,
+    "style": 0,
+    "complexity": 0,
+    "perf": 0,
+    "other": 0
+  },
+  "clippy_warnings": [
+    {
+      "group": "style",
+      "lint": "clippy::uninlined_format_args",
+      "file": "src/bin/test_main.rs",
+      "line": 171,
+      "message": "variables can be used directly in the `format!` string"
+    },
+    {
+      "group": "style",
+      "lint": "clippy::uninlined_format_args",
+      "file": "src/bin/test_main.rs",
+      "line": 175,
+      "message": "variables can be used directly in the `format!` string"
+    },
+    {
+      "group": "style",
+      "lint": "clippy::uninlined_format_args",
+      "file": "src/bin/test_main.rs",
+      "line": 179,
+      "message": "variables can be used directly in the `format!` string"
+    },
+    {
+      "group": "style",
+      "lint": "clippy::uninlined_format_args",
+      "file": "src/bin/test_main.rs",
+      "line": 232,
+      "message": "variables can be used directly in the `format!` string"
+    }
+  ],
+  "newmetrics": {
+    "pointer_arithmetic": 0,
+    "unsafe_lines": 0,
+    "unsafe_calls": 0,
+    "unsafe_casts": 0,
+    "total_spans": 51831,
+    "raw_pointer_dereferences": 0,
+    "raw_pointer_declarations": 0,
+    "unsafe_ratio": 0.0
+  },
+  "lexical_scan": {
+    "unimplemented": 0,
+    "unsafe_keyword": 0,
+    "raw_pointer_casts": 0,
+    "transmute": 0,
+    "ffi": 0,
+    "pointer_ops": 0,
+    "clippy_allow": 0,
+    "unwrap_expect_panic": 3
+  },
+  "interface_problems": [],
+  "protected_files_restored": []
+}

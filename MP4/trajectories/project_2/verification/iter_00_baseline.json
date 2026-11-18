@@ -1,0 +1,2687 @@
+{
+  "label": "iter_00_baseline",
+  "build_ok": true,
+  "check": {
+    "errors": [],
+    "warnings_own": [
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LITERAL` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 4,
+        "col": 1,
+        "rendered": "warning: variant `TT_LITERAL` should have an upper camel case name\n --> src/token.rs:4:1\n  |\n4 | TT_LITERAL,\n  | ^^^^^^^^^^ help: convert the identifier to upper camel case: `TtLiteral`\n  |\n  = note: `#[warn(non_camel_case_types)]` on by default"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_IDENTIFIER` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 5,
+        "col": 1,
+        "rendered": "warning: variant `TT_IDENTIFIER` should have an upper camel case name\n --> src/token.rs:5:1\n  |\n5 | TT_IDENTIFIER,\n  | ^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtIdentifier`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_OPAREN` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 6,
+        "col": 1,
+        "rendered": "warning: variant `TT_OPAREN` should have an upper camel case name\n --> src/token.rs:6:1\n  |\n6 | TT_OPAREN,\n  | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtOparen`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_CPAREN` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 7,
+        "col": 1,
+        "rendered": "warning: variant `TT_CPAREN` should have an upper camel case name\n --> src/token.rs:7:1\n  |\n7 | TT_CPAREN,\n  | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtCparen`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_OBRACE` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 8,
+        "col": 1,
+        "rendered": "warning: variant `TT_OBRACE` should have an upper camel case name\n --> src/token.rs:8:1\n  |\n8 | TT_OBRACE,\n  | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtObrace`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_CBRACE` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 9,
+        "col": 1,
+        "rendered": "warning: variant `TT_CBRACE` should have an upper camel case name\n --> src/token.rs:9:1\n  |\n9 | TT_CBRACE,\n  | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtCbrace`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_OBRACKET` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 10,
+        "col": 1,
+        "rendered": "warning: variant `TT_OBRACKET` should have an upper camel case name\n  --> src/token.rs:10:1\n   |\n10 | TT_OBRACKET,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtObracket`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_CBRACKET` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 11,
+        "col": 1,
+        "rendered": "warning: variant `TT_CBRACKET` should have an upper camel case name\n  --> src/token.rs:11:1\n   |\n11 | TT_CBRACKET,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtCbracket`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_SEMI` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 12,
+        "col": 1,
+        "rendered": "warning: variant `TT_SEMI` should have an upper camel case name\n  --> src/token.rs:12:1\n   |\n12 | TT_SEMI,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtSemi`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_NO_TOKEN` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 13,
+        "col": 1,
+        "rendered": "warning: variant `TT_NO_TOKEN` should have an upper camel case name\n  --> src/token.rs:13:1\n   |\n13 | TT_NO_TOKEN,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtNoToken`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_EOF` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 14,
+        "col": 1,
+        "rendered": "warning: variant `TT_EOF` should have an upper camel case name\n  --> src/token.rs:14:1\n   |\n14 | TT_EOF,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtEof`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_NEWLINE` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 15,
+        "col": 1,
+        "rendered": "warning: variant `TT_NEWLINE` should have an upper camel case name\n  --> src/token.rs:15:1\n   |\n15 | TT_NEWLINE,\n   | ^^^^^^^^^^ help: convert the identifier to upper camel case: `TtNewline`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_POUND` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 16,
+        "col": 1,
+        "rendered": "warning: variant `TT_POUND` should have an upper camel case name\n  --> src/token.rs:16:1\n   |\n16 | TT_POUND,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtPound`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_PERIOD` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 17,
+        "col": 1,
+        "rendered": "warning: variant `TT_PERIOD` should have an upper camel case name\n  --> src/token.rs:17:1\n   |\n17 | TT_PERIOD,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtPeriod`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_COMMA` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 18,
+        "col": 1,
+        "rendered": "warning: variant `TT_COMMA` should have an upper camel case name\n  --> src/token.rs:18:1\n   |\n18 | TT_COMMA,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtComma`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_QMARK` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 19,
+        "col": 1,
+        "rendered": "warning: variant `TT_QMARK` should have an upper camel case name\n  --> src/token.rs:19:1\n   |\n19 | TT_QMARK,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtQmark`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_MINUS` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 20,
+        "col": 1,
+        "rendered": "warning: variant `TT_MINUS` should have an upper camel case name\n  --> src/token.rs:20:1\n   |\n20 | TT_MINUS,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtMinus`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_PLUS` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 21,
+        "col": 1,
+        "rendered": "warning: variant `TT_PLUS` should have an upper camel case name\n  --> src/token.rs:21:1\n   |\n21 | TT_PLUS,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtPlus`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_STAR` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 22,
+        "col": 1,
+        "rendered": "warning: variant `TT_STAR` should have an upper camel case name\n  --> src/token.rs:22:1\n   |\n22 | TT_STAR,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtStar`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_SLASH` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 23,
+        "col": 1,
+        "rendered": "warning: variant `TT_SLASH` should have an upper camel case name\n  --> src/token.rs:23:1\n   |\n23 | TT_SLASH,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtSlash`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_ASSIGN` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 24,
+        "col": 1,
+        "rendered": "warning: variant `TT_ASSIGN` should have an upper camel case name\n  --> src/token.rs:24:1\n   |\n24 | TT_ASSIGN,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtAssign`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_COLON` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 25,
+        "col": 1,
+        "rendered": "warning: variant `TT_COLON` should have an upper camel case name\n  --> src/token.rs:25:1\n   |\n25 | TT_COLON,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtColon`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_MOD` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 26,
+        "col": 1,
+        "rendered": "warning: variant `TT_MOD` should have an upper camel case name\n  --> src/token.rs:26:1\n   |\n26 | TT_MOD,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtMod`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_BAND` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 27,
+        "col": 1,
+        "rendered": "warning: variant `TT_BAND` should have an upper camel case name\n  --> src/token.rs:27:1\n   |\n27 | TT_BAND,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtBand`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LAND` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 28,
+        "col": 1,
+        "rendered": "warning: variant `TT_LAND` should have an upper camel case name\n  --> src/token.rs:28:1\n   |\n28 | TT_LAND,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtLand`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_BOR` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 29,
+        "col": 1,
+        "rendered": "warning: variant `TT_BOR` should have an upper camel case name\n  --> src/token.rs:29:1\n   |\n29 | TT_BOR,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtBor`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LOR` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 30,
+        "col": 1,
+        "rendered": "warning: variant `TT_LOR` should have an upper camel case name\n  --> src/token.rs:30:1\n   |\n30 | TT_LOR,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtLor`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_DEC` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 31,
+        "col": 1,
+        "rendered": "warning: variant `TT_DEC` should have an upper camel case name\n  --> src/token.rs:31:1\n   |\n31 | TT_DEC,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtDec`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_INC` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 32,
+        "col": 1,
+        "rendered": "warning: variant `TT_INC` should have an upper camel case name\n  --> src/token.rs:32:1\n   |\n32 | TT_INC,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtInc`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_PLUSPLUS` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 33,
+        "col": 1,
+        "rendered": "warning: variant `TT_PLUSPLUS` should have an upper camel case name\n  --> src/token.rs:33:1\n   |\n33 | TT_PLUSPLUS,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtPlusplus`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_MINUSMINUS` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 34,
+        "col": 1,
+        "rendered": "warning: variant `TT_MINUSMINUS` should have an upper camel case name\n  --> src/token.rs:34:1\n   |\n34 | TT_MINUSMINUS,\n   | ^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtMinusminus`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_DIVEQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 35,
+        "col": 1,
+        "rendered": "warning: variant `TT_DIVEQ` should have an upper camel case name\n  --> src/token.rs:35:1\n   |\n35 | TT_DIVEQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtDiveq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_MULEQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 36,
+        "col": 1,
+        "rendered": "warning: variant `TT_MULEQ` should have an upper camel case name\n  --> src/token.rs:36:1\n   |\n36 | TT_MULEQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtMuleq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_MODEQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 37,
+        "col": 1,
+        "rendered": "warning: variant `TT_MODEQ` should have an upper camel case name\n  --> src/token.rs:37:1\n   |\n37 | TT_MODEQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtModeq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_BANDEQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 38,
+        "col": 1,
+        "rendered": "warning: variant `TT_BANDEQ` should have an upper camel case name\n  --> src/token.rs:38:1\n   |\n38 | TT_BANDEQ,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtBandeq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_BOREQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 39,
+        "col": 1,
+        "rendered": "warning: variant `TT_BOREQ` should have an upper camel case name\n  --> src/token.rs:39:1\n   |\n39 | TT_BOREQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtBoreq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LANDEQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 40,
+        "col": 1,
+        "rendered": "warning: variant `TT_LANDEQ` should have an upper camel case name\n  --> src/token.rs:40:1\n   |\n40 | TT_LANDEQ,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtLandeq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LOREQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 41,
+        "col": 1,
+        "rendered": "warning: variant `TT_LOREQ` should have an upper camel case name\n  --> src/token.rs:41:1\n   |\n41 | TT_LOREQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtLoreq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_GREATER` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 42,
+        "col": 1,
+        "rendered": "warning: variant `TT_GREATER` should have an upper camel case name\n  --> src/token.rs:42:1\n   |\n42 | TT_GREATER,\n   | ^^^^^^^^^^ help: convert the identifier to upper camel case: `TtGreater`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LESS` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 43,
+        "col": 1,
+        "rendered": "warning: variant `TT_LESS` should have an upper camel case name\n  --> src/token.rs:43:1\n   |\n43 | TT_LESS,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtLess`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LESSEQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 44,
+        "col": 1,
+        "rendered": "warning: variant `TT_LESSEQ` should have an upper camel case name\n  --> src/token.rs:44:1\n   |\n44 | TT_LESSEQ,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtLesseq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_GREATEREQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 45,
+        "col": 1,
+        "rendered": "warning: variant `TT_GREATEREQ` should have an upper camel case name\n  --> src/token.rs:45:1\n   |\n45 | TT_GREATEREQ,\n   | ^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtGreatereq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LEFTSHIFT` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 46,
+        "col": 1,
+        "rendered": "warning: variant `TT_LEFTSHIFT` should have an upper camel case name\n  --> src/token.rs:46:1\n   |\n46 | TT_LEFTSHIFT,\n   | ^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtLeftshift`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_RIGHTSHIFT` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 47,
+        "col": 1,
+        "rendered": "warning: variant `TT_RIGHTSHIFT` should have an upper camel case name\n  --> src/token.rs:47:1\n   |\n47 | TT_RIGHTSHIFT,\n   | ^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtRightshift`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LNOT` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 48,
+        "col": 1,
+        "rendered": "warning: variant `TT_LNOT` should have an upper camel case name\n  --> src/token.rs:48:1\n   |\n48 | TT_LNOT,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtLnot`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_BNOT` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 49,
+        "col": 1,
+        "rendered": "warning: variant `TT_BNOT` should have an upper camel case name\n  --> src/token.rs:49:1\n   |\n49 | TT_BNOT,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtBnot`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_EQUALS` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 50,
+        "col": 1,
+        "rendered": "warning: variant `TT_EQUALS` should have an upper camel case name\n  --> src/token.rs:50:1\n   |\n50 | TT_EQUALS,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtEquals`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_NOTEQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 51,
+        "col": 1,
+        "rendered": "warning: variant `TT_NOTEQ` should have an upper camel case name\n  --> src/token.rs:51:1\n   |\n51 | TT_NOTEQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtNoteq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_XOR` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 52,
+        "col": 1,
+        "rendered": "warning: variant `TT_XOR` should have an upper camel case name\n  --> src/token.rs:52:1\n   |\n52 | TT_XOR,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtXor`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_XOREQ` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 53,
+        "col": 1,
+        "rendered": "warning: variant `TT_XOREQ` should have an upper camel case name\n  --> src/token.rs:53:1\n   |\n53 | TT_XOREQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtXoreq`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_POINT` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 54,
+        "col": 1,
+        "rendered": "warning: variant `TT_POINT` should have an upper camel case name\n  --> src/token.rs:54:1\n   |\n54 | TT_POINT,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtPoint`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LEFTSHIFTEQUALS` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 55,
+        "col": 1,
+        "rendered": "warning: variant `TT_LEFTSHIFTEQUALS` should have an upper camel case name\n  --> src/token.rs:55:1\n   |\n55 | TT_LEFTSHIFTEQUALS,\n   | ^^^^^^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtLeftshiftequals`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_RIGHTSHIFTEQUALS` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 56,
+        "col": 1,
+        "rendered": "warning: variant `TT_RIGHTSHIFTEQUALS` should have an upper camel case name\n  --> src/token.rs:56:1\n   |\n56 | TT_RIGHTSHIFTEQUALS,\n   | ^^^^^^^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtRightshiftequals`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_AUTO` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 57,
+        "col": 1,
+        "rendered": "warning: variant `TT_AUTO` should have an upper camel case name\n  --> src/token.rs:57:1\n   |\n57 | TT_AUTO,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtAuto`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_BREAK` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 58,
+        "col": 1,
+        "rendered": "warning: variant `TT_BREAK` should have an upper camel case name\n  --> src/token.rs:58:1\n   |\n58 | TT_BREAK,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtBreak`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_CHAR` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 59,
+        "col": 1,
+        "rendered": "warning: variant `TT_CHAR` should have an upper camel case name\n  --> src/token.rs:59:1\n   |\n59 | TT_CHAR,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtChar`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_CONST` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 60,
+        "col": 1,
+        "rendered": "warning: variant `TT_CONST` should have an upper camel case name\n  --> src/token.rs:60:1\n   |\n60 | TT_CONST,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtConst`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_CASE` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 61,
+        "col": 1,
+        "rendered": "warning: variant `TT_CASE` should have an upper camel case name\n  --> src/token.rs:61:1\n   |\n61 | TT_CASE,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtCase`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_CONTINUE` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 62,
+        "col": 1,
+        "rendered": "warning: variant `TT_CONTINUE` should have an upper camel case name\n  --> src/token.rs:62:1\n   |\n62 | TT_CONTINUE,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtContinue`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_DOUBLE` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 63,
+        "col": 1,
+        "rendered": "warning: variant `TT_DOUBLE` should have an upper camel case name\n  --> src/token.rs:63:1\n   |\n63 | TT_DOUBLE,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtDouble`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_DO` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 64,
+        "col": 1,
+        "rendered": "warning: variant `TT_DO` should have an upper camel case name\n  --> src/token.rs:64:1\n   |\n64 | TT_DO,\n   | ^^^^^ help: convert the identifier to upper camel case: `TtDo`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_DEFAULT` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 65,
+        "col": 1,
+        "rendered": "warning: variant `TT_DEFAULT` should have an upper camel case name\n  --> src/token.rs:65:1\n   |\n65 | TT_DEFAULT,\n   | ^^^^^^^^^^ help: convert the identifier to upper camel case: `TtDefault`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_ENUM` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 66,
+        "col": 1,
+        "rendered": "warning: variant `TT_ENUM` should have an upper camel case name\n  --> src/token.rs:66:1\n   |\n66 | TT_ENUM,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtEnum`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_ELSE` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 67,
+        "col": 1,
+        "rendered": "warning: variant `TT_ELSE` should have an upper camel case name\n  --> src/token.rs:67:1\n   |\n67 | TT_ELSE,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtElse`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_EXTERN` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 68,
+        "col": 1,
+        "rendered": "warning: variant `TT_EXTERN` should have an upper camel case name\n  --> src/token.rs:68:1\n   |\n68 | TT_EXTERN,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtExtern`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_FLOAT` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 69,
+        "col": 1,
+        "rendered": "warning: variant `TT_FLOAT` should have an upper camel case name\n  --> src/token.rs:69:1\n   |\n69 | TT_FLOAT,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtFloat`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_FOR` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 70,
+        "col": 1,
+        "rendered": "warning: variant `TT_FOR` should have an upper camel case name\n  --> src/token.rs:70:1\n   |\n70 | TT_FOR,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtFor`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_GOTO` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 71,
+        "col": 1,
+        "rendered": "warning: variant `TT_GOTO` should have an upper camel case name\n  --> src/token.rs:71:1\n   |\n71 | TT_GOTO,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtGoto`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_IF` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 72,
+        "col": 1,
+        "rendered": "warning: variant `TT_IF` should have an upper camel case name\n  --> src/token.rs:72:1\n   |\n72 | TT_IF,\n   | ^^^^^ help: convert the identifier to upper camel case: `TtIf`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_INT` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 73,
+        "col": 1,
+        "rendered": "warning: variant `TT_INT` should have an upper camel case name\n  --> src/token.rs:73:1\n   |\n73 | TT_INT,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtInt`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_LONG` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 74,
+        "col": 1,
+        "rendered": "warning: variant `TT_LONG` should have an upper camel case name\n  --> src/token.rs:74:1\n   |\n74 | TT_LONG,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtLong`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_RETURN` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 75,
+        "col": 1,
+        "rendered": "warning: variant `TT_RETURN` should have an upper camel case name\n  --> src/token.rs:75:1\n   |\n75 | TT_RETURN,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtReturn`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_REGISTER` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 76,
+        "col": 1,
+        "rendered": "warning: variant `TT_REGISTER` should have an upper camel case name\n  --> src/token.rs:76:1\n   |\n76 | TT_REGISTER,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtRegister`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_STATIC` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 77,
+        "col": 1,
+        "rendered": "warning: variant `TT_STATIC` should have an upper camel case name\n  --> src/token.rs:77:1\n   |\n77 | TT_STATIC,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtStatic`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_SWITCH` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 78,
+        "col": 1,
+        "rendered": "warning: variant `TT_SWITCH` should have an upper camel case name\n  --> src/token.rs:78:1\n   |\n78 | TT_SWITCH,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtSwitch`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_SHORT` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 79,
+        "col": 1,
+        "rendered": "warning: variant `TT_SHORT` should have an upper camel case name\n  --> src/token.rs:79:1\n   |\n79 | TT_SHORT,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtShort`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_SIGNED` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 80,
+        "col": 1,
+        "rendered": "warning: variant `TT_SIGNED` should have an upper camel case name\n  --> src/token.rs:80:1\n   |\n80 | TT_SIGNED,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtSigned`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_STRUCT` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 81,
+        "col": 1,
+        "rendered": "warning: variant `TT_STRUCT` should have an upper camel case name\n  --> src/token.rs:81:1\n   |\n81 | TT_STRUCT,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtStruct`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_SIZEOF` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 82,
+        "col": 1,
+        "rendered": "warning: variant `TT_SIZEOF` should have an upper camel case name\n  --> src/token.rs:82:1\n   |\n82 | TT_SIZEOF,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtSizeof`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_TYPEDEF` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 83,
+        "col": 1,
+        "rendered": "warning: variant `TT_TYPEDEF` should have an upper camel case name\n  --> src/token.rs:83:1\n   |\n83 | TT_TYPEDEF,\n   | ^^^^^^^^^^ help: convert the identifier to upper camel case: `TtTypedef`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_UNSIGNED` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 84,
+        "col": 1,
+        "rendered": "warning: variant `TT_UNSIGNED` should have an upper camel case name\n  --> src/token.rs:84:1\n   |\n84 | TT_UNSIGNED,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtUnsigned`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_UNION` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 85,
+        "col": 1,
+        "rendered": "warning: variant `TT_UNION` should have an upper camel case name\n  --> src/token.rs:85:1\n   |\n85 | TT_UNION,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtUnion`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_VOID` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 86,
+        "col": 1,
+        "rendered": "warning: variant `TT_VOID` should have an upper camel case name\n  --> src/token.rs:86:1\n   |\n86 | TT_VOID,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtVoid`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_VOLATILE` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 87,
+        "col": 1,
+        "rendered": "warning: variant `TT_VOLATILE` should have an upper camel case name\n  --> src/token.rs:87:1\n   |\n87 | TT_VOLATILE,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtVolatile`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `TT_WHILE` should have an upper camel case name",
+        "file": "src/token.rs",
+        "line": 88,
+        "col": 1,
+        "rendered": "warning: variant `TT_WHILE` should have an upper camel case name\n  --> src/token.rs:88:1\n   |\n88 | TT_WHILE,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtWhile`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_imports",
+        "message": "unused import: `std::fmt`",
+        "file": "src/hashmap.rs",
+        "line": 2,
+        "col": 5,
+        "rendered": "warning: unused import: `std::fmt`\n --> src/hashmap.rs:2:5\n  |\n2 | use std::fmt;\n  |     ^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `NT_STMT` should have an upper camel case name",
+        "file": "src/cst.rs",
+        "line": 5,
+        "col": 1,
+        "rendered": "warning: variant `NT_STMT` should have an upper camel case name\n --> src/cst.rs:5:1\n  |\n5 | NT_STMT,\n  | ^^^^^^^ help: convert the identifier to upper camel case: `NtStmt`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `NT_EXPR` should have an upper camel case name",
+        "file": "src/cst.rs",
+        "line": 6,
+        "col": 1,
+        "rendered": "warning: variant `NT_EXPR` should have an upper camel case name\n --> src/cst.rs:6:1\n  |\n6 | NT_EXPR,\n  | ^^^^^^^ help: convert the identifier to upper camel case: `NtExpr`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `NT_BLOCK_STMT` should have an upper camel case name",
+        "file": "src/cst.rs",
+        "line": 7,
+        "col": 1,
+        "rendered": "warning: variant `NT_BLOCK_STMT` should have an upper camel case name\n --> src/cst.rs:7:1\n  |\n7 | NT_BLOCK_STMT,\n  | ^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `NtBlockStmt`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `NT_RETURN_STMT` should have an upper camel case name",
+        "file": "src/cst.rs",
+        "line": 8,
+        "col": 1,
+        "rendered": "warning: variant `NT_RETURN_STMT` should have an upper camel case name\n --> src/cst.rs:8:1\n  |\n8 | NT_RETURN_STMT,\n  | ^^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `NtReturnStmt`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `NT_FUNCDECL` should have an upper camel case name",
+        "file": "src/cst.rs",
+        "line": 9,
+        "col": 1,
+        "rendered": "warning: variant `NT_FUNCDECL` should have an upper camel case name\n --> src/cst.rs:9:1\n  |\n9 | NT_FUNCDECL,\n  | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `NtFuncdecl`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `NT_FUNCCALL` should have an upper camel case name",
+        "file": "src/cst.rs",
+        "line": 10,
+        "col": 1,
+        "rendered": "warning: variant `NT_FUNCCALL` should have an upper camel case name\n  --> src/cst.rs:10:1\n   |\n10 | NT_FUNCCALL,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `NtFunccall`"
+      },
+      {
+        "level": "warning",
+        "code": "non_camel_case_types",
+        "message": "variant `NT_LITERAL` should have an upper camel case name",
+        "file": "src/cst.rs",
+        "line": 11,
+        "col": 1,
+        "rendered": "warning: variant `NT_LITERAL` should have an upper camel case name\n  --> src/cst.rs:11:1\n   |\n11 | NT_LITERAL,\n   | ^^^^^^^^^^ help: convert the identifier to upper camel case: `NtLiteral`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/lex.rs",
+        "line": 18,
+        "col": 22,
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:18:22\n   |\n18 | pub fn lexer_getchar(l: &mut Lexer) -> i32 {\n   |                      ^ help: if this is intentional, prefix it with an underscore: `_l`\n   |\n   = note: `#[warn(unused_variables)]` on by default"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/lex.rs",
+        "line": 22,
+        "col": 17,
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:22:17\n   |\n22 | pub fn real_lex(l: &mut Lexer, t: &mut Token) -> i32 {\n   |                 ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `t`",
+        "file": "src/lex.rs",
+        "line": 22,
+        "col": 32,
+        "rendered": "warning: unused variable: `t`\n  --> src/lex.rs:22:32\n   |\n22 | pub fn real_lex(l: &mut Lexer, t: &mut Token) -> i32 {\n   |                                ^ help: if this is intentional, prefix it with an underscore: `_t`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/lex.rs",
+        "line": 26,
+        "col": 24,
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:26:24\n   |\n26 | pub fn lexer_ungetchar(l: &mut Lexer) -> i32 {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `contents`",
+        "file": "src/lex.rs",
+        "line": 30,
+        "col": 25,
+        "rendered": "warning: unused variable: `contents`\n  --> src/lex.rs:30:25\n   |\n30 | pub fn ttype_many_chars(contents: &str) -> TokenType {\n   |                         ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_contents`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `c`",
+        "file": "src/lex.rs",
+        "line": 38,
+        "col": 23,
+        "rendered": "warning: unused variable: `c`\n  --> src/lex.rs:38:23\n   |\n38 | pub fn ttype_one_char(c: char) -> TokenType {\n   |                       ^ help: if this is intentional, prefix it with an underscore: `_c`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `tt`",
+        "file": "src/lex.rs",
+        "line": 42,
+        "col": 19,
+        "rendered": "warning: unused variable: `tt`\n  --> src/lex.rs:42:19\n   |\n42 | pub fn ttype_name(tt: TokenType) -> String {\n   |                   ^^ help: if this is intentional, prefix it with an underscore: `_tt`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `op`",
+        "file": "src/lex.rs",
+        "line": 46,
+        "col": 32,
+        "rendered": "warning: unused variable: `op`\n  --> src/lex.rs:46:32\n   |\n46 | pub fn valid_operator_sequence(op: &str) -> i32 {\n   |                                ^^ help: if this is intentional, prefix it with an underscore: `_op`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/lex.rs",
+        "line": 50,
+        "col": 12,
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:50:12\n   |\n50 | pub fn lex(l: &mut Lexer, token: &mut Token) -> i32 {\n   |            ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `token`",
+        "file": "src/lex.rs",
+        "line": 50,
+        "col": 27,
+        "rendered": "warning: unused variable: `token`\n  --> src/lex.rs:50:27\n   |\n50 | pub fn lex(l: &mut Lexer, token: &mut Token) -> i32 {\n   |                           ^^^^^ help: if this is intentional, prefix it with an underscore: `_token`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `c`",
+        "file": "src/lex.rs",
+        "line": 58,
+        "col": 24,
+        "rendered": "warning: unused variable: `c`\n  --> src/lex.rs:58:24\n   |\n58 | pub fn starts_operator(c: char) -> i32 {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_c`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `contents`",
+        "file": "src/lex.rs",
+        "line": 66,
+        "col": 26,
+        "rendered": "warning: unused variable: `contents`\n  --> src/lex.rs:66:26\n   |\n66 | pub fn ttype_from_string(contents: &str) -> TokenType {\n   |                          ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_contents`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `c`",
+        "file": "src/lex.rs",
+        "line": 70,
+        "col": 18,
+        "rendered": "warning: unused variable: `c`\n  --> src/lex.rs:70:18\n   |\n70 | pub fn in_string(c: char, s: &str) -> i32 {\n   |                  ^ help: if this is intentional, prefix it with an underscore: `_c`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `s`",
+        "file": "src/lex.rs",
+        "line": 70,
+        "col": 27,
+        "rendered": "warning: unused variable: `s`\n  --> src/lex.rs:70:27\n   |\n70 | pub fn in_string(c: char, s: &str) -> i32 {\n   |                           ^ help: if this is intentional, prefix it with an underscore: `_s`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/lex.rs",
+        "line": 78,
+        "col": 22,
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:78:22\n   |\n78 | pub fn skip_to_token(l: &mut Lexer) -> i32 {\n   |                      ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/lex.rs",
+        "line": 82,
+        "col": 14,
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:82:14\n   |\n82 | pub fn unlex(l: &mut Lexer, t: &Token) -> i32 {\n   |              ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `t`",
+        "file": "src/lex.rs",
+        "line": 82,
+        "col": 29,
+        "rendered": "warning: unused variable: `t`\n  --> src/lex.rs:82:29\n   |\n82 | pub fn unlex(l: &mut Lexer, t: &Token) -> i32 {\n   |                             ^ help: if this is intentional, prefix it with an underscore: `_t`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `c`",
+        "file": "src/lex.rs",
+        "line": 86,
+        "col": 36,
+        "rendered": "warning: unused variable: `c`\n  --> src/lex.rs:86:36\n   |\n86 | pub fn is_valid_numeric_or_id_char(c: char) -> i32 {\n   |                                    ^ help: if this is intentional, prefix it with an underscore: `_c`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `op`",
+        "file": "src/codegen.rs",
+        "line": 13,
+        "col": 27,
+        "rendered": "warning: unused variable: `op`\n  --> src/codegen.rs:13:27\n   |\n13 | pub fn op_on_rax_with_rdi(op: Op) -> String {\n   |                           ^^ help: if this is intentional, prefix it with an underscore: `_op`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `val`",
+        "file": "src/codegen.rs",
+        "line": 17,
+        "col": 25,
+        "rendered": "warning: unused variable: `val`\n  --> src/codegen.rs:17:25\n   |\n17 | pub fn init_int_literal(val: i32) -> String {\n   |                         ^^^ help: if this is intentional, prefix it with an underscore: `_val`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `val`",
+        "file": "src/codegen.rs",
+        "line": 45,
+        "col": 31,
+        "rendered": "warning: unused variable: `val`\n  --> src/codegen.rs:45:31\n   |\n45 | pub fn end_main_custom_return(val: i32) -> String {\n   |                               ^^^ help: if this is intentional, prefix it with an underscore: `_val`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `cap`",
+        "file": "src/hashmap.rs",
+        "line": 20,
+        "col": 23,
+        "rendered": "warning: unused variable: `cap`\n  --> src/hashmap.rs:20:23\n   |\n20 | pub fn create_hashmap(cap: i32) -> Hashmap {\n   |                       ^^^ help: if this is intentional, prefix it with an underscore: `_cap`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `h`",
+        "file": "src/hashmap.rs",
+        "line": 24,
+        "col": 19,
+        "rendered": "warning: unused variable: `h`\n  --> src/hashmap.rs:24:19\n   |\n24 | pub fn hm_get<'a>(h: &'a Hashmap, key: &'a str) -> Option<&'a BucketNode> {\n   |                   ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `key`",
+        "file": "src/hashmap.rs",
+        "line": 24,
+        "col": 35,
+        "rendered": "warning: unused variable: `key`\n  --> src/hashmap.rs:24:35\n   |\n24 | pub fn hm_get<'a>(h: &'a Hashmap, key: &'a str) -> Option<&'a BucketNode> {\n   |                                   ^^^ help: if this is intentional, prefix it with an underscore: `_key`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `h`",
+        "file": "src/hashmap.rs",
+        "line": 28,
+        "col": 15,
+        "rendered": "warning: unused variable: `h`\n  --> src/hashmap.rs:28:15\n   |\n28 | pub fn hm_set(h: &mut Hashmap, key: &str, value: Box<dyn Any>) -> i32 {\n   |               ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `key`",
+        "file": "src/hashmap.rs",
+        "line": 28,
+        "col": 32,
+        "rendered": "warning: unused variable: `key`\n  --> src/hashmap.rs:28:32\n   |\n28 | pub fn hm_set(h: &mut Hashmap, key: &str, value: Box<dyn Any>) -> i32 {\n   |                                ^^^ help: if this is intentional, prefix it with an underscore: `_key`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `value`",
+        "file": "src/hashmap.rs",
+        "line": 28,
+        "col": 43,
+        "rendered": "warning: unused variable: `value`\n  --> src/hashmap.rs:28:43\n   |\n28 | pub fn hm_set(h: &mut Hashmap, key: &str, value: Box<dyn Any>) -> i32 {\n   |                                           ^^^^^ help: if this is intentional, prefix it with an underscore: `_value`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `h`",
+        "file": "src/hashmap.rs",
+        "line": 36,
+        "col": 19,
+        "rendered": "warning: unused variable: `h`\n  --> src/hashmap.rs:36:19\n   |\n36 | pub fn double_cap(h: &mut Hashmap) {\n   |                   ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `value`",
+        "file": "src/hashmap.rs",
+        "line": 40,
+        "col": 14,
+        "rendered": "warning: unused variable: `value`\n  --> src/hashmap.rs:40:14\n   |\n40 | pub fn fnva1(value: &str) -> u32 {\n   |              ^^^^^ help: if this is intentional, prefix it with an underscore: `_value`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `h`",
+        "file": "src/hashmap.rs",
+        "line": 48,
+        "col": 24,
+        "rendered": "warning: unused variable: `h`\n  --> src/hashmap.rs:48:24\n   |\n48 | pub fn destroy_hashmap(h: &mut Hashmap) {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `a`",
+        "file": "src/hashmap.rs",
+        "line": 60,
+        "col": 18,
+        "rendered": "warning: unused variable: `a`\n  --> src/hashmap.rs:60:18\n   |\n60 | pub fn equal_key(a: &str, b: &str) -> bool {\n   |                  ^ help: if this is intentional, prefix it with an underscore: `_a`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `b`",
+        "file": "src/hashmap.rs",
+        "line": 60,
+        "col": 27,
+        "rendered": "warning: unused variable: `b`\n  --> src/hashmap.rs:60:27\n   |\n60 | pub fn equal_key(a: &str, b: &str) -> bool {\n   |                           ^ help: if this is intentional, prefix it with an underscore: `_b`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/parse.rs",
+        "line": 4,
+        "col": 23,
+        "rendered": "warning: unused variable: `l`\n --> src/parse.rs:4:23\n  |\n4 | pub fn parse_funcdecl(l: &mut Lexer, fd: &mut FunctionDeclaration) -> i32 {\n  |                       ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `fd`",
+        "file": "src/parse.rs",
+        "line": 4,
+        "col": 38,
+        "rendered": "warning: unused variable: `fd`\n --> src/parse.rs:4:38\n  |\n4 | pub fn parse_funcdecl(l: &mut Lexer, fd: &mut FunctionDeclaration) -> i32 {\n  |                                      ^^ help: if this is intentional, prefix it with an underscore: `_fd`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/parse.rs",
+        "line": 8,
+        "col": 17,
+        "rendered": "warning: unused variable: `l`\n --> src/parse.rs:8:17\n  |\n8 | pub fn make_cst(l: &mut Lexer, tree: &mut ConcreteFileTree) -> i32 {\n  |                 ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `tree`",
+        "file": "src/parse.rs",
+        "line": 8,
+        "col": 32,
+        "rendered": "warning: unused variable: `tree`\n --> src/parse.rs:8:32\n  |\n8 | pub fn make_cst(l: &mut Lexer, tree: &mut ConcreteFileTree) -> i32 {\n  |                                ^^^^ help: if this is intentional, prefix it with an underscore: `_tree`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/parse.rs",
+        "line": 12,
+        "col": 19,
+        "rendered": "warning: unused variable: `l`\n  --> src/parse.rs:12:19\n   |\n12 | pub fn parse_expr(l: &mut Lexer, ex: &mut Expression) -> i32 {\n   |                   ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `ex`",
+        "file": "src/parse.rs",
+        "line": 12,
+        "col": 34,
+        "rendered": "warning: unused variable: `ex`\n  --> src/parse.rs:12:34\n   |\n12 | pub fn parse_expr(l: &mut Lexer, ex: &mut Expression) -> i32 {\n   |                                  ^^ help: if this is intentional, prefix it with an underscore: `_ex`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `filename`",
+        "file": "src/parse.rs",
+        "line": 16,
+        "col": 14,
+        "rendered": "warning: unused variable: `filename`\n  --> src/parse.rs:16:14\n   |\n16 | pub fn parse(filename: &str) -> i32 {\n   |              ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_filename`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/parse.rs",
+        "line": 24,
+        "col": 24,
+        "rendered": "warning: unused variable: `l`\n  --> src/parse.rs:24:24\n   |\n24 | pub fn parse_blockstmt(l: &mut Lexer, bs: &mut BlockStatement) -> i32 {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `bs`",
+        "file": "src/parse.rs",
+        "line": 24,
+        "col": 39,
+        "rendered": "warning: unused variable: `bs`\n  --> src/parse.rs:24:39\n   |\n24 | pub fn parse_blockstmt(l: &mut Lexer, bs: &mut BlockStatement) -> i32 {\n   |                                       ^^ help: if this is intentional, prefix it with an underscore: `_bs`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/parse.rs",
+        "line": 28,
+        "col": 23,
+        "rendered": "warning: unused variable: `l`\n  --> src/parse.rs:28:23\n   |\n28 | pub fn parse_funccall(l: &mut Lexer, ex: &mut Expression) -> i32 {\n   |                       ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `ex`",
+        "file": "src/parse.rs",
+        "line": 28,
+        "col": 38,
+        "rendered": "warning: unused variable: `ex`\n  --> src/parse.rs:28:38\n   |\n28 | pub fn parse_funccall(l: &mut Lexer, ex: &mut Expression) -> i32 {\n   |                                      ^^ help: if this is intentional, prefix it with an underscore: `_ex`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/list.rs",
+        "line": 21,
+        "col": 21,
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:21:21\n   |\n21 | pub fn lget_element(l: &mut List, index: i32) -> Option<&mut Box<dyn Any>> {\n   |                     ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `index`",
+        "file": "src/list.rs",
+        "line": 21,
+        "col": 35,
+        "rendered": "warning: unused variable: `index`\n  --> src/list.rs:21:35\n   |\n21 | pub fn lget_element(l: &mut List, index: i32) -> Option<&mut Box<dyn Any>> {\n   |                                   ^^^^^ help: if this is intentional, prefix it with an underscore: `_index`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/list.rs",
+        "line": 25,
+        "col": 21,
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:25:21\n   |\n25 | pub fn destroy_list(l: &mut List) -> i32 {\n   |                     ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/list.rs",
+        "line": 29,
+        "col": 21,
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:29:21\n   |\n29 | pub fn ladd_element(l: &mut List, element: Box<dyn Any>) -> i32 {\n   |                     ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `element`",
+        "file": "src/list.rs",
+        "line": 29,
+        "col": 35,
+        "rendered": "warning: unused variable: `element`\n  --> src/list.rs:29:35\n   |\n29 | pub fn ladd_element(l: &mut List, element: Box<dyn Any>) -> i32 {\n   |                                   ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_element`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/list.rs",
+        "line": 33,
+        "col": 18,
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:33:18\n   |\n33 | pub fn new_block(l: &mut List) -> Box<ListBlock> {\n   |                  ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/list.rs",
+        "line": 37,
+        "col": 17,
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:37:17\n   |\n37 | pub fn literate(l: &mut List, func: fn(&mut Box<dyn Any>) -> i32) -> i32 {\n   |                 ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `func`",
+        "file": "src/list.rs",
+        "line": 37,
+        "col": 31,
+        "rendered": "warning: unused variable: `func`\n  --> src/list.rs:37:31\n   |\n37 | pub fn literate(l: &mut List, func: fn(&mut Box<dyn Any>) -> i32) -> i32 {\n   |                               ^^^^ help: if this is intentional, prefix it with an underscore: `_func`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/list.rs",
+        "line": 41,
+        "col": 20,
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:41:20\n   |\n41 | pub fn lfind_index(l: &mut List, lb: &mut Option<Box<ListBlock>>, i: &mut i32) -> i32 {\n   |                    ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `lb`",
+        "file": "src/list.rs",
+        "line": 41,
+        "col": 34,
+        "rendered": "warning: unused variable: `lb`\n  --> src/list.rs:41:34\n   |\n41 | pub fn lfind_index(l: &mut List, lb: &mut Option<Box<ListBlock>>, i: &mut i32) -> i32 {\n   |                                  ^^ help: if this is intentional, prefix it with an underscore: `_lb`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `i`",
+        "file": "src/list.rs",
+        "line": 41,
+        "col": 67,
+        "rendered": "warning: unused variable: `i`\n  --> src/list.rs:41:67\n   |\n41 | pub fn lfind_index(l: &mut List, lb: &mut Option<Box<ListBlock>>, i: &mut i32) -> i32 {\n   |                                                                   ^ help: if this is intentional, prefix it with an underscore: `_i`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `blocksize`",
+        "file": "src/list.rs",
+        "line": 45,
+        "col": 20,
+        "rendered": "warning: unused variable: `blocksize`\n  --> src/list.rs:45:20\n   |\n45 | pub fn create_list(blocksize: i32) -> List {\n   |                    ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_blocksize`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `l`",
+        "file": "src/list.rs",
+        "line": 49,
+        "col": 21,
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:49:21\n   |\n49 | pub fn lset_element(l: &mut List, index: i32, value: Box<dyn Any>) -> i32 {\n   |                     ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `index`",
+        "file": "src/list.rs",
+        "line": 49,
+        "col": 35,
+        "rendered": "warning: unused variable: `index`\n  --> src/list.rs:49:35\n   |\n49 | pub fn lset_element(l: &mut List, index: i32, value: Box<dyn Any>) -> i32 {\n   |                                   ^^^^^ help: if this is intentional, prefix it with an underscore: `_index`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `value`",
+        "file": "src/list.rs",
+        "line": 49,
+        "col": 47,
+        "rendered": "warning: unused variable: `value`\n  --> src/list.rs:49:47\n   |\n49 | pub fn lset_element(l: &mut List, index: i32, value: Box<dyn Any>) -> i32 {\n   |                                               ^^^^^ help: if this is intentional, prefix it with an underscore: `_value`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `filename`",
+        "file": "src/main.rs",
+        "line": 6,
+        "col": 19,
+        "rendered": "warning: unused variable: `filename`\n --> src/main.rs:6:19\n  |\n6 | pub fn lexer_dump(filename: &str) -> i32 {\n  |                   ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_filename`\n  |\n  = note: `#[warn(unused_variables)]` on by default"
+      }
+    ]
+  },
+  "build_output_tail": "\n37 | pub fn literate(l: &mut List, func: fn(&mut Box<dyn Any>) -> i32) -> i32 {\n   |                               ^^^^ help: if this is intentional, prefix it with an underscore: `_func`\n\nwarning: unused variable: `l`\n  --> src/list.rs:41:20\n   |\n41 | pub fn lfind_index(l: &mut List, lb: &mut Option<Box<ListBlock>>, i: &mut i32) -> i32 {\n   |                    ^ help: if this is intentional, prefix it with an underscore: `_l`\n\nwarning: unused variable: `lb`\n  --> src/list.rs:41:34\n   |\n41 | pub fn lfind_index(l: &mut List, lb: &mut Option<Box<ListBlock>>, i: &mut i32) -> i32 {\n   |                                  ^^ help: if this is intentional, prefix it with an underscore: `_lb`\n\nwarning: unused variable: `i`\n  --> src/list.rs:41:67\n   |\n41 | pub fn lfind_index(l: &mut List, lb: &mut Option<Box<ListBlock>>, i: &mut i32) -> i32 {\n   |                                                                   ^ help: if this is intentional, prefix it with an underscore: `_i`\n\nwarning: unused variable: `blocksize`\n  --> src/list.rs:45:20\n   |\n45 | pub fn create_list(blocksize: i32) -> List {\n   |                    ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_blocksize`\n\nwarning: unused variable: `l`\n  --> src/list.rs:49:21\n   |\n49 | pub fn lset_element(l: &mut List, index: i32, value: Box<dyn Any>) -> i32 {\n   |                     ^ help: if this is intentional, prefix it with an underscore: `_l`\n\nwarning: unused variable: `index`\n  --> src/list.rs:49:35\n   |\n49 | pub fn lset_element(l: &mut List, index: i32, value: Box<dyn Any>) -> i32 {\n   |                                   ^^^^^ help: if this is intentional, prefix it with an underscore: `_index`\n\nwarning: unused variable: `value`\n  --> src/list.rs:49:47\n   |\n49 | pub fn lset_element(l: &mut List, index: i32, value: Box<dyn Any>) -> i32 {\n   |                                               ^^^^^ help: if this is intentional, prefix it with an underscore: `_value`\n\nwarning: `jccc` (lib) generated 151 warnings (run `cargo fix --lib -p jccc` to apply 1 suggestion)\nwarning: unused variable: `filename`\n --> src/main.rs:6:19\n  |\n6 | pub fn lexer_dump(filename: &str) -> i32 {\n  |                   ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_filename`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\nwarning: unused import: `jccc::list`\n  --> src/bin/test_main.rs:54:5\n   |\n54 | use jccc::list;\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\nwarning: function `testing_single_test_internal` is never used\n   --> src/bin/test_main.rs:178:4\n    |\n178 | fn testing_single_test_internal(func_name: &str) {\n    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\nwarning: `jccc` (bin \"jccc\") generated 1 warning\nwarning: `jccc` (bin \"test_main\") generated 2 warnings (run `cargo fix --bin \"test_main\"` to apply 1 suggestion)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.56s",
+  "tests": {
+    "compiled": true,
+    "timed_out": false,
+    "os_blocked": false,
+    "total": 4,
+    "passed": 0,
+    "benchmark_status": {
+      "src/bin/test_main.rs::test_lexer": "FAILED",
+      "src/bin/test_main.rs::basic_100_test": "FAILED",
+      "src/bin/test_main.rs::test_list": "FAILED",
+      "src/bin/test_main.rs::test_util": "FAILED"
+    },
+    "all_results": [
+      {
+        "target": "",
+        "name": "basic_100_test",
+        "status": "FAILED"
+      },
+      {
+        "target": "",
+        "name": "test_lexer",
+        "status": "FAILED"
+      },
+      {
+        "target": "",
+        "name": "test_list",
+        "status": "FAILED"
+      },
+      {
+        "target": "",
+        "name": "test_util",
+        "status": "FAILED"
+      }
+    ],
+    "failed": [
+      "::basic_100_test",
+      "::test_lexer",
+      "::test_list",
+      "::test_util"
+    ],
+    "failure_details": {
+      "basic_100_test": "Running \"basic_100_test\"\n\nthread 'basic_100_test' panicked at src/list.rs:46:1:\nnot implemented\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace",
+      "test_lexer": "Running tests from \"test_lexer\" ...\n\nthread 'test_lexer' panicked at src/lex.rs:43:1:\nnot implemented",
+      "test_list": "Running tests from \"test_list\" ...\nRunning \"basic_100_test\"\n\nthread 'test_list' panicked at src/list.rs:46:1:\nnot implemented",
+      "test_util": "Running tests from \"test_util\" ...\n\nthread 'test_util' panicked at src/hashmap.rs:21:1:\nnot implemented"
+    },
+    "raw_tail": "",
+    "duration_s": 0.94
+  },
+  "clippy": {
+    "ok": true,
+    "by_group": {
+      "correctness": {
+        "own": 0,
+        "protected": 0
+      },
+      "style": {
+        "own": 0,
+        "protected": 4
+      },
+      "complexity": {
+        "own": 0,
+        "protected": 0
+      },
+      "perf": {
+        "own": 0,
+        "protected": 0
+      },
+      "other": {
+        "own": 0,
+        "protected": 0
+      }
+    },
+    "own": [],
+    "protected": [
+      {
+        "group": "style",
+        "lint": "clippy::uninlined_format_args",
+        "file": "src/bin/test_main.rs",
+        "line": 171,
+        "message": "variables can be used directly in the `format!` string",
+        "rendered": "warning: variables can be used directly in the `format!` string\n   --> src/bin/test_main.rs:171:1\n    |\n171 | println!(\"Running tests from \\\"{}\\\" ...\", func_name);\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n    = note: `-W clippy::uninlined-format-args` implied by `-W clippy::style`\n    = help: to override `-W clippy::style` add `#[allow(clippy::uninlined_format_args)]`\nhelp: change this to\n    |\n171 - println!(\"Running tests from \\\"{}\\\" ...\", func_name);\n171 + println!(\"Running tests from \\\"{func_name}\\\" ...\");\n    |"
+      },
+      {
+        "group": "style",
+        "lint": "clippy::uninlined_format_args",
+        "file": "src/bin/test_main.rs",
+        "line": 175,
+        "message": "variables can be used directly in the `format!` string",
+        "rendered": "warning: variables can be used directly in the `format!` string\n   --> src/bin/test_main.rs:175:1\n    |\n175 | println!(\"Concluded tests from \\\"{}\\\"\", func_name);\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n175 - println!(\"Concluded tests from \\\"{}\\\"\", func_name);\n175 + println!(\"Concluded tests from \\\"{func_name}\\\"\");\n    |"
+      },
+      {
+        "group": "style",
+        "lint": "clippy::uninlined_format_args",
+        "file": "src/bin/test_main.rs",
+        "line": 179,
+        "message": "variables can be used directly in the `format!` string",
+        "rendered": "warning: variables can be used directly in the `format!` string\n   --> src/bin/test_main.rs:179:1\n    |\n179 | println!(\"Running \\\"{}\\\"\", func_name);\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n179 - println!(\"Running \\\"{}\\\"\", func_name);\n179 + println!(\"Running \\\"{func_name}\\\"\");\n    |"
+      },
+      {
+        "group": "style",
+        "lint": "clippy::uninlined_format_args",
+        "file": "src/bin/test_main.rs",
+        "line": 232,
+        "message": "variables can be used directly in the `format!` string",
+        "rendered": "warning: variables can be used directly in the `format!` string\n   --> src/bin/test_main.rs:232:9\n    |\n232 | None => panic!(\"Expected element at index {}, found None\", i),\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n232 - None => panic!(\"Expected element at index {}, found None\", i),\n232 + None => panic!(\"Expected element at index {i}, found None\"),\n    |"
+      }
+    ],
+    "rustc_own": [
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 4,
+        "message": "variant `TT_LITERAL` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LITERAL` should have an upper camel case name\n --> src/token.rs:4:1\n  |\n4 | TT_LITERAL,\n  | ^^^^^^^^^^ help: convert the identifier to upper camel case: `TtLiteral`\n  |\n  = note: `#[warn(non_camel_case_types)]` on by default"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 5,
+        "message": "variant `TT_IDENTIFIER` should have an upper camel case name",
+        "rendered": "warning: variant `TT_IDENTIFIER` should have an upper camel case name\n --> src/token.rs:5:1\n  |\n5 | TT_IDENTIFIER,\n  | ^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtIdentifier`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 6,
+        "message": "variant `TT_OPAREN` should have an upper camel case name",
+        "rendered": "warning: variant `TT_OPAREN` should have an upper camel case name\n --> src/token.rs:6:1\n  |\n6 | TT_OPAREN,\n  | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtOparen`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 7,
+        "message": "variant `TT_CPAREN` should have an upper camel case name",
+        "rendered": "warning: variant `TT_CPAREN` should have an upper camel case name\n --> src/token.rs:7:1\n  |\n7 | TT_CPAREN,\n  | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtCparen`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 8,
+        "message": "variant `TT_OBRACE` should have an upper camel case name",
+        "rendered": "warning: variant `TT_OBRACE` should have an upper camel case name\n --> src/token.rs:8:1\n  |\n8 | TT_OBRACE,\n  | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtObrace`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 9,
+        "message": "variant `TT_CBRACE` should have an upper camel case name",
+        "rendered": "warning: variant `TT_CBRACE` should have an upper camel case name\n --> src/token.rs:9:1\n  |\n9 | TT_CBRACE,\n  | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtCbrace`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 10,
+        "message": "variant `TT_OBRACKET` should have an upper camel case name",
+        "rendered": "warning: variant `TT_OBRACKET` should have an upper camel case name\n  --> src/token.rs:10:1\n   |\n10 | TT_OBRACKET,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtObracket`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 11,
+        "message": "variant `TT_CBRACKET` should have an upper camel case name",
+        "rendered": "warning: variant `TT_CBRACKET` should have an upper camel case name\n  --> src/token.rs:11:1\n   |\n11 | TT_CBRACKET,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtCbracket`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 12,
+        "message": "variant `TT_SEMI` should have an upper camel case name",
+        "rendered": "warning: variant `TT_SEMI` should have an upper camel case name\n  --> src/token.rs:12:1\n   |\n12 | TT_SEMI,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtSemi`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 13,
+        "message": "variant `TT_NO_TOKEN` should have an upper camel case name",
+        "rendered": "warning: variant `TT_NO_TOKEN` should have an upper camel case name\n  --> src/token.rs:13:1\n   |\n13 | TT_NO_TOKEN,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtNoToken`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 14,
+        "message": "variant `TT_EOF` should have an upper camel case name",
+        "rendered": "warning: variant `TT_EOF` should have an upper camel case name\n  --> src/token.rs:14:1\n   |\n14 | TT_EOF,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtEof`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 15,
+        "message": "variant `TT_NEWLINE` should have an upper camel case name",
+        "rendered": "warning: variant `TT_NEWLINE` should have an upper camel case name\n  --> src/token.rs:15:1\n   |\n15 | TT_NEWLINE,\n   | ^^^^^^^^^^ help: convert the identifier to upper camel case: `TtNewline`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 16,
+        "message": "variant `TT_POUND` should have an upper camel case name",
+        "rendered": "warning: variant `TT_POUND` should have an upper camel case name\n  --> src/token.rs:16:1\n   |\n16 | TT_POUND,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtPound`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 17,
+        "message": "variant `TT_PERIOD` should have an upper camel case name",
+        "rendered": "warning: variant `TT_PERIOD` should have an upper camel case name\n  --> src/token.rs:17:1\n   |\n17 | TT_PERIOD,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtPeriod`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 18,
+        "message": "variant `TT_COMMA` should have an upper camel case name",
+        "rendered": "warning: variant `TT_COMMA` should have an upper camel case name\n  --> src/token.rs:18:1\n   |\n18 | TT_COMMA,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtComma`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 19,
+        "message": "variant `TT_QMARK` should have an upper camel case name",
+        "rendered": "warning: variant `TT_QMARK` should have an upper camel case name\n  --> src/token.rs:19:1\n   |\n19 | TT_QMARK,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtQmark`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 20,
+        "message": "variant `TT_MINUS` should have an upper camel case name",
+        "rendered": "warning: variant `TT_MINUS` should have an upper camel case name\n  --> src/token.rs:20:1\n   |\n20 | TT_MINUS,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtMinus`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 21,
+        "message": "variant `TT_PLUS` should have an upper camel case name",
+        "rendered": "warning: variant `TT_PLUS` should have an upper camel case name\n  --> src/token.rs:21:1\n   |\n21 | TT_PLUS,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtPlus`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 22,
+        "message": "variant `TT_STAR` should have an upper camel case name",
+        "rendered": "warning: variant `TT_STAR` should have an upper camel case name\n  --> src/token.rs:22:1\n   |\n22 | TT_STAR,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtStar`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 23,
+        "message": "variant `TT_SLASH` should have an upper camel case name",
+        "rendered": "warning: variant `TT_SLASH` should have an upper camel case name\n  --> src/token.rs:23:1\n   |\n23 | TT_SLASH,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtSlash`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 24,
+        "message": "variant `TT_ASSIGN` should have an upper camel case name",
+        "rendered": "warning: variant `TT_ASSIGN` should have an upper camel case name\n  --> src/token.rs:24:1\n   |\n24 | TT_ASSIGN,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtAssign`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 25,
+        "message": "variant `TT_COLON` should have an upper camel case name",
+        "rendered": "warning: variant `TT_COLON` should have an upper camel case name\n  --> src/token.rs:25:1\n   |\n25 | TT_COLON,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtColon`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 26,
+        "message": "variant `TT_MOD` should have an upper camel case name",
+        "rendered": "warning: variant `TT_MOD` should have an upper camel case name\n  --> src/token.rs:26:1\n   |\n26 | TT_MOD,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtMod`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 27,
+        "message": "variant `TT_BAND` should have an upper camel case name",
+        "rendered": "warning: variant `TT_BAND` should have an upper camel case name\n  --> src/token.rs:27:1\n   |\n27 | TT_BAND,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtBand`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 28,
+        "message": "variant `TT_LAND` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LAND` should have an upper camel case name\n  --> src/token.rs:28:1\n   |\n28 | TT_LAND,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtLand`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 29,
+        "message": "variant `TT_BOR` should have an upper camel case name",
+        "rendered": "warning: variant `TT_BOR` should have an upper camel case name\n  --> src/token.rs:29:1\n   |\n29 | TT_BOR,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtBor`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 30,
+        "message": "variant `TT_LOR` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LOR` should have an upper camel case name\n  --> src/token.rs:30:1\n   |\n30 | TT_LOR,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtLor`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 31,
+        "message": "variant `TT_DEC` should have an upper camel case name",
+        "rendered": "warning: variant `TT_DEC` should have an upper camel case name\n  --> src/token.rs:31:1\n   |\n31 | TT_DEC,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtDec`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 32,
+        "message": "variant `TT_INC` should have an upper camel case name",
+        "rendered": "warning: variant `TT_INC` should have an upper camel case name\n  --> src/token.rs:32:1\n   |\n32 | TT_INC,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtInc`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 33,
+        "message": "variant `TT_PLUSPLUS` should have an upper camel case name",
+        "rendered": "warning: variant `TT_PLUSPLUS` should have an upper camel case name\n  --> src/token.rs:33:1\n   |\n33 | TT_PLUSPLUS,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtPlusplus`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 34,
+        "message": "variant `TT_MINUSMINUS` should have an upper camel case name",
+        "rendered": "warning: variant `TT_MINUSMINUS` should have an upper camel case name\n  --> src/token.rs:34:1\n   |\n34 | TT_MINUSMINUS,\n   | ^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtMinusminus`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 35,
+        "message": "variant `TT_DIVEQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_DIVEQ` should have an upper camel case name\n  --> src/token.rs:35:1\n   |\n35 | TT_DIVEQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtDiveq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 36,
+        "message": "variant `TT_MULEQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_MULEQ` should have an upper camel case name\n  --> src/token.rs:36:1\n   |\n36 | TT_MULEQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtMuleq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 37,
+        "message": "variant `TT_MODEQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_MODEQ` should have an upper camel case name\n  --> src/token.rs:37:1\n   |\n37 | TT_MODEQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtModeq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 38,
+        "message": "variant `TT_BANDEQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_BANDEQ` should have an upper camel case name\n  --> src/token.rs:38:1\n   |\n38 | TT_BANDEQ,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtBandeq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 39,
+        "message": "variant `TT_BOREQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_BOREQ` should have an upper camel case name\n  --> src/token.rs:39:1\n   |\n39 | TT_BOREQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtBoreq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 40,
+        "message": "variant `TT_LANDEQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LANDEQ` should have an upper camel case name\n  --> src/token.rs:40:1\n   |\n40 | TT_LANDEQ,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtLandeq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 41,
+        "message": "variant `TT_LOREQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LOREQ` should have an upper camel case name\n  --> src/token.rs:41:1\n   |\n41 | TT_LOREQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtLoreq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 42,
+        "message": "variant `TT_GREATER` should have an upper camel case name",
+        "rendered": "warning: variant `TT_GREATER` should have an upper camel case name\n  --> src/token.rs:42:1\n   |\n42 | TT_GREATER,\n   | ^^^^^^^^^^ help: convert the identifier to upper camel case: `TtGreater`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 43,
+        "message": "variant `TT_LESS` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LESS` should have an upper camel case name\n  --> src/token.rs:43:1\n   |\n43 | TT_LESS,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtLess`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 44,
+        "message": "variant `TT_LESSEQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LESSEQ` should have an upper camel case name\n  --> src/token.rs:44:1\n   |\n44 | TT_LESSEQ,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtLesseq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 45,
+        "message": "variant `TT_GREATEREQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_GREATEREQ` should have an upper camel case name\n  --> src/token.rs:45:1\n   |\n45 | TT_GREATEREQ,\n   | ^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtGreatereq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 46,
+        "message": "variant `TT_LEFTSHIFT` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LEFTSHIFT` should have an upper camel case name\n  --> src/token.rs:46:1\n   |\n46 | TT_LEFTSHIFT,\n   | ^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtLeftshift`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 47,
+        "message": "variant `TT_RIGHTSHIFT` should have an upper camel case name",
+        "rendered": "warning: variant `TT_RIGHTSHIFT` should have an upper camel case name\n  --> src/token.rs:47:1\n   |\n47 | TT_RIGHTSHIFT,\n   | ^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtRightshift`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 48,
+        "message": "variant `TT_LNOT` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LNOT` should have an upper camel case name\n  --> src/token.rs:48:1\n   |\n48 | TT_LNOT,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtLnot`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 49,
+        "message": "variant `TT_BNOT` should have an upper camel case name",
+        "rendered": "warning: variant `TT_BNOT` should have an upper camel case name\n  --> src/token.rs:49:1\n   |\n49 | TT_BNOT,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtBnot`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 50,
+        "message": "variant `TT_EQUALS` should have an upper camel case name",
+        "rendered": "warning: variant `TT_EQUALS` should have an upper camel case name\n  --> src/token.rs:50:1\n   |\n50 | TT_EQUALS,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtEquals`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 51,
+        "message": "variant `TT_NOTEQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_NOTEQ` should have an upper camel case name\n  --> src/token.rs:51:1\n   |\n51 | TT_NOTEQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtNoteq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 52,
+        "message": "variant `TT_XOR` should have an upper camel case name",
+        "rendered": "warning: variant `TT_XOR` should have an upper camel case name\n  --> src/token.rs:52:1\n   |\n52 | TT_XOR,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtXor`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 53,
+        "message": "variant `TT_XOREQ` should have an upper camel case name",
+        "rendered": "warning: variant `TT_XOREQ` should have an upper camel case name\n  --> src/token.rs:53:1\n   |\n53 | TT_XOREQ,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtXoreq`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 54,
+        "message": "variant `TT_POINT` should have an upper camel case name",
+        "rendered": "warning: variant `TT_POINT` should have an upper camel case name\n  --> src/token.rs:54:1\n   |\n54 | TT_POINT,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtPoint`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 55,
+        "message": "variant `TT_LEFTSHIFTEQUALS` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LEFTSHIFTEQUALS` should have an upper camel case name\n  --> src/token.rs:55:1\n   |\n55 | TT_LEFTSHIFTEQUALS,\n   | ^^^^^^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtLeftshiftequals`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 56,
+        "message": "variant `TT_RIGHTSHIFTEQUALS` should have an upper camel case name",
+        "rendered": "warning: variant `TT_RIGHTSHIFTEQUALS` should have an upper camel case name\n  --> src/token.rs:56:1\n   |\n56 | TT_RIGHTSHIFTEQUALS,\n   | ^^^^^^^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtRightshiftequals`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 57,
+        "message": "variant `TT_AUTO` should have an upper camel case name",
+        "rendered": "warning: variant `TT_AUTO` should have an upper camel case name\n  --> src/token.rs:57:1\n   |\n57 | TT_AUTO,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtAuto`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 58,
+        "message": "variant `TT_BREAK` should have an upper camel case name",
+        "rendered": "warning: variant `TT_BREAK` should have an upper camel case name\n  --> src/token.rs:58:1\n   |\n58 | TT_BREAK,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtBreak`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 59,
+        "message": "variant `TT_CHAR` should have an upper camel case name",
+        "rendered": "warning: variant `TT_CHAR` should have an upper camel case name\n  --> src/token.rs:59:1\n   |\n59 | TT_CHAR,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtChar`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 60,
+        "message": "variant `TT_CONST` should have an upper camel case name",
+        "rendered": "warning: variant `TT_CONST` should have an upper camel case name\n  --> src/token.rs:60:1\n   |\n60 | TT_CONST,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtConst`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 61,
+        "message": "variant `TT_CASE` should have an upper camel case name",
+        "rendered": "warning: variant `TT_CASE` should have an upper camel case name\n  --> src/token.rs:61:1\n   |\n61 | TT_CASE,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtCase`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 62,
+        "message": "variant `TT_CONTINUE` should have an upper camel case name",
+        "rendered": "warning: variant `TT_CONTINUE` should have an upper camel case name\n  --> src/token.rs:62:1\n   |\n62 | TT_CONTINUE,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtContinue`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 63,
+        "message": "variant `TT_DOUBLE` should have an upper camel case name",
+        "rendered": "warning: variant `TT_DOUBLE` should have an upper camel case name\n  --> src/token.rs:63:1\n   |\n63 | TT_DOUBLE,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtDouble`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 64,
+        "message": "variant `TT_DO` should have an upper camel case name",
+        "rendered": "warning: variant `TT_DO` should have an upper camel case name\n  --> src/token.rs:64:1\n   |\n64 | TT_DO,\n   | ^^^^^ help: convert the identifier to upper camel case: `TtDo`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 65,
+        "message": "variant `TT_DEFAULT` should have an upper camel case name",
+        "rendered": "warning: variant `TT_DEFAULT` should have an upper camel case name\n  --> src/token.rs:65:1\n   |\n65 | TT_DEFAULT,\n   | ^^^^^^^^^^ help: convert the identifier to upper camel case: `TtDefault`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 66,
+        "message": "variant `TT_ENUM` should have an upper camel case name",
+        "rendered": "warning: variant `TT_ENUM` should have an upper camel case name\n  --> src/token.rs:66:1\n   |\n66 | TT_ENUM,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtEnum`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 67,
+        "message": "variant `TT_ELSE` should have an upper camel case name",
+        "rendered": "warning: variant `TT_ELSE` should have an upper camel case name\n  --> src/token.rs:67:1\n   |\n67 | TT_ELSE,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtElse`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 68,
+        "message": "variant `TT_EXTERN` should have an upper camel case name",
+        "rendered": "warning: variant `TT_EXTERN` should have an upper camel case name\n  --> src/token.rs:68:1\n   |\n68 | TT_EXTERN,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtExtern`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 69,
+        "message": "variant `TT_FLOAT` should have an upper camel case name",
+        "rendered": "warning: variant `TT_FLOAT` should have an upper camel case name\n  --> src/token.rs:69:1\n   |\n69 | TT_FLOAT,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtFloat`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 70,
+        "message": "variant `TT_FOR` should have an upper camel case name",
+        "rendered": "warning: variant `TT_FOR` should have an upper camel case name\n  --> src/token.rs:70:1\n   |\n70 | TT_FOR,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtFor`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 71,
+        "message": "variant `TT_GOTO` should have an upper camel case name",
+        "rendered": "warning: variant `TT_GOTO` should have an upper camel case name\n  --> src/token.rs:71:1\n   |\n71 | TT_GOTO,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtGoto`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 72,
+        "message": "variant `TT_IF` should have an upper camel case name",
+        "rendered": "warning: variant `TT_IF` should have an upper camel case name\n  --> src/token.rs:72:1\n   |\n72 | TT_IF,\n   | ^^^^^ help: convert the identifier to upper camel case: `TtIf`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 73,
+        "message": "variant `TT_INT` should have an upper camel case name",
+        "rendered": "warning: variant `TT_INT` should have an upper camel case name\n  --> src/token.rs:73:1\n   |\n73 | TT_INT,\n   | ^^^^^^ help: convert the identifier to upper camel case: `TtInt`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 74,
+        "message": "variant `TT_LONG` should have an upper camel case name",
+        "rendered": "warning: variant `TT_LONG` should have an upper camel case name\n  --> src/token.rs:74:1\n   |\n74 | TT_LONG,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtLong`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 75,
+        "message": "variant `TT_RETURN` should have an upper camel case name",
+        "rendered": "warning: variant `TT_RETURN` should have an upper camel case name\n  --> src/token.rs:75:1\n   |\n75 | TT_RETURN,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtReturn`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 76,
+        "message": "variant `TT_REGISTER` should have an upper camel case name",
+        "rendered": "warning: variant `TT_REGISTER` should have an upper camel case name\n  --> src/token.rs:76:1\n   |\n76 | TT_REGISTER,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtRegister`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 77,
+        "message": "variant `TT_STATIC` should have an upper camel case name",
+        "rendered": "warning: variant `TT_STATIC` should have an upper camel case name\n  --> src/token.rs:77:1\n   |\n77 | TT_STATIC,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtStatic`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 78,
+        "message": "variant `TT_SWITCH` should have an upper camel case name",
+        "rendered": "warning: variant `TT_SWITCH` should have an upper camel case name\n  --> src/token.rs:78:1\n   |\n78 | TT_SWITCH,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtSwitch`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 79,
+        "message": "variant `TT_SHORT` should have an upper camel case name",
+        "rendered": "warning: variant `TT_SHORT` should have an upper camel case name\n  --> src/token.rs:79:1\n   |\n79 | TT_SHORT,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtShort`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 80,
+        "message": "variant `TT_SIGNED` should have an upper camel case name",
+        "rendered": "warning: variant `TT_SIGNED` should have an upper camel case name\n  --> src/token.rs:80:1\n   |\n80 | TT_SIGNED,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtSigned`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 81,
+        "message": "variant `TT_STRUCT` should have an upper camel case name",
+        "rendered": "warning: variant `TT_STRUCT` should have an upper camel case name\n  --> src/token.rs:81:1\n   |\n81 | TT_STRUCT,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtStruct`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 82,
+        "message": "variant `TT_SIZEOF` should have an upper camel case name",
+        "rendered": "warning: variant `TT_SIZEOF` should have an upper camel case name\n  --> src/token.rs:82:1\n   |\n82 | TT_SIZEOF,\n   | ^^^^^^^^^ help: convert the identifier to upper camel case: `TtSizeof`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 83,
+        "message": "variant `TT_TYPEDEF` should have an upper camel case name",
+        "rendered": "warning: variant `TT_TYPEDEF` should have an upper camel case name\n  --> src/token.rs:83:1\n   |\n83 | TT_TYPEDEF,\n   | ^^^^^^^^^^ help: convert the identifier to upper camel case: `TtTypedef`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 84,
+        "message": "variant `TT_UNSIGNED` should have an upper camel case name",
+        "rendered": "warning: variant `TT_UNSIGNED` should have an upper camel case name\n  --> src/token.rs:84:1\n   |\n84 | TT_UNSIGNED,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtUnsigned`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 85,
+        "message": "variant `TT_UNION` should have an upper camel case name",
+        "rendered": "warning: variant `TT_UNION` should have an upper camel case name\n  --> src/token.rs:85:1\n   |\n85 | TT_UNION,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtUnion`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 86,
+        "message": "variant `TT_VOID` should have an upper camel case name",
+        "rendered": "warning: variant `TT_VOID` should have an upper camel case name\n  --> src/token.rs:86:1\n   |\n86 | TT_VOID,\n   | ^^^^^^^ help: convert the identifier to upper camel case: `TtVoid`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 87,
+        "message": "variant `TT_VOLATILE` should have an upper camel case name",
+        "rendered": "warning: variant `TT_VOLATILE` should have an upper camel case name\n  --> src/token.rs:87:1\n   |\n87 | TT_VOLATILE,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `TtVolatile`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/token.rs",
+        "line": 88,
+        "message": "variant `TT_WHILE` should have an upper camel case name",
+        "rendered": "warning: variant `TT_WHILE` should have an upper camel case name\n  --> src/token.rs:88:1\n   |\n88 | TT_WHILE,\n   | ^^^^^^^^ help: convert the identifier to upper camel case: `TtWhile`"
+      },
+      {
+        "lint": "unused_imports",
+        "file": "src/hashmap.rs",
+        "line": 2,
+        "message": "unused import: `std::fmt`",
+        "rendered": "warning: unused import: `std::fmt`\n --> src/hashmap.rs:2:5\n  |\n2 | use std::fmt;\n  |     ^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/cst.rs",
+        "line": 5,
+        "message": "variant `NT_STMT` should have an upper camel case name",
+        "rendered": "warning: variant `NT_STMT` should have an upper camel case name\n --> src/cst.rs:5:1\n  |\n5 | NT_STMT,\n  | ^^^^^^^ help: convert the identifier to upper camel case: `NtStmt`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/cst.rs",
+        "line": 6,
+        "message": "variant `NT_EXPR` should have an upper camel case name",
+        "rendered": "warning: variant `NT_EXPR` should have an upper camel case name\n --> src/cst.rs:6:1\n  |\n6 | NT_EXPR,\n  | ^^^^^^^ help: convert the identifier to upper camel case: `NtExpr`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/cst.rs",
+        "line": 7,
+        "message": "variant `NT_BLOCK_STMT` should have an upper camel case name",
+        "rendered": "warning: variant `NT_BLOCK_STMT` should have an upper camel case name\n --> src/cst.rs:7:1\n  |\n7 | NT_BLOCK_STMT,\n  | ^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `NtBlockStmt`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/cst.rs",
+        "line": 8,
+        "message": "variant `NT_RETURN_STMT` should have an upper camel case name",
+        "rendered": "warning: variant `NT_RETURN_STMT` should have an upper camel case name\n --> src/cst.rs:8:1\n  |\n8 | NT_RETURN_STMT,\n  | ^^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `NtReturnStmt`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/cst.rs",
+        "line": 9,
+        "message": "variant `NT_FUNCDECL` should have an upper camel case name",
+        "rendered": "warning: variant `NT_FUNCDECL` should have an upper camel case name\n --> src/cst.rs:9:1\n  |\n9 | NT_FUNCDECL,\n  | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `NtFuncdecl`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/cst.rs",
+        "line": 10,
+        "message": "variant `NT_FUNCCALL` should have an upper camel case name",
+        "rendered": "warning: variant `NT_FUNCCALL` should have an upper camel case name\n  --> src/cst.rs:10:1\n   |\n10 | NT_FUNCCALL,\n   | ^^^^^^^^^^^ help: convert the identifier to upper camel case: `NtFunccall`"
+      },
+      {
+        "lint": "non_camel_case_types",
+        "file": "src/cst.rs",
+        "line": 11,
+        "message": "variant `NT_LITERAL` should have an upper camel case name",
+        "rendered": "warning: variant `NT_LITERAL` should have an upper camel case name\n  --> src/cst.rs:11:1\n   |\n11 | NT_LITERAL,\n   | ^^^^^^^^^^ help: convert the identifier to upper camel case: `NtLiteral`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 18,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:18:22\n   |\n18 | pub fn lexer_getchar(l: &mut Lexer) -> i32 {\n   |                      ^ help: if this is intentional, prefix it with an underscore: `_l`\n   |\n   = note: `#[warn(unused_variables)]` on by default"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 22,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:22:17\n   |\n22 | pub fn real_lex(l: &mut Lexer, t: &mut Token) -> i32 {\n   |                 ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 22,
+        "message": "unused variable: `t`",
+        "rendered": "warning: unused variable: `t`\n  --> src/lex.rs:22:32\n   |\n22 | pub fn real_lex(l: &mut Lexer, t: &mut Token) -> i32 {\n   |                                ^ help: if this is intentional, prefix it with an underscore: `_t`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 26,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:26:24\n   |\n26 | pub fn lexer_ungetchar(l: &mut Lexer) -> i32 {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 30,
+        "message": "unused variable: `contents`",
+        "rendered": "warning: unused variable: `contents`\n  --> src/lex.rs:30:25\n   |\n30 | pub fn ttype_many_chars(contents: &str) -> TokenType {\n   |                         ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_contents`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 38,
+        "message": "unused variable: `c`",
+        "rendered": "warning: unused variable: `c`\n  --> src/lex.rs:38:23\n   |\n38 | pub fn ttype_one_char(c: char) -> TokenType {\n   |                       ^ help: if this is intentional, prefix it with an underscore: `_c`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 42,
+        "message": "unused variable: `tt`",
+        "rendered": "warning: unused variable: `tt`\n  --> src/lex.rs:42:19\n   |\n42 | pub fn ttype_name(tt: TokenType) -> String {\n   |                   ^^ help: if this is intentional, prefix it with an underscore: `_tt`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 46,
+        "message": "unused variable: `op`",
+        "rendered": "warning: unused variable: `op`\n  --> src/lex.rs:46:32\n   |\n46 | pub fn valid_operator_sequence(op: &str) -> i32 {\n   |                                ^^ help: if this is intentional, prefix it with an underscore: `_op`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 50,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:50:12\n   |\n50 | pub fn lex(l: &mut Lexer, token: &mut Token) -> i32 {\n   |            ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 50,
+        "message": "unused variable: `token`",
+        "rendered": "warning: unused variable: `token`\n  --> src/lex.rs:50:27\n   |\n50 | pub fn lex(l: &mut Lexer, token: &mut Token) -> i32 {\n   |                           ^^^^^ help: if this is intentional, prefix it with an underscore: `_token`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 58,
+        "message": "unused variable: `c`",
+        "rendered": "warning: unused variable: `c`\n  --> src/lex.rs:58:24\n   |\n58 | pub fn starts_operator(c: char) -> i32 {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_c`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 66,
+        "message": "unused variable: `contents`",
+        "rendered": "warning: unused variable: `contents`\n  --> src/lex.rs:66:26\n   |\n66 | pub fn ttype_from_string(contents: &str) -> TokenType {\n   |                          ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_contents`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 70,
+        "message": "unused variable: `c`",
+        "rendered": "warning: unused variable: `c`\n  --> src/lex.rs:70:18\n   |\n70 | pub fn in_string(c: char, s: &str) -> i32 {\n   |                  ^ help: if this is intentional, prefix it with an underscore: `_c`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 70,
+        "message": "unused variable: `s`",
+        "rendered": "warning: unused variable: `s`\n  --> src/lex.rs:70:27\n   |\n70 | pub fn in_string(c: char, s: &str) -> i32 {\n   |                           ^ help: if this is intentional, prefix it with an underscore: `_s`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 78,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:78:22\n   |\n78 | pub fn skip_to_token(l: &mut Lexer) -> i32 {\n   |                      ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 82,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/lex.rs:82:14\n   |\n82 | pub fn unlex(l: &mut Lexer, t: &Token) -> i32 {\n   |              ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 82,
+        "message": "unused variable: `t`",
+        "rendered": "warning: unused variable: `t`\n  --> src/lex.rs:82:29\n   |\n82 | pub fn unlex(l: &mut Lexer, t: &Token) -> i32 {\n   |                             ^ help: if this is intentional, prefix it with an underscore: `_t`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/lex.rs",
+        "line": 86,
+        "message": "unused variable: `c`",
+        "rendered": "warning: unused variable: `c`\n  --> src/lex.rs:86:36\n   |\n86 | pub fn is_valid_numeric_or_id_char(c: char) -> i32 {\n   |                                    ^ help: if this is intentional, prefix it with an underscore: `_c`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/codegen.rs",
+        "line": 13,
+        "message": "unused variable: `op`",
+        "rendered": "warning: unused variable: `op`\n  --> src/codegen.rs:13:27\n   |\n13 | pub fn op_on_rax_with_rdi(op: Op) -> String {\n   |                           ^^ help: if this is intentional, prefix it with an underscore: `_op`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/codegen.rs",
+        "line": 17,
+        "message": "unused variable: `val`",
+        "rendered": "warning: unused variable: `val`\n  --> src/codegen.rs:17:25\n   |\n17 | pub fn init_int_literal(val: i32) -> String {\n   |                         ^^^ help: if this is intentional, prefix it with an underscore: `_val`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/codegen.rs",
+        "line": 45,
+        "message": "unused variable: `val`",
+        "rendered": "warning: unused variable: `val`\n  --> src/codegen.rs:45:31\n   |\n45 | pub fn end_main_custom_return(val: i32) -> String {\n   |                               ^^^ help: if this is intentional, prefix it with an underscore: `_val`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 20,
+        "message": "unused variable: `cap`",
+        "rendered": "warning: unused variable: `cap`\n  --> src/hashmap.rs:20:23\n   |\n20 | pub fn create_hashmap(cap: i32) -> Hashmap {\n   |                       ^^^ help: if this is intentional, prefix it with an underscore: `_cap`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 24,
+        "message": "unused variable: `h`",
+        "rendered": "warning: unused variable: `h`\n  --> src/hashmap.rs:24:19\n   |\n24 | pub fn hm_get<'a>(h: &'a Hashmap, key: &'a str) -> Option<&'a BucketNode> {\n   |                   ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 24,
+        "message": "unused variable: `key`",
+        "rendered": "warning: unused variable: `key`\n  --> src/hashmap.rs:24:35\n   |\n24 | pub fn hm_get<'a>(h: &'a Hashmap, key: &'a str) -> Option<&'a BucketNode> {\n   |                                   ^^^ help: if this is intentional, prefix it with an underscore: `_key`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 28,
+        "message": "unused variable: `h`",
+        "rendered": "warning: unused variable: `h`\n  --> src/hashmap.rs:28:15\n   |\n28 | pub fn hm_set(h: &mut Hashmap, key: &str, value: Box<dyn Any>) -> i32 {\n   |               ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 28,
+        "message": "unused variable: `key`",
+        "rendered": "warning: unused variable: `key`\n  --> src/hashmap.rs:28:32\n   |\n28 | pub fn hm_set(h: &mut Hashmap, key: &str, value: Box<dyn Any>) -> i32 {\n   |                                ^^^ help: if this is intentional, prefix it with an underscore: `_key`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 28,
+        "message": "unused variable: `value`",
+        "rendered": "warning: unused variable: `value`\n  --> src/hashmap.rs:28:43\n   |\n28 | pub fn hm_set(h: &mut Hashmap, key: &str, value: Box<dyn Any>) -> i32 {\n   |                                           ^^^^^ help: if this is intentional, prefix it with an underscore: `_value`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 36,
+        "message": "unused variable: `h`",
+        "rendered": "warning: unused variable: `h`\n  --> src/hashmap.rs:36:19\n   |\n36 | pub fn double_cap(h: &mut Hashmap) {\n   |                   ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 40,
+        "message": "unused variable: `value`",
+        "rendered": "warning: unused variable: `value`\n  --> src/hashmap.rs:40:14\n   |\n40 | pub fn fnva1(value: &str) -> u32 {\n   |              ^^^^^ help: if this is intentional, prefix it with an underscore: `_value`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 48,
+        "message": "unused variable: `h`",
+        "rendered": "warning: unused variable: `h`\n  --> src/hashmap.rs:48:24\n   |\n48 | pub fn destroy_hashmap(h: &mut Hashmap) {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 60,
+        "message": "unused variable: `a`",
+        "rendered": "warning: unused variable: `a`\n  --> src/hashmap.rs:60:18\n   |\n60 | pub fn equal_key(a: &str, b: &str) -> bool {\n   |                  ^ help: if this is intentional, prefix it with an underscore: `_a`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/hashmap.rs",
+        "line": 60,
+        "message": "unused variable: `b`",
+        "rendered": "warning: unused variable: `b`\n  --> src/hashmap.rs:60:27\n   |\n60 | pub fn equal_key(a: &str, b: &str) -> bool {\n   |                           ^ help: if this is intentional, prefix it with an underscore: `_b`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 4,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n --> src/parse.rs:4:23\n  |\n4 | pub fn parse_funcdecl(l: &mut Lexer, fd: &mut FunctionDeclaration) -> i32 {\n  |                       ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 4,
+        "message": "unused variable: `fd`",
+        "rendered": "warning: unused variable: `fd`\n --> src/parse.rs:4:38\n  |\n4 | pub fn parse_funcdecl(l: &mut Lexer, fd: &mut FunctionDeclaration) -> i32 {\n  |                                      ^^ help: if this is intentional, prefix it with an underscore: `_fd`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 8,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n --> src/parse.rs:8:17\n  |\n8 | pub fn make_cst(l: &mut Lexer, tree: &mut ConcreteFileTree) -> i32 {\n  |                 ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 8,
+        "message": "unused variable: `tree`",
+        "rendered": "warning: unused variable: `tree`\n --> src/parse.rs:8:32\n  |\n8 | pub fn make_cst(l: &mut Lexer, tree: &mut ConcreteFileTree) -> i32 {\n  |                                ^^^^ help: if this is intentional, prefix it with an underscore: `_tree`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 12,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/parse.rs:12:19\n   |\n12 | pub fn parse_expr(l: &mut Lexer, ex: &mut Expression) -> i32 {\n   |                   ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 12,
+        "message": "unused variable: `ex`",
+        "rendered": "warning: unused variable: `ex`\n  --> src/parse.rs:12:34\n   |\n12 | pub fn parse_expr(l: &mut Lexer, ex: &mut Expression) -> i32 {\n   |                                  ^^ help: if this is intentional, prefix it with an underscore: `_ex`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 16,
+        "message": "unused variable: `filename`",
+        "rendered": "warning: unused variable: `filename`\n  --> src/parse.rs:16:14\n   |\n16 | pub fn parse(filename: &str) -> i32 {\n   |              ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_filename`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 24,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/parse.rs:24:24\n   |\n24 | pub fn parse_blockstmt(l: &mut Lexer, bs: &mut BlockStatement) -> i32 {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 24,
+        "message": "unused variable: `bs`",
+        "rendered": "warning: unused variable: `bs`\n  --> src/parse.rs:24:39\n   |\n24 | pub fn parse_blockstmt(l: &mut Lexer, bs: &mut BlockStatement) -> i32 {\n   |                                       ^^ help: if this is intentional, prefix it with an underscore: `_bs`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 28,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/parse.rs:28:23\n   |\n28 | pub fn parse_funccall(l: &mut Lexer, ex: &mut Expression) -> i32 {\n   |                       ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/parse.rs",
+        "line": 28,
+        "message": "unused variable: `ex`",
+        "rendered": "warning: unused variable: `ex`\n  --> src/parse.rs:28:38\n   |\n28 | pub fn parse_funccall(l: &mut Lexer, ex: &mut Expression) -> i32 {\n   |                                      ^^ help: if this is intentional, prefix it with an underscore: `_ex`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 21,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:21:21\n   |\n21 | pub fn lget_element(l: &mut List, index: i32) -> Option<&mut Box<dyn Any>> {\n   |                     ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 21,
+        "message": "unused variable: `index`",
+        "rendered": "warning: unused variable: `index`\n  --> src/list.rs:21:35\n   |\n21 | pub fn lget_element(l: &mut List, index: i32) -> Option<&mut Box<dyn Any>> {\n   |                                   ^^^^^ help: if this is intentional, prefix it with an underscore: `_index`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 25,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:25:21\n   |\n25 | pub fn destroy_list(l: &mut List) -> i32 {\n   |                     ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 29,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:29:21\n   |\n29 | pub fn ladd_element(l: &mut List, element: Box<dyn Any>) -> i32 {\n   |                     ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 29,
+        "message": "unused variable: `element`",
+        "rendered": "warning: unused variable: `element`\n  --> src/list.rs:29:35\n   |\n29 | pub fn ladd_element(l: &mut List, element: Box<dyn Any>) -> i32 {\n   |                                   ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_element`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 33,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:33:18\n   |\n33 | pub fn new_block(l: &mut List) -> Box<ListBlock> {\n   |                  ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 37,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:37:17\n   |\n37 | pub fn literate(l: &mut List, func: fn(&mut Box<dyn Any>) -> i32) -> i32 {\n   |                 ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 37,
+        "message": "unused variable: `func`",
+        "rendered": "warning: unused variable: `func`\n  --> src/list.rs:37:31\n   |\n37 | pub fn literate(l: &mut List, func: fn(&mut Box<dyn Any>) -> i32) -> i32 {\n   |                               ^^^^ help: if this is intentional, prefix it with an underscore: `_func`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 41,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:41:20\n   |\n41 | pub fn lfind_index(l: &mut List, lb: &mut Option<Box<ListBlock>>, i: &mut i32) -> i32 {\n   |                    ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 41,
+        "message": "unused variable: `lb`",
+        "rendered": "warning: unused variable: `lb`\n  --> src/list.rs:41:34\n   |\n41 | pub fn lfind_index(l: &mut List, lb: &mut Option<Box<ListBlock>>, i: &mut i32) -> i32 {\n   |                                  ^^ help: if this is intentional, prefix it with an underscore: `_lb`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 41,
+        "message": "unused variable: `i`",
+        "rendered": "warning: unused variable: `i`\n  --> src/list.rs:41:67\n   |\n41 | pub fn lfind_index(l: &mut List, lb: &mut Option<Box<ListBlock>>, i: &mut i32) -> i32 {\n   |                                                                   ^ help: if this is intentional, prefix it with an underscore: `_i`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 45,
+        "message": "unused variable: `blocksize`",
+        "rendered": "warning: unused variable: `blocksize`\n  --> src/list.rs:45:20\n   |\n45 | pub fn create_list(blocksize: i32) -> List {\n   |                    ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_blocksize`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 49,
+        "message": "unused variable: `l`",
+        "rendered": "warning: unused variable: `l`\n  --> src/list.rs:49:21\n   |\n49 | pub fn lset_element(l: &mut List, index: i32, value: Box<dyn Any>) -> i32 {\n   |                     ^ help: if this is intentional, prefix it with an underscore: `_l`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 49,
+        "message": "unused variable: `index`",
+        "rendered": "warning: unused variable: `index`\n  --> src/list.rs:49:35\n   |\n49 | pub fn lset_element(l: &mut List, index: i32, value: Box<dyn Any>) -> i32 {\n   |                                   ^^^^^ help: if this is intentional, prefix it with an underscore: `_index`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/list.rs",
+        "line": 49,
+        "message": "unused variable: `value`",
+        "rendered": "warning: unused variable: `value`\n  --> src/list.rs:49:47\n   |\n49 | pub fn lset_element(l: &mut List, index: i32, value: Box<dyn Any>) -> i32 {\n   |                                               ^^^^^ help: if this is intentional, prefix it with an underscore: `_value`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src/main.rs",
+        "line": 6,
+        "message": "unused variable: `filename`",
+        "rendered": "warning: unused variable: `filename`\n --> src/main.rs:6:19\n  |\n6 | pub fn lexer_dump(filename: &str) -> i32 {\n  |                   ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_filename`\n  |\n  = note: `#[warn(unused_variables)]` on by default"
+      }
+    ],
+    "total_all_files": 4
+  },
+  "safety": {
+    "tool": "newmetrics",
+    "ok": true,
+    "metrics": {
+      "pointer_arithmetic": 0,
+      "unsafe_lines": 0,
+      "unsafe_calls": 0,
+      "unsafe_casts": 0,
+      "total_spans": 21062,
+      "raw_pointer_dereferences": 0,
+      "raw_pointer_declarations": 0,
+      "unsafe_ratio": 0.0
+    },
+    "lexical": {
+      "unimplemented": 56,
+      "unsafe_keyword": 0,
+      "raw_pointer_casts": 0,
+      "transmute": 0,
+      "ffi": 0,
+      "pointer_ops": 0,
+      "clippy_allow": 0,
+      "unwrap_expect_panic": 0,
+      "locations": {
+        "unimplemented": [
+          "src/codegen.rs:14: unimplemented!()",
+          "src/codegen.rs:18: unimplemented!()",
+          "src/codegen.rs:22: unimplemented!()",
+          "src/codegen.rs:26: unimplemented!()",
+          "src/codegen.rs:30: unimplemented!()",
+          "src/codegen.rs:34: unimplemented!()",
+          "src/codegen.rs:38: unimplemented!()",
+          "src/codegen.rs:42: unimplemented!()",
+          "src/codegen.rs:46: unimplemented!()",
+          "src/codegen.rs:50: unimplemented!()",
+          "src/hashmap.rs:21: unimplemented!()",
+          "src/hashmap.rs:25: unimplemented!()",
+          "src/hashmap.rs:29: unimplemented!()",
+          "src/hashmap.rs:33: unimplemented!()",
+          "src/hashmap.rs:37: unimplemented!()",
+          "src/hashmap.rs:41: unimplemented!()",
+          "src/hashmap.rs:45: unimplemented!()",
+          "src/hashmap.rs:49: unimplemented!()",
+          "src/hashmap.rs:53: unimplemented!()",
+          "src/hashmap.rs:57: unimplemented!()",
+          "src/hashmap.rs:61: unimplemented!()",
+          "src/lex.rs:19: unimplemented!()",
+          "src/lex.rs:23: unimplemented!()",
+          "src/lex.rs:27: unimplemented!()",
+          "src/lex.rs:31: unimplemented!()"
+        ],
+        "unsafe_keyword": [],
+        "raw_pointer_casts": [],
+        "transmute": [],
+        "ffi": [],
+        "pointer_ops": [],
+        "clippy_allow": [],
+        "unwrap_expect_panic": []
+      }
+    },
+    "primary_total": 0
+  },
+  "interface": [],
+  "static": {
+    "unimplemented": 56,
+    "unsafe_keyword": 0,
+    "raw_pointer_casts": 0,
+    "transmute": 0,
+    "ffi": 0,
+    "pointer_ops": 0,
+    "clippy_allow": 0,
+    "unwrap_expect_panic": 0,
+    "locations": {
+      "unimplemented": [
+        "src/codegen.rs:14: unimplemented!()",
+        "src/codegen.rs:18: unimplemented!()",
+        "src/codegen.rs:22: unimplemented!()",
+        "src/codegen.rs:26: unimplemented!()",
+        "src/codegen.rs:30: unimplemented!()",
+        "src/codegen.rs:34: unimplemented!()",
+        "src/codegen.rs:38: unimplemented!()",
+        "src/codegen.rs:42: unimplemented!()",
+        "src/codegen.rs:46: unimplemented!()",
+        "src/codegen.rs:50: unimplemented!()",
+        "src/hashmap.rs:21: unimplemented!()",
+        "src/hashmap.rs:25: unimplemented!()",
+        "src/hashmap.rs:29: unimplemented!()",
+        "src/hashmap.rs:33: unimplemented!()",
+        "src/hashmap.rs:37: unimplemented!()",
+        "src/hashmap.rs:41: unimplemented!()",
+        "src/hashmap.rs:45: unimplemented!()",
+        "src/hashmap.rs:49: unimplemented!()",
+        "src/hashmap.rs:53: unimplemented!()",
+        "src/hashmap.rs:57: unimplemented!()",
+        "src/hashmap.rs:61: unimplemented!()",
+        "src/lex.rs:19: unimplemented!()",
+        "src/lex.rs:23: unimplemented!()",
+        "src/lex.rs:27: unimplemented!()",
+        "src/lex.rs:31: unimplemented!()"
+      ],
+      "unsafe_keyword": [],
+      "raw_pointer_casts": [],
+      "transmute": [],
+      "ffi": [],
+      "pointer_ops": [],
+      "clippy_allow": [],
+      "unwrap_expect_panic": []
+    }
+  },
+  "protected_restored": [],
+  "own_files": [
+    "src/codegen.rs",
+    "src/cst.rs",
+    "src/hashmap.rs",
+    "src/lex.rs",
+    "src/lib.rs",
+    "src/list.rs",
+    "src/main.rs",
+    "src/out.rs",
+    "src/parse.rs",
+    "src/token.rs"
+  ],
+  "score": [
+    1,
+    0,
+    -56,
+    0,
+    0,
+    0,
+    -152
+  ],
+  "success": false,
+  "headline": "build=OK | tests 0/4 | interface problems=0 | unimplemented!=56 | unsafe[newmetrics] lines=0 calls=0 casts=0 ptr_arith=0 | clippy(own) correctness=0 style=0 complexity=0 perf=0 other=0 | rustc warnings(own)=152",
+  "duration_s": 5.7
+}
