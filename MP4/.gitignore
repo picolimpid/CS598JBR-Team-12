@@ -3,3 +3,7 @@ target/
 __pycache__/
 *.pyc
 trajectories/*/pre_format/
+
+# local secrets (API keys) - never commit
+.env
+*.env

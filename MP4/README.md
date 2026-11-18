@@ -13,8 +13,8 @@ We wrote our own agent controller in Python (`src/`). An LLM, reached through an
 |---|---|
 | Agent framework + version | Custom controller `c2rust-agent` v1.0 (this repo, `MP4/src/`): a ReAct-style tool-calling loop over the OpenAI `/chat/completions` protocol. No third-party agent framework. |
 | Model(s) | Several free options; only one model per run (single agent). **(A) Self-hosted open-weight model on the Colab GPU:** `qwen3:8b` (Qwen3-8B, Q4_K_M) served by **Ollama** through its OpenAI-compatible API, 32k context, `configs/config.ollama.json` (`qwen3:14b` on L4/A100). **(B) Free hosted open-weight model on NVIDIA's API catalog** at `https://integrate.api.nvidia.com/v1` with a free developer key (`configs/config.nvidia.json`, used by `MP4_colab.ipynb`). The free catalog changes (Qwen3-Coder-480B-A35B-Instruct was retired on 2026-06-11 and returned HTTP 410 in our first attempt), so the config sets `model: "auto"`: `--check-llm` lists the endpoint's models, walks `model_preferences` (Qwen3-Coder, Kimi-K2, DeepSeek-V3, GLM, MiniMax, Qwen3, gpt-oss-120b, ...) and keeps the first model that answers a tool-call probe; the notebook then pins it with `--model` for both projects. **(C) Other free hosted endpoints:** `qwen/qwen3-coder:free` on **OpenRouter** (`configs/config.json`), or `gemini-2.5-flash` free tier (`configs/config.gemini.json`). A vLLM variant is in `configs/config.local_vllm.json`. **Model used for the submitted runs:** recorded in `trajectories/project_*/summary.json` (`model`, `endpoint`) and in every `llm_response` event of `trajectory.jsonl`. |
-| Inference settings | temperature 0.2, top_p 0.95, max_tokens 16384 per response (8192 and 30 min timeout for local Ollama), seed 598. For the local Qwen3 model, thinking mode is off (`/no_think` appended to the system prompt, `system_prompt_suffix`): on a T4 it generates about 10 tokens/s and a thinking step took up to 15 minutes in our first run. Other settings: `tool_choice=auto`, native function calling (falls back automatically to a text tool protocol if the endpoint rejects `tools`). Request timeout 600 s, up to 8 retries with exponential backoff on 429/5xx, ≥4 s between requests. |
-| OS / runtime | Google Colab (Ubuntu 22.04, x86_64; T4 GPU runtime for the local Ollama model, CPU runtime is enough for a hosted model), Python 3.10+, `requests`. Rust toolchain **nightly-2025-05-13** (rustup) with clippy, rustfmt, rustc-dev, llvm-tools-preview. |
+| Inference settings | temperature 0.2, top_p 0.95, seed 598, `tool_choice=auto`, native function calling (falls back automatically to a text tool protocol if the endpoint rejects `tools`). max_tokens per response: 8192 for NVIDIA and Ollama, 16384 otherwise. Request timeout 600 s (1800 s for Ollama), up to 8 retries with exponential backoff on 429/5xx; HTTP 401/403/404/410 (bad key, retired model) stop the run at once. Minimum gap between requests: 2 s (NVIDIA), 4 s (OpenRouter), 7 s (Gemini). For the local Qwen3 model, thinking mode is off (`/no_think` appended to the system prompt, `system_prompt_suffix`): on a T4 it generates about 10 tokens/s and a thinking step took up to 15 minutes in our first run. |
+| OS / runtime | Hosted-API runs need no GPU and work on any machine: Windows 11 x86_64 (Rust host `x86_64-pc-windows-gnu`, which ships its own linker, so no Visual Studio is needed) or Google Colab / Ubuntu 22.04 x86_64. The local Ollama model needs a Colab T4 GPU runtime. Python 3.10+ with `requests`. Rust toolchain **nightly-2025-05-13** (rustup) with clippy, rustfmt, rustc-dev, llvm-tools-preview. The machine and toolchain of each run are recorded in `trajectories/project_*/summary.json` (`toolchain`). |
 | Tools available to the agent | `list_files`, `read_file`, `search` (regex) over the C project (`c_src/`, read-only), the benchmark spec (`rust_spec/`, read-only) and the crate; `write_file`, `append_file`, `edit_file` (only `src/**/*.rs`, not tests/manifest); `cargo_check` (`cargo +nightly-2025-05-13 check --all-targets`), `cargo_build`, `cargo_test`, `cargo_clippy` (the exact grading command), `unsafe_metrics` (course `newmetrics` tool + lexical scan), `check_interface` (signature/struct/enum/const conformance against the CRUST-Bench interface), `finish`. Schemas: `configs/tools.json`. |
 | API / usage limits | Local Ollama: no API limits; bounded by the Colab GPU session length (runs are resumable with `--resume`) and T4 speed. NVIDIA API catalog free tier: about 40 requests/min per account, no daily cap; the config keeps ≥2 s between requests, 500 LLM calls and 240 min per project. OpenRouter free models: about 20 requests/min, and 50 requests/day (1000/day once the account has ≥$10 credit). Gemini free tier: per-model RPM/RPD limits. The pipeline throttles requests, retries on 429, and on quota exhaustion saves its state so the run continues with `--resume`. Budgets per project are set in `configs/config.json` (300 LLM calls, 15M tokens, 240 min). *Limits actually hit during our runs:* see `trajectories/project_*/execution.log` (lines `LLM request retry ...` / `STOP: LLM quota ...`). |
 
@@ -59,35 +59,49 @@ MP4/
 
 ## Setup
 
-On Colab (or any Ubuntu machine):
+**API key.** The NVIDIA config reads the key from the environment variable `NVIDIA_API_KEY`. Either export it, or put one line `NVIDIA_API_KEY=nvapi-...` into `MP4/.env`, which `pipeline.py` loads at start-up and which is git-ignored. Keys are never written to the repository or the logs.
+
+Ubuntu / Colab:
 
 ```bash
 git clone https://github.com/picolimpid/CS598JBR-Team-12.git && cd CS598JBR-Team-12
 bash MP4/scripts/setup_colab.sh        # rustup + nightly-2025-05-13 (+clippy, rustfmt, rustc-dev, llvm-tools) + newmetrics + requests
 export PATH="$HOME/.cargo/bin:$PATH"
-# model, option A (free, local GPU, no key):
-bash MP4/scripts/setup_ollama.sh qwen3:8b     # then add --config MP4/configs/config.ollama.json to the commands below
-# model, option B (free hosted, NVIDIA API catalog): export NVIDIA_API_KEY=nvapi-...   (never commit keys)
-# model, option C (free hosted, OpenRouter): export OPENROUTER_API_KEY=...
+# optional, local GPU model instead of an API (option A):
+bash MP4/scripts/setup_ollama.sh qwen3:8b     # then use --config MP4/configs/config.ollama.json
 ```
 
-On Colab, open `MP4/MP4_colab.ipynb` (option B, CPU runtime is enough), add the key as a Colab *Secret* named `NVIDIA_API_KEY` and run the cells. The notebook backs up `translations/` and `trajectories/` to Google Drive every 5 minutes, so a disconnected run can continue with `--resume`.
+Windows 11 (PowerShell):
+
+```powershell
+# rustup with the GNU host toolchain (bundles its own linker, no Visual Studio needed)
+Invoke-WebRequest https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-gnu/rustup-init.exe -OutFile rustup-init.exe
+.\rustup-init.exe -y --default-host x86_64-pc-windows-gnu --default-toolchain none --profile minimal
+rustup toolchain install nightly-2025-05-13 --profile minimal --component clippy,rustfmt,rustc-dev,llvm-tools-preview
+rustup default nightly-2025-05-13
+cargo install --debug --locked --path MP4/newmetrics --force
+python -m pip install "requests>=2.28"
+```
+
+On Windows with Smart App Control enabled, building `newmetrics` fails ("An Application Control policy has blocked this file", os error 4551) because one of its dependencies' build scripts is blocked, while the crates under translation and their test binaries build and run normally. In that case the pipeline falls back to its lexical unsafe scan during the iterations (with `#![forbid(unsafe_code)]` any `unsafe` is a compile error anyway), and the official `cargo newmetrics` numbers for the report come from running `evaluate.py` on Linux/Colab.
+
+On Colab, open `MP4/MP4_colab.ipynb` (CPU runtime is enough), add the key as a Colab *Secret* named `NVIDIA_API_KEY` and run the cells. The notebook backs up `translations/` and `trajectories/` to Google Drive every 5 minutes, so a disconnected run can continue with `--resume`.
 
 ## Run (reproduce)
 
+The submitted runs use the NVIDIA config (`python` instead of `python3` on Windows):
+
 ```bash
-python3 MP4/src/pipeline.py --project 1                  # satc  -> translations/project_1, trajectories/project_1
-python3 MP4/src/pipeline.py --project 2                  # jccc  -> translations/project_2, trajectories/project_2
-python3 MP4/src/pipeline.py --project 2 --resume         # continue after a quota/rate-limit stop
-python3 MP4/src/pipeline.py --project 1 --dry-run        # only build the crate skeleton + baseline checks (no LLM)
-python3 MP4/src/pipeline.py --project 1 --config MP4/configs/config.nvidia.json --check-llm   # pick a model on NVIDIA's API catalog
-python3 MP4/src/pipeline.py --project 1 --config MP4/configs/config.nvidia.json --model <picked id>
-python3 MP4/src/pipeline.py --project 1 --config MP4/configs/config.ollama.json   # local Ollama model on the GPU
-python3 MP4/src/pipeline.py --project 1 --config MP4/configs/config.gemini.json   # other provider
-python3 MP4/src/pipeline.py --project 1 --model <id> --max-iterations 6           # quick overrides
-bash MP4/scripts/run_all.sh                              # both projects + final evaluation
-python3 MP4/src/evaluate.py                              # final tables (build/test/clippy-by-group/newmetrics)
+CFG=MP4/configs/config.nvidia.json
+python3 MP4/src/pipeline.py --project 1 --config $CFG --check-llm        # list + probe models, prints "selected model: <id>"
+python3 MP4/src/pipeline.py --project 1 --config $CFG --dry-run          # crate skeleton + baseline checks only (no LLM)
+python3 MP4/src/pipeline.py --project 1 --config $CFG --model <id>       # satc -> translations/project_1, trajectories/project_1
+python3 MP4/src/pipeline.py --project 2 --config $CFG --model <id>       # jccc -> translations/project_2, trajectories/project_2
+python3 MP4/src/pipeline.py --project 2 --config $CFG --model <id> --resume   # continue after a disconnect or quota stop
+python3 MP4/src/evaluate.py --config $CFG                                # final tables (build/test/clippy-by-group/newmetrics)
 ```
+
+Other variants: `--config MP4/configs/config.ollama.json` (local GPU model), `config.json` (OpenRouter), `config.gemini.json`; `--max-iterations N` and `--model <id>` override the config; `bash MP4/scripts/run_all.sh` runs both projects and the evaluation.
 
 A fresh run (without `--resume`) deletes and recreates `translations/project_N/` and `trajectories/project_N/`.
 
@@ -125,7 +139,7 @@ A fresh run (without `--resume`) deletes and recreates `translations/project_N/`
 Each project run stops at the first of:
 1. **success**: it compiles, all benchmark tests pass, no interface problems, no `unimplemented!`/`todo!`, all primary unsafe metrics are 0, no FFI, and 0 Clippy warnings in the generated files (`success_criteria`);
 2. `max_iterations` = 10 agent iterations (each ≤ 30 LLM steps);
-3. budget exhausted: 300 LLM calls, 15M tokens, or 240 minutes of wall clock (local Ollama config: 600 calls, 40M tokens, 180 minutes);
+3. budget exhausted: 300 LLM calls, 15M tokens, or 240 minutes of wall clock (NVIDIA config: 500 calls; local Ollama config: 600 calls, 40M tokens, 180 minutes);
 4. no progress: 3 consecutive iterations without a better score (`patience`);
 5. repeated request failures: 3 iterations in a row ending in an LLM request error (`max_consecutive_llm_errors`). A single failed request ends only the current iteration; the next one starts from a fresh conversation built from the latest verification report.
 
@@ -141,7 +155,7 @@ On stop, the best-scoring version is what remains in `translations/project_N/`.
 - `snapshots/iter_XX/`: the Rust sources at the end of each iteration; `best/`: the best version.
 - `summary.md` / `summary.json`: final result tables and per-iteration progression; `config_used.json`: the exact configuration; `final_evaluation.json`, `newmetrics_summary.json` from `evaluate.py`.
 
-API keys are never stored. All log text passes through a redactor (`trajectory.py`) as well.
+API keys are never stored in the repository: they come from the environment, a Colab secret, or the git-ignored `MP4/.env`. All log text passes through a redactor (`trajectory.py`) as well.
 
 ## Evaluation
 
