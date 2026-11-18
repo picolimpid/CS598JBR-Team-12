@@ -141,7 +141,8 @@ class Agent:
 
     # ------------------------------------------------------------------ native protocol
     def _handle_native(self, messages: list[dict], resp) -> str:
-        msg = {"role": "assistant", "content": resp.content or None}
+        # some servers (Ollama) reject a null content field, so always send a string
+        msg = {"role": "assistant", "content": resp.content or ""}
         if resp.tool_calls:
             msg["tool_calls"] = resp.tool_calls
         messages.append(msg)

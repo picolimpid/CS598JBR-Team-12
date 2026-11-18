@@ -23,14 +23,15 @@
   },
 
   "budget": {
-    "_comment": "Stopping condition: stop at the first of (a) success_criteria all met, (b) max_iterations agent iterations, (c) max_llm_calls / max_total_tokens / wall_clock_limit_min exhausted, (d) `patience` consecutive iterations without a better score.",
+    "_comment": "Stopping condition: stop at the first of (a) success_criteria all met, (b) max_iterations agent iterations, (c) max_llm_calls / max_total_tokens / wall_clock_limit_min exhausted, (d) `patience` consecutive iterations without a better score, (e) `max_consecutive_llm_errors` iterations in a row ending in an LLM request error (a single error only ends the current iteration).",
     "max_iterations": 10,
     "max_steps_per_iteration": 30,
     "max_nudges": 3,
     "max_llm_calls": 300,
     "max_total_tokens": 15000000,
     "wall_clock_limit_min": 240,
-    "patience": 3
+    "patience": 3,
+    "max_consecutive_llm_errors": 3
   },
 
   "success_criteria": {

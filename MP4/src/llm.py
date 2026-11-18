@@ -85,10 +85,23 @@ class LLMClient:
             time.sleep(wait)
         self._last_request = time.time()
 
+    def _prepare(self, messages: list[dict]) -> list[dict]:
+        """Copy of the conversation as sent on the wire: no null contents, optional system suffix."""
+        out = []
+        suffix = self.cfg.get("system_prompt_suffix") or ""
+        for i, m in enumerate(messages):
+            m = dict(m)
+            if m.get("content") is None:
+                m["content"] = ""
+            if i == 0 and suffix and m.get("role") == "system":
+                m["content"] = m["content"] + "\n\n" + suffix
+            out.append(m)
+        return out
+
     def chat(self, messages: list[dict], tools: list[dict] | None = None) -> LLMResponse:
         body: dict[str, Any] = {
             "model": self.model,
-            "messages": messages,
+            "messages": self._prepare(messages),
             "temperature": self.cfg.get("temperature", 0.2),
             "max_tokens": self.cfg.get("max_tokens", 16384),
         }

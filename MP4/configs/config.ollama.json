@@ -1,5 +1,5 @@
 {
-  "_comment": "Free open-weight model self-hosted on the Colab GPU with Ollama (no API key, no rate limit). Start it with: bash MP4/scripts/setup_ollama.sh qwen3:8b . Fits a free T4 (16 GB) with a 32k context. On an L4/A100 runtime use qwen3:14b (pass --model qwen3:14b). Context limits are smaller than for hosted models, so files are read in smaller chunks and old tool output is compacted earlier.",
+  "_comment": "Free open-weight model self-hosted on the Colab GPU with Ollama (no API key, no rate limit). Start it with: bash MP4/scripts/setup_ollama.sh qwen3:8b . Fits a free T4 (16 GB) with a 32k context. On an L4/A100 runtime use qwen3:14b (pass --model qwen3:14b). Qwen3's thinking mode is switched off with its /no_think soft switch: on a T4 thinking runs at about 10 tokens/s and a single step took up to 15 minutes. Context limits are smaller than for hosted models, so files are read in smaller chunks and old tool output is compacted earlier.",
   "extends": "config.json",
   "llm": {
     "provider": "ollama-local",
@@ -12,12 +12,14 @@
     "request_timeout_s": 1800,
     "max_retries": 3,
     "min_seconds_between_requests": 0,
+    "system_prompt_suffix": "/no_think",
     "extra_headers": {}
   },
   "budget": {
     "max_llm_calls": 600,
     "max_total_tokens": 40000000,
-    "wall_clock_limit_min": 480
+    "wall_clock_limit_min": 180,
+    "max_consecutive_llm_errors": 3
   },
   "context": {
     "max_context_chars": 85000,

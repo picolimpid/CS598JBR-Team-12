@@ -380,20 +380,25 @@ def main() -> int:
         messages = build_messages(ws, cfg, prompts, it, last_v, state["history"])
         traj.event("iteration_start", prompt_chars=sum(len(m["content"]) for m in messages),
                    user_prompt=messages[1]["content"])
-        run, interrupted = None, None
+        run, interrupted, soft_error = None, None, None
         try:
             run = agent.run_iteration(messages, budget["max_steps_per_iteration"])
+            state["llm_errors_in_a_row"] = 0
         except BudgetExceeded as exc:
             interrupted = f"budget exhausted: {exc}"
         except LLMQuotaError as exc:
             interrupted = f"LLM quota/rate limit: {exc}"
         except LLMError as exc:
-            interrupted = f"LLM error: {exc}"
+            # a single bad request ends this iteration only; the next one starts from a fresh conversation
+            state["llm_errors_in_a_row"] = state.get("llm_errors_in_a_row", 0) + 1
+            soft_error = f"LLM error: {exc}"
+            if state["llm_errors_in_a_row"] >= budget.get("max_consecutive_llm_errors", 3):
+                interrupted = f"{soft_error} ({state['llm_errors_in_a_row']} iterations in a row)"
         except KeyboardInterrupt:
             interrupted = "interrupted by user"
         traj.save_messages(it, messages)
         if run is None:
-            run = {"steps": None, "stop_reason": interrupted, "summary": toolbox.finish_summary,
+            run = {"steps": None, "stop_reason": interrupted or soft_error, "summary": toolbox.finish_summary,
                    "files_written": sorted(toolbox.files_written)}
         toolbox.files_written = set()
         traj.log(f"agent iteration ended: {run['stop_reason']} after {run['steps']} steps; summary: {run['summary'][:300]}")
