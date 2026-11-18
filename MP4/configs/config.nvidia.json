@@ -26,6 +26,7 @@
     "temperature": 0.2,
     "top_p": 0.95,
     "max_tokens": 8192,
+    "stream": true,
     "request_timeout_s": 600,
     "max_retries": 8,
     "min_seconds_between_requests": 2,
