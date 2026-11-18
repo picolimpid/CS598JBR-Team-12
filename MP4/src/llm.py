@@ -32,6 +32,15 @@ class ToolsUnsupportedError(LLMError):
     """Raised when the endpoint rejects the `tools` parameter (switch to text mode)."""
 
 
+class LLMFatalError(LLMError):
+    """Raised when retrying cannot help: bad key, or the model does not exist / was retired."""
+
+
+_PING_TOOL = [{"type": "function", "function": {
+    "name": "ping", "description": "Health check. Call it when asked to.",
+    "parameters": {"type": "object", "properties": {}}}}]
+
+
 @dataclass
 class LLMResponse:
     content: str
@@ -137,6 +146,8 @@ class LLMClient:
                 continue
             if resp.status_code in (400, 404, 422) and tools and _mentions_tools(text):
                 raise ToolsUnsupportedError(f"HTTP {resp.status_code}: {text[:800]}")
+            if resp.status_code in (401, 403, 404, 410):
+                raise LLMFatalError(f"HTTP {resp.status_code}: {text[:1500]}")
             if resp.status_code >= 400:
                 raise LLMError(f"HTTP {resp.status_code}: {text[:1500]}")
             try:
@@ -195,6 +206,62 @@ class LLMClient:
         if quota_like:
             raise LLMQuotaError(f"rate limit / quota exhausted after {self.max_retries} retries: {last_err}")
         raise LLMError(f"request failed after {self.max_retries} retries: {last_err}")
+
+    # ------------------------------------------------------------------ model selection
+    def probe(self, model: str) -> tuple[bool, str]:
+        """One tiny request with a tool: does `model` answer and call tools on this endpoint?"""
+        body = {"model": model, "temperature": 0.0, "max_tokens": self.cfg.get("probe_max_tokens", 1024),
+                "messages": [{"role": "user", "content": "Call the ping tool now."}],
+                "tools": _PING_TOOL, "tool_choice": "auto"}
+        for attempt in range(3):
+            self._throttle()
+            try:
+                resp = requests.post(f"{self.base_url}/chat/completions", headers=self._headers(), json=body,
+                                     timeout=min(self.timeout, 180))
+            except requests.RequestException as exc:
+                return False, f"network error: {exc}"
+            if resp.status_code == 429 and attempt < 2:
+                time.sleep(15)
+                continue
+            if resp.status_code >= 400:
+                return False, f"HTTP {resp.status_code}: {resp.text[:200]}"
+            try:
+                msg = (resp.json().get("choices") or [{}])[0].get("message") or {}
+            except ValueError:
+                return False, "invalid JSON"
+            if msg.get("tool_calls"):
+                return True, "ok (native tool call)"
+            return False, f"answered without a tool call: {(msg.get('content') or '')[:120]!r}"
+        return False, "rate limited"
+
+    def resolve_model(self) -> str:
+        """For model "auto": list the endpoint's models and keep the first preferred one that passes probe()."""
+        if self.model != "auto":
+            return self.model
+        try:
+            resp = requests.get(f"{self.base_url}/models", headers=self._headers(), timeout=60)
+            resp.raise_for_status()
+            ids = [m.get("id", "") for m in resp.json().get("data", [])]
+        except (requests.RequestException, ValueError) as exc:
+            raise LLMFatalError(f"could not list models at {self.base_url}/models: {exc}") from exc
+        exclude = re.compile(self.cfg.get("model_exclude", "$^"), re.I)
+        ordered: list[str] = []
+        for pattern in self.cfg.get("model_preferences", []):
+            rx = re.compile(pattern, re.I)
+            # newest version first within a family (ids sort roughly by version)
+            ordered += sorted((i for i in ids if rx.search(i) and not exclude.search(i) and i not in ordered), reverse=True)
+        tried = []
+        for mid in ordered[: self.cfg.get("model_probe_limit", 15)]:
+            ok, why = self.probe(mid)
+            tried.append(f"{mid}: {why}")
+            if self.traj is not None:
+                self.traj.log(f"model probe {mid}: {why}")
+            else:
+                print(f"  probe {mid}: {why}", flush=True)
+            if ok:
+                self.model = mid
+                return mid
+        raise LLMFatalError("no usable model found. Tried:\n  " + "\n  ".join(tried or ["(no listed model matched model_preferences)"]))
 
     def _backoff(self, attempt: int, reason: str, retry_after: str | None = None) -> None:
         if attempt >= self.max_retries:

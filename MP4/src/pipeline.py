@@ -38,7 +38,7 @@ if _CARGO_BIN.is_dir() and str(_CARGO_BIN) not in os.environ.get("PATH", "").spl
     os.environ["PATH"] = str(_CARGO_BIN) + os.pathsep + os.environ.get("PATH", "")
 
 from agent import Agent, BudgetExceeded  # noqa: E402
-from llm import LLMClient, LLMError, LLMQuotaError  # noqa: E402
+from llm import LLMClient, LLMError, LLMFatalError, LLMQuotaError  # noqa: E402
 from rust_checks import (CLIPPY_GROUPS, RustChecker, diag_to_dict, format_feedback, headline,  # noqa: E402
                          is_success, score_tuple)
 from tools import ToolBox  # noqa: E402
@@ -270,6 +270,23 @@ def write_summary(traj: Trajectory, ws: Workspace, cfg: dict, state: dict, final
 
 
 # ====================================================================== main
+def check_llm(llm_cfg: dict) -> int:
+    """--check-llm: resolve the model and send one tool-call probe; prints the result, writes nothing."""
+    try:
+        llm = LLMClient(llm_cfg)
+        if llm.model == "auto":
+            print(f"model is \"auto\": probing models listed at {llm.base_url}/models ...")
+            llm.resolve_model()
+            print(f"selected model: {llm.model}")
+            return 0
+        ok, why = llm.probe(llm.model)
+    except LLMError as exc:
+        print(f"ERROR: {exc}")
+        return 1
+    print(f"{llm.model}: {why}")
+    return 0 if ok else 1
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--project", required=True, help="1, 2, project_1, project_2, or the CRUST-Bench name")
@@ -282,6 +299,8 @@ def main() -> int:
     ap.add_argument("--max-iterations", type=int, help="override budget.max_iterations")
     ap.add_argument("--resume", action="store_true", help="continue from the existing translation + state")
     ap.add_argument("--dry-run", action="store_true", help="set up the crate and run the baseline checks only")
+    ap.add_argument("--check-llm", action="store_true",
+                    help="only check the endpoint: resolve the model (for model \"auto\") and send one tool-call probe")
     args = ap.parse_args()
 
     cfg = load_config(Path(args.config))
@@ -295,6 +314,8 @@ def main() -> int:
         cfg["llm"]["tool_mode"] = args.tool_mode
     if args.max_iterations:
         cfg["budget"]["max_iterations"] = args.max_iterations
+    if args.check_llm:
+        return check_llm(cfg["llm"])
     projects = json.loads(Path(args.projects).read_text(encoding="utf-8"))
     pkey, pcfg = resolve_project(projects, args.project)
 
@@ -342,9 +363,18 @@ def main() -> int:
     tool_schemas = json.loads((MP4_ROOT / cfg["tools"]["schema_file"]).read_text(encoding="utf-8"))
     try:
         llm = LLMClient(cfg["llm"], traj)
+        if llm.model == "auto":
+            # keep the model chosen at the start of this run when resuming
+            if state.get("model"):
+                llm.model = state["model"]
+            else:
+                llm.resolve_model()
     except LLMError as exc:
         traj.log(f"ERROR: {exc}")
         return 1
+    cfg["llm"]["model"] = state["model"] = llm.model
+    traj.log(f"model: {llm.model} via {llm.base_url}")
+    traj.save_json("config_used.json", cfg)
     toolbox = ToolBox(ws, checker, cfg["tools"], traj)
     agent = Agent(llm, toolbox, tool_schemas, cfg, traj, prompts)
     budget = cfg["budget"]
@@ -388,6 +418,8 @@ def main() -> int:
             interrupted = f"budget exhausted: {exc}"
         except LLMQuotaError as exc:
             interrupted = f"LLM quota/rate limit: {exc}"
+        except LLMFatalError as exc:
+            interrupted = f"LLM error (not retryable): {exc}"
         except LLMError as exc:
             # a single bad request ends this iteration only; the next one starts from a fresh conversation
             state["llm_errors_in_a_row"] = state.get("llm_errors_in_a_row", 0) + 1
