@@ -30,6 +30,9 @@ NEWMETRICS_LABELS = {
     "raw_pointer_declarations": "Raw pointer declarations",
 }
 PRIMARY_UNSAFE = ["unsafe_lines", "unsafe_calls", "unsafe_casts", "pointer_arithmetic"]
+# raw pointers are legal in safe Rust (only dereferencing needs `unsafe`), but newmetrics reports them and they
+# usually mean C-style ownership (e.g. a leaked Box::into_raw tail pointer), so they are minimised too
+RAW_POINTER_METRICS = ["raw_pointer_declarations", "raw_pointer_dereferences"]
 
 
 @dataclass
@@ -368,8 +371,10 @@ class RustChecker:
                 res["error"] = truncate(r.output, 3000)
         if res["metrics"] and res["ok"]:
             res["primary_total"] = sum(res["metrics"][k] for k in PRIMARY_UNSAFE)
+            res["raw_pointer_total"] = sum(res["metrics"][k] for k in RAW_POINTER_METRICS)
         else:
             res["primary_total"] = lexical["unsafe_keyword"] + lexical["raw_pointer_casts"] + lexical["transmute"]
+            res["raw_pointer_total"] = lexical["raw_pointer_ops"]
         return res
 
 
@@ -381,6 +386,7 @@ _SCAN_PATTERNS = {
     "transmute": r"\btransmute\b",
     "ffi": r"extern\s+\"C\"|#\[\s*link\b|#\[\s*no_mangle\s*\]|\blibc::",
     "pointer_ops": r"\.(?:offset|byte_add|byte_sub|byte_offset|offset_from)\s*\(|\bptr::(?:read|write|copy|null)",
+    "raw_pointer_ops": r"\bBox::(?:into|from)_raw\b|\.as_(?:mut_)?ptr\s*\(|\bptr::(?:NonNull|null_mut|addr_of)",
     "clippy_allow": r"#!?\[\s*allow\s*\([^\]]*clippy::",
     "unwrap_expect_panic": r"\.unwrap\(\)|\.expect\(|\bpanic!\s*\(",
 }
@@ -619,7 +625,7 @@ def score_tuple(v: dict) -> tuple:
         v["tests"]["passed"],
         -v["static"]["unimplemented"],
         -len(v["interface"]),
-        -v["safety"]["primary_total"],
+        -(v["safety"]["primary_total"] + v["safety"].get("raw_pointer_total", 0)),
         -(len(v["clippy"].get("own", [])) if v["build_ok"] else 999),
         -(len(v["clippy"].get("rustc_own", [])) if v["build_ok"] else 999),
     )
@@ -636,6 +642,8 @@ def is_success(v: dict, criteria: dict) -> bool:
         return False
     if v["safety"]["primary_total"] > criteria.get("max_unsafe_primary", 0):
         return False
+    if v["safety"].get("raw_pointer_total", 0) > criteria.get("max_raw_pointers", 0):
+        return False
     if v["static"]["ffi"]:
         return False
     if len(v["clippy"].get("own", [])) > criteria.get("max_clippy_warnings", 0):
@@ -651,7 +659,8 @@ def headline(v: dict) -> str:
     cl = " ".join(f"{g}={c[g]['own']}" for g in CLIPPY_GROUPS + ["other"] if g in c) or "n/a"
     m = v["safety"].get("metrics") or {}
     um = (f"lines={m.get('unsafe_lines', '?')} calls={m.get('unsafe_calls', '?')} casts={m.get('unsafe_casts', '?')} "
-          f"ptr_arith={m.get('pointer_arithmetic', '?')}") if m else f"lexical={v['safety']['primary_total']}"
+          f"ptr_arith={m.get('pointer_arithmetic', '?')} raw_ptr={v['safety'].get('raw_pointer_total', '?')}") \
+        if m else f"lexical={v['safety']['primary_total']} raw_ptr={v['safety'].get('raw_pointer_total', '?')}"
     return (f"build={'OK' if v['build_ok'] else 'FAIL'} | tests {v['tests']['passed']}/{v['tests']['total']} | "
             f"interface problems={len(v['interface'])} | unimplemented!={v['static']['unimplemented']} | "
             f"unsafe[{v['safety'].get('tool')}] {um} | clippy(own) {cl} | rustc warnings(own)={len(v['clippy'].get('rustc_own', []))}")
@@ -701,14 +710,24 @@ def format_feedback(v: dict, fcfg: dict) -> str:
             focus = focus or "failing tests"
     s = v["safety"]
     lex = s["lexical"]
-    if s["primary_total"] or lex["unsafe_keyword"] or lex["ffi"] or lex["raw_pointer_casts"] or lex["transmute"] or lex["pointer_ops"]:
-        lines = ["## Safety (target: every primary unsafe metric == 0; no unsafe, raw pointers, transmute, FFI)"]
+    raw_excess = s.get("raw_pointer_total", 0) > fcfg.get("max_raw_pointers", 0)
+    if (s["primary_total"] or raw_excess or lex["unsafe_keyword"] or lex["ffi"] or lex["raw_pointer_casts"]
+            or lex["transmute"] or lex["pointer_ops"]):
+        lines = ["## Safety (target: every unsafe metric == 0, including raw pointer declarations/dereferences; "
+                 "no unsafe, raw pointers, transmute, FFI)"]
         if s.get("metrics"):
             lines.append("newmetrics: " + json.dumps({k: s["metrics"][k] for k in s["metrics"]}))
         if s.get("error"):
             lines.append("newmetrics did not run cleanly:\n" + s["error"][:1500])
-        for k in ("unsafe_keyword", "raw_pointer_casts", "transmute", "pointer_ops", "ffi"):
-            if lex[k]:
+        if raw_excess:
+            lines.append(
+                f"Raw pointers: newmetrics counts {s.get('raw_pointer_total')} raw pointer declarations/dereferences "
+                "(e.g. `let p = Box::into_raw(..)`, locals or parameters of type `*mut T` / `*const T`). Replace them "
+                "with safe ownership: `Option<Box<T>>`, indices into a `Vec`, or walking the list to its last element. "
+                "If the interface itself declares a raw-pointer field, keep the field with that exact type but do not "
+                "create raw pointers for it (leave it `None` and find the element safely instead).")
+        for k in ("unsafe_keyword", "raw_pointer_casts", "transmute", "pointer_ops", "raw_pointer_ops", "ffi"):
+            if lex.get(k):
                 lines.append(f"{k}: {lex[k]}\n" + "\n".join(f"  - {x}" for x in lex["locations"][k]))
         parts.append("\n".join(lines))
         if v["build_ok"]:

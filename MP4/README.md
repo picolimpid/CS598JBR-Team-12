@@ -138,7 +138,7 @@ A fresh run (without `--resume`) deletes and recreates `translations/project_N/`
 ### Stopping condition
 
 Each project run stops at the first of:
-1. **success**: it compiles, all benchmark tests pass, no interface problems, no `unimplemented!`/`todo!`, all primary unsafe metrics are 0, no FFI, and 0 Clippy warnings in the generated files (`success_criteria`);
+1. **success**: it compiles, all benchmark tests pass, no interface problems, no `unimplemented!`/`todo!`, all primary unsafe metrics are 0, no more raw pointer declarations/dereferences (newmetrics) than the seeded interface already contains (a raw pointer is legal in safe Rust, but our first jccc run passed every other check while leaking `Box::into_raw` tail pointers, so they are now part of the score and of the success test), no FFI, and 0 Clippy warnings in the generated files (`success_criteria`);
 2. `max_iterations` = 10 agent iterations (each ≤ 30 LLM steps);
 3. budget exhausted: 300 LLM calls, 15M tokens, or 240 minutes of wall clock (NVIDIA config: 500 calls; local Ollama config: 600 calls, 40M tokens, 180 minutes);
 4. no progress: 3 consecutive iterations without a better score (`patience`);

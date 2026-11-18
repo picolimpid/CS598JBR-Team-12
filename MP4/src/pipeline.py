@@ -360,15 +360,23 @@ def main() -> int:
         traj.log("ERROR: cargo +%s not available. Run MP4/scripts/setup_colab.sh first." % cfg["toolchain"])
         return 1
 
+    crit = cfg["success_criteria"]
     if resume:
         state = json.loads(state_path.read_text(encoding="utf-8"))
         traj.iteration = state["next_iteration"] - 1
+        crit["max_raw_pointers"] = cfg["feedback"]["max_raw_pointers"] = cfg["tools"]["max_raw_pointers"] = state.get(
+            "max_raw_pointers", crit.get("max_raw_pointers", 0))
         last_v = verify(ws, checker, cfg, traj, f"resume_{state['next_iteration']:02d}")
     else:
         state = {"next_iteration": 1, "history": [], "best_score": None, "best_iteration": None, "no_improve": 0,
                  "llm_calls": 0, "prompt_tokens": 0, "completion_tokens": 0, "tool_calls": 0,
                  "status": "running", "stop_reason": None, "elapsed_s": 0.0}
         last_v = verify(ws, checker, cfg, traj, "iter_00_baseline")
+        # raw pointers already present in the seeded interface (e.g. a field type it fixes) cannot be removed
+        baseline_raw = last_v["safety"].get("raw_pointer_total", 0)
+        state["max_raw_pointers"] = max(crit.get("max_raw_pointers", 0), baseline_raw)
+        crit["max_raw_pointers"] = cfg["feedback"]["max_raw_pointers"] = cfg["tools"]["max_raw_pointers"] = state["max_raw_pointers"]
+        traj.log(f"raw pointers allowed (count in the seeded interface): {state['max_raw_pointers']}")
         state["history"].append(history_entry(0, last_v, None))
         ws.snapshot(ws.traj_dir / "snapshots" / "iter_00")
         ws.snapshot(ws.traj_dir / "best")
@@ -468,7 +476,7 @@ def main() -> int:
         sync_counters()
         traj.save_json("state.json", state)
         if v["success"]:
-            stop_reason = "success: all tests pass, interface conformant, zero unsafe, Clippy target met"
+            stop_reason = "success: all tests pass, interface conformant, zero unsafe and raw pointers, Clippy target met"
         elif interrupted:
             stop_reason = interrupted
         elif state["no_improve"] >= budget.get("patience", 3):
