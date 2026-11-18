@@ -1,0 +1,9 @@
+{
+  "_comment": "Same as config.nvidia.json, pinned to nvidia/nemotron-3-ultra-550b-a55b. Used for project_2 (jccc): on the free endpoint every other tool-calling model either reasons for thousands of tokens before each reply (mistral-large-4 spent all 8192 output tokens of a code-writing step on hidden reasoning) or ran at 2-9 tokens/s under load, while Nemotron-3-Ultra ran at ~75 tokens/s. /no_think shortens its reasoning; max_tokens leaves room for reasoning plus a ~200-line file part.",
+  "extends": "config.nvidia.json",
+  "llm": {
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "system_prompt_suffix": "/no_think",
+    "max_tokens": 16384
+  }
+}

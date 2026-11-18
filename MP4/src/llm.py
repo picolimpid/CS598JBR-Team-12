@@ -72,6 +72,7 @@ class LLMClient:
         self.max_retries = cfg.get("max_retries", 8)
         self.min_interval = cfg.get("min_seconds_between_requests", 0)
         self._last_request = 0.0
+        self._stream_usage = True
         self.calls = 0
         self.prompt_tokens = 0
         self.completion_tokens = 0
@@ -125,6 +126,13 @@ class LLMClient:
                 body["parallel_tool_calls"] = self.cfg["parallel_tool_calls"]
         body.update(self.cfg.get("extra_body", {}) or {})
 
+        # Streaming keeps bytes flowing while a long answer is generated; hosted gateways otherwise drop
+        # requests that are silent for ~5 minutes (seen as HTTP 504 / "Remote end closed connection").
+        stream = bool(self.cfg.get("stream", False))
+        if stream:
+            body["stream"] = True
+            if self._stream_usage:
+                body["stream_options"] = {"include_usage": True}
         url = f"{self.base_url}/chat/completions"
         last_err = ""
         quota_like = False
@@ -132,13 +140,25 @@ class LLMClient:
             self._throttle()
             t0 = time.time()
             try:
-                resp = requests.post(url, headers=self._headers(), json=body, timeout=self.timeout)
+                # a stream that sends nothing for stream_idle_timeout_s, or runs past stream_max_s, is stalled:
+                # give up on it and retry instead of waiting for the full request timeout
+                resp = requests.post(url, headers=self._headers(), json=body, stream=stream,
+                                     timeout=(30, self.cfg.get("stream_idle_timeout_s", 300)) if stream else self.timeout)
+                if stream and resp.status_code < 400:
+                    data = _read_sse(resp, t0 + self.cfg.get("stream_max_s", 1500))
+                    text = json.dumps(data)[:300]
+                else:
+                    data = None
+                    text = resp.text
             except requests.RequestException as exc:
                 last_err = f"network error: {exc}"
                 self._backoff(attempt, last_err)
                 continue
             latency = time.time() - t0
-            text = resp.text
+            if stream and resp.status_code == 400 and "stream_options" in text and self._stream_usage:
+                self._stream_usage = False  # endpoint does not know stream_options: retry without usage stats
+                body.pop("stream_options", None)
+                continue
             if resp.status_code == 429 or resp.status_code in (408, 500, 502, 503, 504, 520, 522, 524, 529):
                 quota_like = resp.status_code == 429
                 last_err = f"HTTP {resp.status_code}: {text[:500]}"
@@ -150,12 +170,13 @@ class LLMClient:
                 raise LLMFatalError(f"HTTP {resp.status_code}: {text[:1500]}")
             if resp.status_code >= 400:
                 raise LLMError(f"HTTP {resp.status_code}: {text[:1500]}")
-            try:
-                data = resp.json()
-            except ValueError:
-                last_err = f"invalid JSON body: {text[:300]}"
-                self._backoff(attempt, last_err)
-                continue
+            if data is None:
+                try:
+                    data = resp.json()
+                except ValueError:
+                    last_err = f"invalid JSON body: {text[:300]}"
+                    self._backoff(attempt, last_err)
+                    continue
             if data.get("error"):
                 err = data["error"]
                 code = err.get("code") if isinstance(err, dict) else None
@@ -275,6 +296,61 @@ class LLMClient:
         if self.traj is not None:
             self.traj.log(f"LLM request retry {attempt + 1}/{self.max_retries} in {delay:.1f}s ({reason[:200]})")
         time.sleep(delay)
+
+
+def _read_sse(resp, deadline: float | None = None) -> dict:
+    """Assemble an OpenAI-style streamed chat completion (server-sent events) into one non-streamed response."""
+    content, reasoning = [], []
+    calls: dict[int, dict] = {}
+    finish, usage, model, error = None, {}, None, None
+    for raw in resp.iter_lines(decode_unicode=True):
+        if deadline is not None and time.time() > deadline:
+            resp.close()
+            raise requests.exceptions.Timeout("stream exceeded stream_max_s")
+        if not raw or not raw.startswith("data:"):
+            continue
+        payload = raw[5:].strip()
+        if payload == "[DONE]":
+            break
+        try:
+            chunk = json.loads(payload)
+        except ValueError:
+            continue
+        if chunk.get("error"):
+            error = chunk["error"]
+            break
+        model = chunk.get("model") or model
+        if chunk.get("usage"):
+            usage = chunk["usage"]
+        for ch in chunk.get("choices") or []:
+            delta = ch.get("delta") or {}
+            if delta.get("content"):
+                content.append(delta["content"])
+            r = delta.get("reasoning_content") or delta.get("reasoning")
+            if isinstance(r, str):
+                reasoning.append(r)
+            for tc in delta.get("tool_calls") or []:
+                slot = calls.setdefault(tc.get("index", len(calls)), {"id": None, "name": "", "arguments": ""})
+                slot["id"] = tc.get("id") or slot["id"]
+                fn = tc.get("function") or {}
+                if fn.get("name"):
+                    slot["name"] += fn["name"]
+                if fn.get("arguments"):
+                    slot["arguments"] += fn["arguments"] if isinstance(fn["arguments"], str) else json.dumps(fn["arguments"])
+            if ch.get("finish_reason"):
+                finish = ch["finish_reason"]
+    if error is not None:
+        return {"error": error}
+    message: dict[str, Any] = {"role": "assistant", "content": "".join(content)}
+    if reasoning:
+        message["reasoning_content"] = "".join(reasoning)
+    if calls:
+        message["tool_calls"] = [{"id": s["id"], "type": "function",
+                                  "function": {"name": s["name"], "arguments": s["arguments"]}}
+                                 for _, s in sorted(calls.items())]
+    if finish is None and not content and not calls:
+        return {"choices": []}  # stream ended without a single delta: treated as a failed attempt
+    return {"model": model, "usage": usage, "choices": [{"message": message, "finish_reason": finish}]}
 
 
 def _mentions_tools(text: str) -> bool:

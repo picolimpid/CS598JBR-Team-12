@@ -141,8 +141,13 @@ class Agent:
 
     # ------------------------------------------------------------------ native protocol
     def _handle_native(self, messages: list[dict], resp) -> str:
-        # some servers (Ollama) reject a null content field, so always send a string
-        msg = {"role": "assistant", "content": resp.content or ""}
+        # some servers (Ollama) reject a null content field, so always send a string; others (Mistral) reject an
+        # assistant message with neither content nor tool calls (e.g. a reply cut off inside a tool call)
+        content = resp.content or ""
+        if not content and not resp.tool_calls:
+            content = ("(reply cut off by the output-token limit before any tool call was complete)"
+                       if resp.finish_reason == "length" else "(empty reply)")
+        msg = {"role": "assistant", "content": content}
         if resp.tool_calls:
             msg["tool_calls"] = resp.tool_calls
         messages.append(msg)
@@ -172,6 +177,8 @@ class Agent:
 
     def _handle_text(self, messages: list[dict], resp) -> str:
         text = resp.content or ""
+        if not text:
+            text = "(empty reply)"
         messages.append({"role": "assistant", "content": text})
         actions = []
         for m in self._WRITE_BLOCK.finditer(text):
