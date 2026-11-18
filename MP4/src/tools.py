@@ -280,12 +280,14 @@ class ToolBox:
         self.traj.event("tool_feedback", tool="unsafe_metrics", result={k: v for k, v in r.items() if k != "lexical"},
                         lexical={k: v for k, v in r["lexical"].items() if k != "locations"})
         lex = r["lexical"]
-        out = [f"unsafe metrics ({r['tool']}): primary total = {r['primary_total']}"]
+        allowed = self.cfg.get("max_raw_pointers", 0)
+        out = [f"unsafe metrics ({r['tool']}): primary total = {r['primary_total']}, raw pointer declarations + "
+               f"dereferences = {r.get('raw_pointer_total', 0)} (target: {allowed}, the number fixed by the interface)"]
         if r.get("metrics"):
             out.append(json.dumps(r["metrics"], indent=1))
         if r.get("error"):
             out.append("tool error:\n" + r["error"][:2000])
-        for k in ("unsafe_keyword", "raw_pointer_casts", "transmute", "pointer_ops", "ffi"):
+        for k in ("unsafe_keyword", "raw_pointer_casts", "transmute", "pointer_ops", "raw_pointer_ops", "ffi"):
             if lex[k]:
                 out.append(f"{k}: {lex[k]}\n" + "\n".join("  " + x for x in lex["locations"][k]))
         return "\n".join(out)
