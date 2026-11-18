@@ -243,7 +243,17 @@ class RustChecker:
         args = ["test", "--no-fail-fast"]
         if test_filter:
             args += ["--", test_filter]
-        r = self.cargo(*args, timeout_key="test")
+        # Windows Smart App Control sometimes refuses to start a freshly built test binary (os error 4551);
+        # that says nothing about the code, so retry instead of reporting the tests as "not run".
+        retries = int(self.cfg.get("os_block_retries", 4))
+        for attempt in range(retries + 1):
+            r = self.cargo(*args, timeout_key="test")
+            if "os error 4551" not in r.output or attempt == retries:
+                break
+            if self.traj is not None:
+                self.traj.log(f"test binary blocked by the OS application-control policy; retry {attempt + 1}/{retries}")
+            time.sleep(10)
+        os_blocked = "os error 4551" in r.output
         text = r.output
         compiled = "could not compile" not in text and ("test result:" in text or r.returncode == 0 or r.timed_out)
         results = []  # (section_src, name, status)
@@ -273,7 +283,7 @@ class RustChecker:
         failures = re.findall(r"---- (.+?) stdout ----\n(.*?)(?=\n---- |\nfailures:\n|\Z)", text, re.S)
         failed_other = [f"{sec}::{n}" for sec, n, s in results if s == "FAILED"]
         return {
-            "compiled": compiled, "timed_out": r.timed_out, "total": total, "passed": passed,
+            "compiled": compiled, "timed_out": r.timed_out, "os_blocked": os_blocked, "total": total, "passed": passed,
             "benchmark_status": bench_status, "all_results": [{"target": s, "name": n, "status": st} for s, n, st in results],
             "failed": failed_other,
             "failure_details": {name: truncate(body.strip(), 3000) for name, body in failures},
@@ -679,6 +689,10 @@ def format_feedback(v: dict, fcfg: dict) -> str:
             for x in extra:
                 lines.append(f"- (non-benchmark) {x}: FAILED")
             details = "\n\n".join(f"---- {n} ----\n{b}" for n, b in list(t["failure_details"].items())[:lim])
+            if t.get("os_blocked"):
+                details += ("\n[the operating system refused to start some test binaries (application-control policy, "
+                            "os error 4551). Tests marked 'not run' were NOT executed; this is not a failure of your code. "
+                            "Do not change working code because of it; run cargo_test again later.]")
             if t.get("timed_out"):
                 details += "\n[the test run TIMED OUT: look for infinite loops]\n" + t.get("raw_tail", "")
             elif not t.get("compiled", True):

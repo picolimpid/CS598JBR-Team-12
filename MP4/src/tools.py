@@ -252,6 +252,9 @@ class ToolBox:
         lines = [f"cargo test{(' ' + test_name) if test_name else ''}: benchmark tests passed {r['passed']}/{r['total']}"]
         for k, st in r["benchmark_status"].items():
             lines.append(f"  {k}: {st}")
+        if r.get("os_blocked"):
+            lines.append("  NOTE: the OS refused to start some test binaries (os error 4551); 'not run' tests were not "
+                         "executed and say nothing about your code. Run cargo_test again later.")
         if r["timed_out"]:
             lines.append("TIMEOUT: the test run did not finish (infinite loop?).\n" + r["raw_tail"])
         for name, body in list(r["failure_details"].items())[:8]:

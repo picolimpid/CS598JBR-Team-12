@@ -1,0 +1,1381 @@
+{
+  "label": "iter_00_baseline",
+  "build_ok": true,
+  "check": {
+    "errors": [],
+    "warnings_own": [
+      {
+        "level": "warning",
+        "code": "unused_imports",
+        "message": "unused import: `std::f64::MAX`",
+        "file": "src\\satc.rs",
+        "line": 1,
+        "col": 5,
+        "rendered": "warning: unused import: `std::f64::MAX`\n --> src\\satc.rs:1:5\n  |\n1 | use std::f64::MAX;\n  |     ^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default"
+      },
+      {
+        "level": "warning",
+        "code": "unused_imports",
+        "message": "unused import: `std::f64::consts::PI`",
+        "file": "src\\satc.rs",
+        "line": 2,
+        "col": 5,
+        "rendered": "warning: unused import: `std::f64::consts::PI`\n --> src\\satc.rs:2:5\n  |\n2 | use std::f64::consts::PI;\n  |     ^^^^^^^^^^^^^^^^^^^^"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `pos`",
+        "file": "src\\satc.rs",
+        "line": 46,
+        "col": 12,
+        "rendered": "warning: unused variable: `pos`\n  --> src\\satc.rs:46:12\n   |\n46 | pub fn new(pos: [f64; 2], points: Vec<[f64; 2]>) -> Self {\n   |            ^^^ help: if this is intentional, prefix it with an underscore: `_pos`\n   |\n   = note: `#[warn(unused_variables)]` on by default"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `points`",
+        "file": "src\\satc.rs",
+        "line": 46,
+        "col": 27,
+        "rendered": "warning: unused variable: `points`\n  --> src\\satc.rs:46:27\n   |\n46 | pub fn new(pos: [f64; 2], points: Vec<[f64; 2]>) -> Self {\n   |                           ^^^^^^ help: if this is intentional, prefix it with an underscore: `_points`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `pos`",
+        "file": "src\\satc.rs",
+        "line": 51,
+        "col": 12,
+        "rendered": "warning: unused variable: `pos`\n  --> src\\satc.rs:51:12\n   |\n51 | pub fn new(pos: [f64; 2], w: f64, h: f64) -> Self {\n   |            ^^^ help: if this is intentional, prefix it with an underscore: `_pos`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `w`",
+        "file": "src\\satc.rs",
+        "line": 51,
+        "col": 27,
+        "rendered": "warning: unused variable: `w`\n  --> src\\satc.rs:51:27\n   |\n51 | pub fn new(pos: [f64; 2], w: f64, h: f64) -> Self {\n   |                           ^ help: if this is intentional, prefix it with an underscore: `_w`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `h`",
+        "file": "src\\satc.rs",
+        "line": 51,
+        "col": 35,
+        "rendered": "warning: unused variable: `h`\n  --> src\\satc.rs:51:35\n   |\n51 | pub fn new(pos: [f64; 2], w: f64, h: f64) -> Self {\n   |                                   ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `polygon`",
+        "file": "src\\satc.rs",
+        "line": 60,
+        "col": 32,
+        "rendered": "warning: unused variable: `polygon`\n  --> src\\satc.rs:60:32\n   |\n60 | pub fn satc_polygon_set_points(polygon: &mut SatcPolygon, points: Vec<[f64; 2]>) {\n   |                                ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `points`",
+        "file": "src\\satc.rs",
+        "line": 60,
+        "col": 59,
+        "rendered": "warning: unused variable: `points`\n  --> src\\satc.rs:60:59\n   |\n60 | pub fn satc_polygon_set_points(polygon: &mut SatcPolygon, points: Vec<[f64; 2]>) {\n   |                                                           ^^^^^^ help: if this is intentional, prefix it with an underscore: `_points`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `pos`",
+        "file": "src\\satc.rs",
+        "line": 63,
+        "col": 24,
+        "rendered": "warning: unused variable: `pos`\n  --> src\\satc.rs:63:24\n   |\n63 | pub fn satc_box_create(pos: [f64; 2], w: f64, h: f64) -> SatcBox {\n   |                        ^^^ help: if this is intentional, prefix it with an underscore: `_pos`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `w`",
+        "file": "src\\satc.rs",
+        "line": 63,
+        "col": 39,
+        "rendered": "warning: unused variable: `w`\n  --> src\\satc.rs:63:39\n   |\n63 | pub fn satc_box_create(pos: [f64; 2], w: f64, h: f64) -> SatcBox {\n   |                                       ^ help: if this is intentional, prefix it with an underscore: `_w`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `h`",
+        "file": "src\\satc.rs",
+        "line": 63,
+        "col": 47,
+        "rendered": "warning: unused variable: `h`\n  --> src\\satc.rs:63:47\n   |\n63 | pub fn satc_box_create(pos: [f64; 2], w: f64, h: f64) -> SatcBox {\n   |                                               ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `box_`",
+        "file": "src\\satc.rs",
+        "line": 66,
+        "col": 28,
+        "rendered": "warning: unused variable: `box_`\n  --> src\\satc.rs:66:28\n   |\n66 | pub fn satc_box_to_polygon(box_: &SatcBox) -> SatcPolygon {\n   |                            ^^^^ help: if this is intentional, prefix it with an underscore: `_box_`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `a`",
+        "file": "src\\satc.rs",
+        "line": 69,
+        "col": 34,
+        "rendered": "warning: unused variable: `a`\n  --> src\\satc.rs:69:34\n   |\n69 | pub fn satc_test_polygon_polygon(a: &SatcPolygon, b: &SatcPolygon, response: &mut SatcResponse) -> bool {\n   |                                  ^ help: if this is intentional, prefix it with an underscore: `_a`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `b`",
+        "file": "src\\satc.rs",
+        "line": 69,
+        "col": 51,
+        "rendered": "warning: unused variable: `b`\n  --> src\\satc.rs:69:51\n   |\n69 | pub fn satc_test_polygon_polygon(a: &SatcPolygon, b: &SatcPolygon, response: &mut SatcResponse) -> bool {\n   |                                                   ^ help: if this is intentional, prefix it with an underscore: `_b`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `response`",
+        "file": "src\\satc.rs",
+        "line": 69,
+        "col": 68,
+        "rendered": "warning: unused variable: `response`\n  --> src\\satc.rs:69:68\n   |\n69 | pub fn satc_test_polygon_polygon(a: &SatcPolygon, b: &SatcPolygon, response: &mut SatcResponse) -> bool {\n   |                                                                    ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 72,
+        "col": 24,
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:72:24\n   |\n72 | pub fn satc_point_copy(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `q`",
+        "file": "src\\satc.rs",
+        "line": 72,
+        "col": 38,
+        "rendered": "warning: unused variable: `q`\n  --> src\\satc.rs:72:38\n   |\n72 | pub fn satc_point_copy(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                                      ^ help: if this is intentional, prefix it with an underscore: `_q`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 75,
+        "col": 24,
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:75:24\n   |\n75 | pub fn satc_point_perp(p: &[f64; 2]) -> [f64; 2] {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 78,
+        "col": 27,
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:78:27\n   |\n78 | pub fn satc_point_reverse(p: &[f64; 2]) -> [f64; 2] {\n   |                           ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 81,
+        "col": 23,
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:81:23\n   |\n81 | pub fn satc_point_add(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                       ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `q`",
+        "file": "src\\satc.rs",
+        "line": 81,
+        "col": 37,
+        "rendered": "warning: unused variable: `q`\n  --> src\\satc.rs:81:37\n   |\n81 | pub fn satc_point_add(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                                     ^ help: if this is intentional, prefix it with an underscore: `_q`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 84,
+        "col": 23,
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:84:23\n   |\n84 | pub fn satc_point_sub(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                       ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `q`",
+        "file": "src\\satc.rs",
+        "line": 84,
+        "col": 37,
+        "rendered": "warning: unused variable: `q`\n  --> src\\satc.rs:84:37\n   |\n84 | pub fn satc_point_sub(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                                     ^ help: if this is intentional, prefix it with an underscore: `_q`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 87,
+        "col": 28,
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:87:28\n   |\n87 | pub fn satc_point_scale_xy(p: &[f64; 2], x: f64, y: f64) -> [f64; 2] {\n   |                            ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `x`",
+        "file": "src\\satc.rs",
+        "line": 87,
+        "col": 42,
+        "rendered": "warning: unused variable: `x`\n  --> src\\satc.rs:87:42\n   |\n87 | pub fn satc_point_scale_xy(p: &[f64; 2], x: f64, y: f64) -> [f64; 2] {\n   |                                          ^ help: if this is intentional, prefix it with an underscore: `_x`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `y`",
+        "file": "src\\satc.rs",
+        "line": 87,
+        "col": 50,
+        "rendered": "warning: unused variable: `y`\n  --> src\\satc.rs:87:50\n   |\n87 | pub fn satc_point_scale_xy(p: &[f64; 2], x: f64, y: f64) -> [f64; 2] {\n   |                                                  ^ help: if this is intentional, prefix it with an underscore: `_y`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 90,
+        "col": 27,
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:90:27\n   |\n90 | pub fn satc_point_scale_x(p: &[f64; 2], x: f64) -> [f64; 2] {\n   |                           ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `x`",
+        "file": "src\\satc.rs",
+        "line": 90,
+        "col": 41,
+        "rendered": "warning: unused variable: `x`\n  --> src\\satc.rs:90:41\n   |\n90 | pub fn satc_point_scale_x(p: &[f64; 2], x: f64) -> [f64; 2] {\n   |                                         ^ help: if this is intentional, prefix it with an underscore: `_x`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `x`",
+        "file": "src\\satc.rs",
+        "line": 93,
+        "col": 26,
+        "rendered": "warning: unused variable: `x`\n  --> src\\satc.rs:93:26\n   |\n93 | pub fn satc_point_create(x: f64, y: f64) -> [f64; 2] {\n   |                          ^ help: if this is intentional, prefix it with an underscore: `_x`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `y`",
+        "file": "src\\satc.rs",
+        "line": 93,
+        "col": 34,
+        "rendered": "warning: unused variable: `y`\n  --> src\\satc.rs:93:34\n   |\n93 | pub fn satc_point_create(x: f64, y: f64) -> [f64; 2] {\n   |                                  ^ help: if this is intentional, prefix it with an underscore: `_y`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 96,
+        "col": 26,
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:96:26\n   |\n96 | pub fn satc_point_rotate(p: &[f64; 2], angle: f64) -> [f64; 2] {\n   |                          ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `angle`",
+        "file": "src\\satc.rs",
+        "line": 96,
+        "col": 40,
+        "rendered": "warning: unused variable: `angle`\n  --> src\\satc.rs:96:40\n   |\n96 | pub fn satc_point_rotate(p: &[f64; 2], angle: f64) -> [f64; 2] {\n   |                                        ^^^^^ help: if this is intentional, prefix it with an underscore: `_angle`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 99,
+        "col": 29,
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:99:29\n   |\n99 | pub fn satc_point_normalize(p: &[f64; 2]) -> [f64; 2] {\n   |                             ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 102,
+        "col": 27,
+        "rendered": "warning: unused variable: `p`\n   --> src\\satc.rs:102:27\n    |\n102 | pub fn satc_point_project(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n    |                           ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `q`",
+        "file": "src\\satc.rs",
+        "line": 102,
+        "col": 41,
+        "rendered": "warning: unused variable: `q`\n   --> src\\satc.rs:102:41\n    |\n102 | pub fn satc_point_project(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n    |                                         ^ help: if this is intentional, prefix it with an underscore: `_q`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `p`",
+        "file": "src\\satc.rs",
+        "line": 105,
+        "col": 27,
+        "rendered": "warning: unused variable: `p`\n   --> src\\satc.rs:105:27\n    |\n105 | pub fn satc_point_reflect(p: &[f64; 2], axis: &[f64; 2]) -> [f64; 2] {\n    |                           ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `axis`",
+        "file": "src\\satc.rs",
+        "line": 105,
+        "col": 41,
+        "rendered": "warning: unused variable: `axis`\n   --> src\\satc.rs:105:41\n    |\n105 | pub fn satc_point_reflect(p: &[f64; 2], axis: &[f64; 2]) -> [f64; 2] {\n    |                                         ^^^^ help: if this is intentional, prefix it with an underscore: `_axis`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `pos`",
+        "file": "src\\satc.rs",
+        "line": 108,
+        "col": 27,
+        "rendered": "warning: unused variable: `pos`\n   --> src\\satc.rs:108:27\n    |\n108 | pub fn satc_circle_create(pos: [f64; 2], r: f64) -> SatcCircle {\n    |                           ^^^ help: if this is intentional, prefix it with an underscore: `_pos`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `r`",
+        "file": "src\\satc.rs",
+        "line": 108,
+        "col": 42,
+        "rendered": "warning: unused variable: `r`\n   --> src\\satc.rs:108:42\n    |\n108 | pub fn satc_circle_create(pos: [f64; 2], r: f64) -> SatcCircle {\n    |                                          ^ help: if this is intentional, prefix it with an underscore: `_r`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `circle`",
+        "file": "src\\satc.rs",
+        "line": 111,
+        "col": 29,
+        "rendered": "warning: unused variable: `circle`\n   --> src\\satc.rs:111:29\n    |\n111 | pub fn satc_circle_get_aabb(circle: &SatcCircle) -> SatcPolygon {\n    |                             ^^^^^^ help: if this is intentional, prefix it with an underscore: `_circle`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `pos`",
+        "file": "src\\satc.rs",
+        "line": 114,
+        "col": 28,
+        "rendered": "warning: unused variable: `pos`\n   --> src\\satc.rs:114:28\n    |\n114 | pub fn satc_polygon_create(pos: [f64; 2], points: Vec<[f64; 2]>) -> SatcPolygon {\n    |                            ^^^ help: if this is intentional, prefix it with an underscore: `_pos`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `points`",
+        "file": "src\\satc.rs",
+        "line": 114,
+        "col": 43,
+        "rendered": "warning: unused variable: `points`\n   --> src\\satc.rs:114:43\n    |\n114 | pub fn satc_polygon_create(pos: [f64; 2], points: Vec<[f64; 2]>) -> SatcPolygon {\n    |                                           ^^^^^^ help: if this is intentional, prefix it with an underscore: `_points`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `polygon`",
+        "file": "src\\satc.rs",
+        "line": 117,
+        "col": 30,
+        "rendered": "warning: unused variable: `polygon`\n   --> src\\satc.rs:117:30\n    |\n117 | pub fn satc_polygon_get_aabb(polygon: &SatcPolygon) -> SatcPolygon {\n    |                              ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `polygon`",
+        "file": "src\\satc.rs",
+        "line": 120,
+        "col": 34,
+        "rendered": "warning: unused variable: `polygon`\n   --> src\\satc.rs:120:34\n    |\n120 | pub fn satc_polygon_get_centroid(polygon: &SatcPolygon) -> [f64; 2] {\n    |                                  ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `len`",
+        "file": "src\\satc.rs",
+        "line": 126,
+        "col": 31,
+        "rendered": "warning: unused variable: `len`\n   --> src\\satc.rs:126:31\n    |\n126 | pub fn satc_flatten_points_on(len: usize, points: &[[f64; 2]], normal: &[f64; 2], result: &mut [f64; 2]) {\n    |                               ^^^ help: if this is intentional, prefix it with an underscore: `_len`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `points`",
+        "file": "src\\satc.rs",
+        "line": 126,
+        "col": 43,
+        "rendered": "warning: unused variable: `points`\n   --> src\\satc.rs:126:43\n    |\n126 | pub fn satc_flatten_points_on(len: usize, points: &[[f64; 2]], normal: &[f64; 2], result: &mut [f64; 2]) {\n    |                                           ^^^^^^ help: if this is intentional, prefix it with an underscore: `_points`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `normal`",
+        "file": "src\\satc.rs",
+        "line": 126,
+        "col": 64,
+        "rendered": "warning: unused variable: `normal`\n   --> src\\satc.rs:126:64\n    |\n126 | pub fn satc_flatten_points_on(len: usize, points: &[[f64; 2]], normal: &[f64; 2], result: &mut [f64; 2]) {\n    |                                                                ^^^^^^ help: if this is intentional, prefix it with an underscore: `_normal`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `result`",
+        "file": "src\\satc.rs",
+        "line": 126,
+        "col": 83,
+        "rendered": "warning: unused variable: `result`\n   --> src\\satc.rs:126:83\n    |\n126 | pub fn satc_flatten_points_on(len: usize, points: &[[f64; 2]], normal: &[f64; 2], result: &mut [f64; 2]) {\n    |                                                                                   ^^^^^^ help: if this is intentional, prefix it with an underscore: `_result`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `a_pos`",
+        "file": "src\\satc.rs",
+        "line": 130,
+        "col": 1,
+        "rendered": "warning: unused variable: `a_pos`\n   --> src\\satc.rs:130:1\n    |\n130 | a_pos: &[f64; 2],\n    | ^^^^^ help: if this is intentional, prefix it with an underscore: `_a_pos`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `b_pos`",
+        "file": "src\\satc.rs",
+        "line": 131,
+        "col": 1,
+        "rendered": "warning: unused variable: `b_pos`\n   --> src\\satc.rs:131:1\n    |\n131 | b_pos: &[f64; 2],\n    | ^^^^^ help: if this is intentional, prefix it with an underscore: `_b_pos`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `a_len`",
+        "file": "src\\satc.rs",
+        "line": 132,
+        "col": 1,
+        "rendered": "warning: unused variable: `a_len`\n   --> src\\satc.rs:132:1\n    |\n132 | a_len: usize,\n    | ^^^^^ help: if this is intentional, prefix it with an underscore: `_a_len`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `a_points`",
+        "file": "src\\satc.rs",
+        "line": 133,
+        "col": 1,
+        "rendered": "warning: unused variable: `a_points`\n   --> src\\satc.rs:133:1\n    |\n133 | a_points: &[[f64; 2]],\n    | ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_a_points`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `b_len`",
+        "file": "src\\satc.rs",
+        "line": 134,
+        "col": 1,
+        "rendered": "warning: unused variable: `b_len`\n   --> src\\satc.rs:134:1\n    |\n134 | b_len: usize,\n    | ^^^^^ help: if this is intentional, prefix it with an underscore: `_b_len`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `b_points`",
+        "file": "src\\satc.rs",
+        "line": 135,
+        "col": 1,
+        "rendered": "warning: unused variable: `b_points`\n   --> src\\satc.rs:135:1\n    |\n135 | b_points: &[[f64; 2]],\n    | ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_b_points`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `axis`",
+        "file": "src\\satc.rs",
+        "line": 136,
+        "col": 1,
+        "rendered": "warning: unused variable: `axis`\n   --> src\\satc.rs:136:1\n    |\n136 | axis: &[f64; 2],\n    | ^^^^ help: if this is intentional, prefix it with an underscore: `_axis`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `response`",
+        "file": "src\\satc.rs",
+        "line": 137,
+        "col": 1,
+        "rendered": "warning: unused variable: `response`\n   --> src\\satc.rs:137:1\n    |\n137 | response: &mut SatcResponse,\n    | ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `line`",
+        "file": "src\\satc.rs",
+        "line": 141,
+        "col": 28,
+        "rendered": "warning: unused variable: `line`\n   --> src\\satc.rs:141:28\n    |\n141 | pub fn satc_voronoi_region(line: &[f64; 2], point: &[f64; 2]) -> i32 {\n    |                            ^^^^ help: if this is intentional, prefix it with an underscore: `_line`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `point`",
+        "file": "src\\satc.rs",
+        "line": 141,
+        "col": 45,
+        "rendered": "warning: unused variable: `point`\n   --> src\\satc.rs:141:45\n    |\n141 | pub fn satc_voronoi_region(line: &[f64; 2], point: &[f64; 2]) -> i32 {\n    |                                             ^^^^^ help: if this is intentional, prefix it with an underscore: `_point`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `point`",
+        "file": "src\\satc.rs",
+        "line": 144,
+        "col": 29,
+        "rendered": "warning: unused variable: `point`\n   --> src\\satc.rs:144:29\n    |\n144 | pub fn satc_point_in_circle(point: &[f64; 2], circle: &SatcCircle) -> bool {\n    |                             ^^^^^ help: if this is intentional, prefix it with an underscore: `_point`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `circle`",
+        "file": "src\\satc.rs",
+        "line": 144,
+        "col": 47,
+        "rendered": "warning: unused variable: `circle`\n   --> src\\satc.rs:144:47\n    |\n144 | pub fn satc_point_in_circle(point: &[f64; 2], circle: &SatcCircle) -> bool {\n    |                                               ^^^^^^ help: if this is intentional, prefix it with an underscore: `_circle`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `point`",
+        "file": "src\\satc.rs",
+        "line": 147,
+        "col": 30,
+        "rendered": "warning: unused variable: `point`\n   --> src\\satc.rs:147:30\n    |\n147 | pub fn satc_point_in_polygon(point: &[f64; 2], polygon: &SatcPolygon) -> bool {\n    |                              ^^^^^ help: if this is intentional, prefix it with an underscore: `_point`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `polygon`",
+        "file": "src\\satc.rs",
+        "line": 147,
+        "col": 48,
+        "rendered": "warning: unused variable: `polygon`\n   --> src\\satc.rs:147:48\n    |\n147 | pub fn satc_point_in_polygon(point: &[f64; 2], polygon: &SatcPolygon) -> bool {\n    |                                                ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `a`",
+        "file": "src\\satc.rs",
+        "line": 150,
+        "col": 32,
+        "rendered": "warning: unused variable: `a`\n   --> src\\satc.rs:150:32\n    |\n150 | pub fn satc_test_circle_circle(a: &SatcCircle, b: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                ^ help: if this is intentional, prefix it with an underscore: `_a`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `b`",
+        "file": "src\\satc.rs",
+        "line": 150,
+        "col": 48,
+        "rendered": "warning: unused variable: `b`\n   --> src\\satc.rs:150:48\n    |\n150 | pub fn satc_test_circle_circle(a: &SatcCircle, b: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                ^ help: if this is intentional, prefix it with an underscore: `_b`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `response`",
+        "file": "src\\satc.rs",
+        "line": 150,
+        "col": 64,
+        "rendered": "warning: unused variable: `response`\n   --> src\\satc.rs:150:64\n    |\n150 | pub fn satc_test_circle_circle(a: &SatcCircle, b: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                                ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `polygon`",
+        "file": "src\\satc.rs",
+        "line": 153,
+        "col": 33,
+        "rendered": "warning: unused variable: `polygon`\n   --> src\\satc.rs:153:33\n    |\n153 | pub fn satc_test_polygon_circle(polygon: &SatcPolygon, circle: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                 ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `circle`",
+        "file": "src\\satc.rs",
+        "line": 153,
+        "col": 56,
+        "rendered": "warning: unused variable: `circle`\n   --> src\\satc.rs:153:56\n    |\n153 | pub fn satc_test_polygon_circle(polygon: &SatcPolygon, circle: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                        ^^^^^^ help: if this is intentional, prefix it with an underscore: `_circle`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `response`",
+        "file": "src\\satc.rs",
+        "line": 153,
+        "col": 77,
+        "rendered": "warning: unused variable: `response`\n   --> src\\satc.rs:153:77\n    |\n153 | pub fn satc_test_polygon_circle(polygon: &SatcPolygon, circle: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                                             ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `circle`",
+        "file": "src\\satc.rs",
+        "line": 156,
+        "col": 33,
+        "rendered": "warning: unused variable: `circle`\n   --> src\\satc.rs:156:33\n    |\n156 | pub fn satc_test_circle_polygon(circle: &SatcCircle, polygon: &SatcPolygon, response: &mut SatcResponse) -> bool {\n    |                                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_circle`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `polygon`",
+        "file": "src\\satc.rs",
+        "line": 156,
+        "col": 54,
+        "rendered": "warning: unused variable: `polygon`\n   --> src\\satc.rs:156:54\n    |\n156 | pub fn satc_test_circle_polygon(circle: &SatcCircle, polygon: &SatcPolygon, response: &mut SatcResponse) -> bool {\n    |                                                      ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "level": "warning",
+        "code": "unused_variables",
+        "message": "unused variable: `response`",
+        "file": "src\\satc.rs",
+        "line": 156,
+        "col": 77,
+        "rendered": "warning: unused variable: `response`\n   --> src\\satc.rs:156:77\n    |\n156 | pub fn satc_test_circle_polygon(circle: &SatcCircle, polygon: &SatcPolygon, response: &mut SatcResponse) -> bool {\n    |                                                                             ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`"
+      }
+    ]
+  },
+  "build_output_tail": "ix it with an underscore: `_b`\n\nwarning: unused variable: `response`\n   --> src\\satc.rs:150:64\n    |\n150 | pub fn satc_test_circle_circle(a: &SatcCircle, b: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                                ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`\n\nwarning: unused variable: `polygon`\n   --> src\\satc.rs:153:33\n    |\n153 | pub fn satc_test_polygon_circle(polygon: &SatcPolygon, circle: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                 ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`\n\nwarning: unused variable: `circle`\n   --> src\\satc.rs:153:56\n    |\n153 | pub fn satc_test_polygon_circle(polygon: &SatcPolygon, circle: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                        ^^^^^^ help: if this is intentional, prefix it with an underscore: `_circle`\n\nwarning: unused variable: `response`\n   --> src\\satc.rs:153:77\n    |\n153 | pub fn satc_test_polygon_circle(polygon: &SatcPolygon, circle: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                                             ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`\n\nwarning: unused variable: `circle`\n   --> src\\satc.rs:156:33\n    |\n156 | pub fn satc_test_circle_polygon(circle: &SatcCircle, polygon: &SatcPolygon, response: &mut SatcResponse) -> bool {\n    |                                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_circle`\n\nwarning: unused variable: `polygon`\n   --> src\\satc.rs:156:54\n    |\n156 | pub fn satc_test_circle_polygon(circle: &SatcCircle, polygon: &SatcPolygon, response: &mut SatcResponse) -> bool {\n    |                                                      ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`\n\nwarning: unused variable: `response`\n   --> src\\satc.rs:156:77\n    |\n156 | pub fn satc_test_circle_polygon(circle: &SatcCircle, polygon: &SatcPolygon, response: &mut SatcResponse) -> bool {\n    |                                                                             ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`\n\nwarning: `satc` (lib) generated 72 warnings (run `cargo fix --lib -p satc` to apply 2 suggestions)\nwarning: unused import: `satc::satc`\n --> src\\bin\\satc_test.rs:1:5\n  |\n1 | use satc::satc;\n  |     ^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\nwarning: function `satc_nearest_hundredth` is never used\n --> src\\bin\\satc_test.rs:3:4\n  |\n3 | fn satc_nearest_hundredth(n: f64) -> f64 {\n  |    ^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\nwarning: `satc` (bin \"satc_test\") generated 2 warnings (run `cargo fix --bin \"satc_test\"` to apply 1 suggestion)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.25s",
+  "tests": {
+    "compiled": true,
+    "timed_out": false,
+    "total": 4,
+    "passed": 0,
+    "benchmark_status": {
+      "src/bin/satc_test.rs::satc_point_scale_xy_test": "FAILED",
+      "src/bin/satc_test.rs::satc_polygon_get_centroid_test": "FAILED",
+      "src/bin/satc_test.rs::satc_collision_test": "FAILED",
+      "src/bin/satc_test.rs::satc_point_test": "FAILED"
+    },
+    "all_results": [
+      {
+        "target": "",
+        "name": "satc_collision_test",
+        "status": "FAILED"
+      },
+      {
+        "target": "",
+        "name": "satc_polygon_get_centroid_test",
+        "status": "FAILED"
+      },
+      {
+        "target": "",
+        "name": "satc_point_scale_xy_test",
+        "status": "FAILED"
+      },
+      {
+        "target": "",
+        "name": "satc_point_test",
+        "status": "FAILED"
+      }
+    ],
+    "failed": [
+      "::satc_collision_test",
+      "::satc_polygon_get_centroid_test",
+      "::satc_point_scale_xy_test",
+      "::satc_point_test"
+    ],
+    "failure_details": {
+      "satc_collision_test": "thread 'satc_collision_test' panicked at src\\satc.rs:109:1:\nnot implemented",
+      "satc_polygon_get_centroid_test": "thread 'satc_polygon_get_centroid_test' panicked at src\\satc.rs:115:1:\nnot implemented",
+      "satc_point_scale_xy_test": "thread 'satc_point_scale_xy_test' panicked at src\\satc.rs:88:1:\nnot implemented\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace",
+      "satc_point_test": "thread 'satc_point_test' panicked at src\\satc.rs:109:1:\nnot implemented"
+    },
+    "raw_tail": "",
+    "duration_s": 1.88
+  },
+  "clippy": {
+    "ok": true,
+    "by_group": {
+      "correctness": {
+        "own": 0,
+        "protected": 0
+      },
+      "style": {
+        "own": 2,
+        "protected": 0
+      },
+      "complexity": {
+        "own": 1,
+        "protected": 0
+      },
+      "perf": {
+        "own": 0,
+        "protected": 0
+      },
+      "other": {
+        "own": 0,
+        "protected": 0
+      }
+    },
+    "own": [
+      {
+        "group": "style",
+        "lint": "clippy::legacy_numeric_constants",
+        "file": "src\\satc.rs",
+        "line": 1,
+        "message": "importing a legacy numeric constant",
+        "rendered": "warning: importing a legacy numeric constant\n --> src\\satc.rs:1:5\n  |\n1 | use std::f64::MAX;\n  |     ^^^^^^^^^^^^^\n  |\n  = help: remove this import and use the associated constant `f64::MAX` from the primitive type instead\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#legacy_numeric_constants\n  = note: `-W clippy::legacy-numeric-constants` implied by `-W clippy::style`\n  = help: to override `-W clippy::style` add `#[allow(clippy::legacy_numeric_constants)]`"
+      },
+      {
+        "group": "style",
+        "lint": "clippy::new_without_default",
+        "file": "src\\satc.rs",
+        "line": 56,
+        "message": "you should consider adding a `Default` implementation for `SatcResponse`",
+        "rendered": "warning: you should consider adding a `Default` implementation for `SatcResponse`\n  --> src\\satc.rs:56:1\n   |\n56 | / pub fn new() -> Self {\n57 | | unimplemented!()\n58 | | }\n   | |_^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `-W clippy::new-without-default` implied by `-W clippy::style`\n   = help: to override `-W clippy::style` add `#[allow(clippy::new_without_default)]`\nhelp: try adding this\n   |\n55 + impl Default for SatcResponse {\n56 +     fn default() -> Self {\n57 +         Self::new()\n58 +     }\n59 + }\n   |"
+      },
+      {
+        "group": "complexity",
+        "lint": "clippy::too_many_arguments",
+        "file": "src\\satc.rs",
+        "line": 129,
+        "message": "this function has too many arguments (8/7)",
+        "rendered": "warning: this function has too many arguments (8/7)\n   --> src\\satc.rs:129:1\n    |\n129 | / pub fn satc_is_separating_axis(\n130 | | a_pos: &[f64; 2],\n131 | | b_pos: &[f64; 2],\n132 | | a_len: usize,\n...   |\n137 | | response: &mut SatcResponse,\n138 | | ) -> bool {\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n    = note: `-W clippy::too-many-arguments` implied by `-W clippy::complexity`\n    = help: to override `-W clippy::complexity` add `#[allow(clippy::too_many_arguments)]`"
+      }
+    ],
+    "protected": [],
+    "rustc_own": [
+      {
+        "lint": "unused_imports",
+        "file": "src\\satc.rs",
+        "line": 1,
+        "message": "unused import: `std::f64::MAX`",
+        "rendered": "warning: unused import: `std::f64::MAX`\n --> src\\satc.rs:1:5\n  |\n1 | use std::f64::MAX;\n  |     ^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default"
+      },
+      {
+        "lint": "unused_imports",
+        "file": "src\\satc.rs",
+        "line": 2,
+        "message": "unused import: `std::f64::consts::PI`",
+        "rendered": "warning: unused import: `std::f64::consts::PI`\n --> src\\satc.rs:2:5\n  |\n2 | use std::f64::consts::PI;\n  |     ^^^^^^^^^^^^^^^^^^^^"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 46,
+        "message": "unused variable: `pos`",
+        "rendered": "warning: unused variable: `pos`\n  --> src\\satc.rs:46:12\n   |\n46 | pub fn new(pos: [f64; 2], points: Vec<[f64; 2]>) -> Self {\n   |            ^^^ help: if this is intentional, prefix it with an underscore: `_pos`\n   |\n   = note: `#[warn(unused_variables)]` on by default"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 46,
+        "message": "unused variable: `points`",
+        "rendered": "warning: unused variable: `points`\n  --> src\\satc.rs:46:27\n   |\n46 | pub fn new(pos: [f64; 2], points: Vec<[f64; 2]>) -> Self {\n   |                           ^^^^^^ help: if this is intentional, prefix it with an underscore: `_points`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 51,
+        "message": "unused variable: `pos`",
+        "rendered": "warning: unused variable: `pos`\n  --> src\\satc.rs:51:12\n   |\n51 | pub fn new(pos: [f64; 2], w: f64, h: f64) -> Self {\n   |            ^^^ help: if this is intentional, prefix it with an underscore: `_pos`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 51,
+        "message": "unused variable: `w`",
+        "rendered": "warning: unused variable: `w`\n  --> src\\satc.rs:51:27\n   |\n51 | pub fn new(pos: [f64; 2], w: f64, h: f64) -> Self {\n   |                           ^ help: if this is intentional, prefix it with an underscore: `_w`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 51,
+        "message": "unused variable: `h`",
+        "rendered": "warning: unused variable: `h`\n  --> src\\satc.rs:51:35\n   |\n51 | pub fn new(pos: [f64; 2], w: f64, h: f64) -> Self {\n   |                                   ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 60,
+        "message": "unused variable: `polygon`",
+        "rendered": "warning: unused variable: `polygon`\n  --> src\\satc.rs:60:32\n   |\n60 | pub fn satc_polygon_set_points(polygon: &mut SatcPolygon, points: Vec<[f64; 2]>) {\n   |                                ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 60,
+        "message": "unused variable: `points`",
+        "rendered": "warning: unused variable: `points`\n  --> src\\satc.rs:60:59\n   |\n60 | pub fn satc_polygon_set_points(polygon: &mut SatcPolygon, points: Vec<[f64; 2]>) {\n   |                                                           ^^^^^^ help: if this is intentional, prefix it with an underscore: `_points`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 63,
+        "message": "unused variable: `pos`",
+        "rendered": "warning: unused variable: `pos`\n  --> src\\satc.rs:63:24\n   |\n63 | pub fn satc_box_create(pos: [f64; 2], w: f64, h: f64) -> SatcBox {\n   |                        ^^^ help: if this is intentional, prefix it with an underscore: `_pos`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 63,
+        "message": "unused variable: `w`",
+        "rendered": "warning: unused variable: `w`\n  --> src\\satc.rs:63:39\n   |\n63 | pub fn satc_box_create(pos: [f64; 2], w: f64, h: f64) -> SatcBox {\n   |                                       ^ help: if this is intentional, prefix it with an underscore: `_w`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 63,
+        "message": "unused variable: `h`",
+        "rendered": "warning: unused variable: `h`\n  --> src\\satc.rs:63:47\n   |\n63 | pub fn satc_box_create(pos: [f64; 2], w: f64, h: f64) -> SatcBox {\n   |                                               ^ help: if this is intentional, prefix it with an underscore: `_h`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 66,
+        "message": "unused variable: `box_`",
+        "rendered": "warning: unused variable: `box_`\n  --> src\\satc.rs:66:28\n   |\n66 | pub fn satc_box_to_polygon(box_: &SatcBox) -> SatcPolygon {\n   |                            ^^^^ help: if this is intentional, prefix it with an underscore: `_box_`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 69,
+        "message": "unused variable: `a`",
+        "rendered": "warning: unused variable: `a`\n  --> src\\satc.rs:69:34\n   |\n69 | pub fn satc_test_polygon_polygon(a: &SatcPolygon, b: &SatcPolygon, response: &mut SatcResponse) -> bool {\n   |                                  ^ help: if this is intentional, prefix it with an underscore: `_a`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 69,
+        "message": "unused variable: `b`",
+        "rendered": "warning: unused variable: `b`\n  --> src\\satc.rs:69:51\n   |\n69 | pub fn satc_test_polygon_polygon(a: &SatcPolygon, b: &SatcPolygon, response: &mut SatcResponse) -> bool {\n   |                                                   ^ help: if this is intentional, prefix it with an underscore: `_b`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 69,
+        "message": "unused variable: `response`",
+        "rendered": "warning: unused variable: `response`\n  --> src\\satc.rs:69:68\n   |\n69 | pub fn satc_test_polygon_polygon(a: &SatcPolygon, b: &SatcPolygon, response: &mut SatcResponse) -> bool {\n   |                                                                    ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 72,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:72:24\n   |\n72 | pub fn satc_point_copy(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 72,
+        "message": "unused variable: `q`",
+        "rendered": "warning: unused variable: `q`\n  --> src\\satc.rs:72:38\n   |\n72 | pub fn satc_point_copy(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                                      ^ help: if this is intentional, prefix it with an underscore: `_q`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 75,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:75:24\n   |\n75 | pub fn satc_point_perp(p: &[f64; 2]) -> [f64; 2] {\n   |                        ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 78,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:78:27\n   |\n78 | pub fn satc_point_reverse(p: &[f64; 2]) -> [f64; 2] {\n   |                           ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 81,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:81:23\n   |\n81 | pub fn satc_point_add(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                       ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 81,
+        "message": "unused variable: `q`",
+        "rendered": "warning: unused variable: `q`\n  --> src\\satc.rs:81:37\n   |\n81 | pub fn satc_point_add(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                                     ^ help: if this is intentional, prefix it with an underscore: `_q`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 84,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:84:23\n   |\n84 | pub fn satc_point_sub(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                       ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 84,
+        "message": "unused variable: `q`",
+        "rendered": "warning: unused variable: `q`\n  --> src\\satc.rs:84:37\n   |\n84 | pub fn satc_point_sub(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n   |                                     ^ help: if this is intentional, prefix it with an underscore: `_q`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 87,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:87:28\n   |\n87 | pub fn satc_point_scale_xy(p: &[f64; 2], x: f64, y: f64) -> [f64; 2] {\n   |                            ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 87,
+        "message": "unused variable: `x`",
+        "rendered": "warning: unused variable: `x`\n  --> src\\satc.rs:87:42\n   |\n87 | pub fn satc_point_scale_xy(p: &[f64; 2], x: f64, y: f64) -> [f64; 2] {\n   |                                          ^ help: if this is intentional, prefix it with an underscore: `_x`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 87,
+        "message": "unused variable: `y`",
+        "rendered": "warning: unused variable: `y`\n  --> src\\satc.rs:87:50\n   |\n87 | pub fn satc_point_scale_xy(p: &[f64; 2], x: f64, y: f64) -> [f64; 2] {\n   |                                                  ^ help: if this is intentional, prefix it with an underscore: `_y`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 90,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:90:27\n   |\n90 | pub fn satc_point_scale_x(p: &[f64; 2], x: f64) -> [f64; 2] {\n   |                           ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 90,
+        "message": "unused variable: `x`",
+        "rendered": "warning: unused variable: `x`\n  --> src\\satc.rs:90:41\n   |\n90 | pub fn satc_point_scale_x(p: &[f64; 2], x: f64) -> [f64; 2] {\n   |                                         ^ help: if this is intentional, prefix it with an underscore: `_x`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 93,
+        "message": "unused variable: `x`",
+        "rendered": "warning: unused variable: `x`\n  --> src\\satc.rs:93:26\n   |\n93 | pub fn satc_point_create(x: f64, y: f64) -> [f64; 2] {\n   |                          ^ help: if this is intentional, prefix it with an underscore: `_x`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 93,
+        "message": "unused variable: `y`",
+        "rendered": "warning: unused variable: `y`\n  --> src\\satc.rs:93:34\n   |\n93 | pub fn satc_point_create(x: f64, y: f64) -> [f64; 2] {\n   |                                  ^ help: if this is intentional, prefix it with an underscore: `_y`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 96,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:96:26\n   |\n96 | pub fn satc_point_rotate(p: &[f64; 2], angle: f64) -> [f64; 2] {\n   |                          ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 96,
+        "message": "unused variable: `angle`",
+        "rendered": "warning: unused variable: `angle`\n  --> src\\satc.rs:96:40\n   |\n96 | pub fn satc_point_rotate(p: &[f64; 2], angle: f64) -> [f64; 2] {\n   |                                        ^^^^^ help: if this is intentional, prefix it with an underscore: `_angle`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 99,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n  --> src\\satc.rs:99:29\n   |\n99 | pub fn satc_point_normalize(p: &[f64; 2]) -> [f64; 2] {\n   |                             ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 102,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n   --> src\\satc.rs:102:27\n    |\n102 | pub fn satc_point_project(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n    |                           ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 102,
+        "message": "unused variable: `q`",
+        "rendered": "warning: unused variable: `q`\n   --> src\\satc.rs:102:41\n    |\n102 | pub fn satc_point_project(p: &[f64; 2], q: &[f64; 2]) -> [f64; 2] {\n    |                                         ^ help: if this is intentional, prefix it with an underscore: `_q`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 105,
+        "message": "unused variable: `p`",
+        "rendered": "warning: unused variable: `p`\n   --> src\\satc.rs:105:27\n    |\n105 | pub fn satc_point_reflect(p: &[f64; 2], axis: &[f64; 2]) -> [f64; 2] {\n    |                           ^ help: if this is intentional, prefix it with an underscore: `_p`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 105,
+        "message": "unused variable: `axis`",
+        "rendered": "warning: unused variable: `axis`\n   --> src\\satc.rs:105:41\n    |\n105 | pub fn satc_point_reflect(p: &[f64; 2], axis: &[f64; 2]) -> [f64; 2] {\n    |                                         ^^^^ help: if this is intentional, prefix it with an underscore: `_axis`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 108,
+        "message": "unused variable: `pos`",
+        "rendered": "warning: unused variable: `pos`\n   --> src\\satc.rs:108:27\n    |\n108 | pub fn satc_circle_create(pos: [f64; 2], r: f64) -> SatcCircle {\n    |                           ^^^ help: if this is intentional, prefix it with an underscore: `_pos`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 108,
+        "message": "unused variable: `r`",
+        "rendered": "warning: unused variable: `r`\n   --> src\\satc.rs:108:42\n    |\n108 | pub fn satc_circle_create(pos: [f64; 2], r: f64) -> SatcCircle {\n    |                                          ^ help: if this is intentional, prefix it with an underscore: `_r`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 111,
+        "message": "unused variable: `circle`",
+        "rendered": "warning: unused variable: `circle`\n   --> src\\satc.rs:111:29\n    |\n111 | pub fn satc_circle_get_aabb(circle: &SatcCircle) -> SatcPolygon {\n    |                             ^^^^^^ help: if this is intentional, prefix it with an underscore: `_circle`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 114,
+        "message": "unused variable: `pos`",
+        "rendered": "warning: unused variable: `pos`\n   --> src\\satc.rs:114:28\n    |\n114 | pub fn satc_polygon_create(pos: [f64; 2], points: Vec<[f64; 2]>) -> SatcPolygon {\n    |                            ^^^ help: if this is intentional, prefix it with an underscore: `_pos`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 114,
+        "message": "unused variable: `points`",
+        "rendered": "warning: unused variable: `points`\n   --> src\\satc.rs:114:43\n    |\n114 | pub fn satc_polygon_create(pos: [f64; 2], points: Vec<[f64; 2]>) -> SatcPolygon {\n    |                                           ^^^^^^ help: if this is intentional, prefix it with an underscore: `_points`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 117,
+        "message": "unused variable: `polygon`",
+        "rendered": "warning: unused variable: `polygon`\n   --> src\\satc.rs:117:30\n    |\n117 | pub fn satc_polygon_get_aabb(polygon: &SatcPolygon) -> SatcPolygon {\n    |                              ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 120,
+        "message": "unused variable: `polygon`",
+        "rendered": "warning: unused variable: `polygon`\n   --> src\\satc.rs:120:34\n    |\n120 | pub fn satc_polygon_get_centroid(polygon: &SatcPolygon) -> [f64; 2] {\n    |                                  ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 126,
+        "message": "unused variable: `len`",
+        "rendered": "warning: unused variable: `len`\n   --> src\\satc.rs:126:31\n    |\n126 | pub fn satc_flatten_points_on(len: usize, points: &[[f64; 2]], normal: &[f64; 2], result: &mut [f64; 2]) {\n    |                               ^^^ help: if this is intentional, prefix it with an underscore: `_len`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 126,
+        "message": "unused variable: `points`",
+        "rendered": "warning: unused variable: `points`\n   --> src\\satc.rs:126:43\n    |\n126 | pub fn satc_flatten_points_on(len: usize, points: &[[f64; 2]], normal: &[f64; 2], result: &mut [f64; 2]) {\n    |                                           ^^^^^^ help: if this is intentional, prefix it with an underscore: `_points`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 126,
+        "message": "unused variable: `normal`",
+        "rendered": "warning: unused variable: `normal`\n   --> src\\satc.rs:126:64\n    |\n126 | pub fn satc_flatten_points_on(len: usize, points: &[[f64; 2]], normal: &[f64; 2], result: &mut [f64; 2]) {\n    |                                                                ^^^^^^ help: if this is intentional, prefix it with an underscore: `_normal`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 126,
+        "message": "unused variable: `result`",
+        "rendered": "warning: unused variable: `result`\n   --> src\\satc.rs:126:83\n    |\n126 | pub fn satc_flatten_points_on(len: usize, points: &[[f64; 2]], normal: &[f64; 2], result: &mut [f64; 2]) {\n    |                                                                                   ^^^^^^ help: if this is intentional, prefix it with an underscore: `_result`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 130,
+        "message": "unused variable: `a_pos`",
+        "rendered": "warning: unused variable: `a_pos`\n   --> src\\satc.rs:130:1\n    |\n130 | a_pos: &[f64; 2],\n    | ^^^^^ help: if this is intentional, prefix it with an underscore: `_a_pos`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 131,
+        "message": "unused variable: `b_pos`",
+        "rendered": "warning: unused variable: `b_pos`\n   --> src\\satc.rs:131:1\n    |\n131 | b_pos: &[f64; 2],\n    | ^^^^^ help: if this is intentional, prefix it with an underscore: `_b_pos`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 132,
+        "message": "unused variable: `a_len`",
+        "rendered": "warning: unused variable: `a_len`\n   --> src\\satc.rs:132:1\n    |\n132 | a_len: usize,\n    | ^^^^^ help: if this is intentional, prefix it with an underscore: `_a_len`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 133,
+        "message": "unused variable: `a_points`",
+        "rendered": "warning: unused variable: `a_points`\n   --> src\\satc.rs:133:1\n    |\n133 | a_points: &[[f64; 2]],\n    | ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_a_points`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 134,
+        "message": "unused variable: `b_len`",
+        "rendered": "warning: unused variable: `b_len`\n   --> src\\satc.rs:134:1\n    |\n134 | b_len: usize,\n    | ^^^^^ help: if this is intentional, prefix it with an underscore: `_b_len`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 135,
+        "message": "unused variable: `b_points`",
+        "rendered": "warning: unused variable: `b_points`\n   --> src\\satc.rs:135:1\n    |\n135 | b_points: &[[f64; 2]],\n    | ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_b_points`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 136,
+        "message": "unused variable: `axis`",
+        "rendered": "warning: unused variable: `axis`\n   --> src\\satc.rs:136:1\n    |\n136 | axis: &[f64; 2],\n    | ^^^^ help: if this is intentional, prefix it with an underscore: `_axis`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 137,
+        "message": "unused variable: `response`",
+        "rendered": "warning: unused variable: `response`\n   --> src\\satc.rs:137:1\n    |\n137 | response: &mut SatcResponse,\n    | ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 141,
+        "message": "unused variable: `line`",
+        "rendered": "warning: unused variable: `line`\n   --> src\\satc.rs:141:28\n    |\n141 | pub fn satc_voronoi_region(line: &[f64; 2], point: &[f64; 2]) -> i32 {\n    |                            ^^^^ help: if this is intentional, prefix it with an underscore: `_line`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 141,
+        "message": "unused variable: `point`",
+        "rendered": "warning: unused variable: `point`\n   --> src\\satc.rs:141:45\n    |\n141 | pub fn satc_voronoi_region(line: &[f64; 2], point: &[f64; 2]) -> i32 {\n    |                                             ^^^^^ help: if this is intentional, prefix it with an underscore: `_point`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 144,
+        "message": "unused variable: `point`",
+        "rendered": "warning: unused variable: `point`\n   --> src\\satc.rs:144:29\n    |\n144 | pub fn satc_point_in_circle(point: &[f64; 2], circle: &SatcCircle) -> bool {\n    |                             ^^^^^ help: if this is intentional, prefix it with an underscore: `_point`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 144,
+        "message": "unused variable: `circle`",
+        "rendered": "warning: unused variable: `circle`\n   --> src\\satc.rs:144:47\n    |\n144 | pub fn satc_point_in_circle(point: &[f64; 2], circle: &SatcCircle) -> bool {\n    |                                               ^^^^^^ help: if this is intentional, prefix it with an underscore: `_circle`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 147,
+        "message": "unused variable: `point`",
+        "rendered": "warning: unused variable: `point`\n   --> src\\satc.rs:147:30\n    |\n147 | pub fn satc_point_in_polygon(point: &[f64; 2], polygon: &SatcPolygon) -> bool {\n    |                              ^^^^^ help: if this is intentional, prefix it with an underscore: `_point`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 147,
+        "message": "unused variable: `polygon`",
+        "rendered": "warning: unused variable: `polygon`\n   --> src\\satc.rs:147:48\n    |\n147 | pub fn satc_point_in_polygon(point: &[f64; 2], polygon: &SatcPolygon) -> bool {\n    |                                                ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 150,
+        "message": "unused variable: `a`",
+        "rendered": "warning: unused variable: `a`\n   --> src\\satc.rs:150:32\n    |\n150 | pub fn satc_test_circle_circle(a: &SatcCircle, b: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                ^ help: if this is intentional, prefix it with an underscore: `_a`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 150,
+        "message": "unused variable: `b`",
+        "rendered": "warning: unused variable: `b`\n   --> src\\satc.rs:150:48\n    |\n150 | pub fn satc_test_circle_circle(a: &SatcCircle, b: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                ^ help: if this is intentional, prefix it with an underscore: `_b`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 150,
+        "message": "unused variable: `response`",
+        "rendered": "warning: unused variable: `response`\n   --> src\\satc.rs:150:64\n    |\n150 | pub fn satc_test_circle_circle(a: &SatcCircle, b: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                                ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 153,
+        "message": "unused variable: `polygon`",
+        "rendered": "warning: unused variable: `polygon`\n   --> src\\satc.rs:153:33\n    |\n153 | pub fn satc_test_polygon_circle(polygon: &SatcPolygon, circle: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                 ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 153,
+        "message": "unused variable: `circle`",
+        "rendered": "warning: unused variable: `circle`\n   --> src\\satc.rs:153:56\n    |\n153 | pub fn satc_test_polygon_circle(polygon: &SatcPolygon, circle: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                        ^^^^^^ help: if this is intentional, prefix it with an underscore: `_circle`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 153,
+        "message": "unused variable: `response`",
+        "rendered": "warning: unused variable: `response`\n   --> src\\satc.rs:153:77\n    |\n153 | pub fn satc_test_polygon_circle(polygon: &SatcPolygon, circle: &SatcCircle, response: &mut SatcResponse) -> bool {\n    |                                                                             ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 156,
+        "message": "unused variable: `circle`",
+        "rendered": "warning: unused variable: `circle`\n   --> src\\satc.rs:156:33\n    |\n156 | pub fn satc_test_circle_polygon(circle: &SatcCircle, polygon: &SatcPolygon, response: &mut SatcResponse) -> bool {\n    |                                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_circle`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 156,
+        "message": "unused variable: `polygon`",
+        "rendered": "warning: unused variable: `polygon`\n   --> src\\satc.rs:156:54\n    |\n156 | pub fn satc_test_circle_polygon(circle: &SatcCircle, polygon: &SatcPolygon, response: &mut SatcResponse) -> bool {\n    |                                                      ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_polygon`"
+      },
+      {
+        "lint": "unused_variables",
+        "file": "src\\satc.rs",
+        "line": 156,
+        "message": "unused variable: `response`",
+        "rendered": "warning: unused variable: `response`\n   --> src\\satc.rs:156:77\n    |\n156 | pub fn satc_test_circle_polygon(circle: &SatcCircle, polygon: &SatcPolygon, response: &mut SatcResponse) -> bool {\n    |                                                                             ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_response`"
+      }
+    ],
+    "total_all_files": 3
+  },
+  "safety": {
+    "tool": "lexical-fallback",
+    "ok": true,
+    "metrics": null,
+    "lexical": {
+      "unimplemented": 33,
+      "unsafe_keyword": 0,
+      "raw_pointer_casts": 0,
+      "transmute": 0,
+      "ffi": 0,
+      "pointer_ops": 0,
+      "clippy_allow": 0,
+      "unwrap_expect_panic": 0,
+      "locations": {
+        "unimplemented": [
+          "src/satc.rs:47: unimplemented!()",
+          "src/satc.rs:52: unimplemented!()",
+          "src/satc.rs:57: unimplemented!()",
+          "src/satc.rs:61: unimplemented!()",
+          "src/satc.rs:64: unimplemented!()",
+          "src/satc.rs:67: unimplemented!()",
+          "src/satc.rs:70: unimplemented!()",
+          "src/satc.rs:73: unimplemented!()",
+          "src/satc.rs:76: unimplemented!()",
+          "src/satc.rs:79: unimplemented!()",
+          "src/satc.rs:82: unimplemented!()",
+          "src/satc.rs:85: unimplemented!()",
+          "src/satc.rs:88: unimplemented!()",
+          "src/satc.rs:91: unimplemented!()",
+          "src/satc.rs:94: unimplemented!()",
+          "src/satc.rs:97: unimplemented!()",
+          "src/satc.rs:100: unimplemented!()",
+          "src/satc.rs:103: unimplemented!()",
+          "src/satc.rs:106: unimplemented!()",
+          "src/satc.rs:109: unimplemented!()",
+          "src/satc.rs:112: unimplemented!()",
+          "src/satc.rs:115: unimplemented!()",
+          "src/satc.rs:118: unimplemented!()",
+          "src/satc.rs:121: unimplemented!()",
+          "src/satc.rs:124: unimplemented!()"
+        ],
+        "unsafe_keyword": [],
+        "raw_pointer_casts": [],
+        "transmute": [],
+        "ffi": [],
+        "pointer_ops": [],
+        "clippy_allow": [],
+        "unwrap_expect_panic": []
+      }
+    },
+    "primary_total": 0
+  },
+  "interface": [],
+  "static": {
+    "unimplemented": 33,
+    "unsafe_keyword": 0,
+    "raw_pointer_casts": 0,
+    "transmute": 0,
+    "ffi": 0,
+    "pointer_ops": 0,
+    "clippy_allow": 0,
+    "unwrap_expect_panic": 0,
+    "locations": {
+      "unimplemented": [
+        "src/satc.rs:47: unimplemented!()",
+        "src/satc.rs:52: unimplemented!()",
+        "src/satc.rs:57: unimplemented!()",
+        "src/satc.rs:61: unimplemented!()",
+        "src/satc.rs:64: unimplemented!()",
+        "src/satc.rs:67: unimplemented!()",
+        "src/satc.rs:70: unimplemented!()",
+        "src/satc.rs:73: unimplemented!()",
+        "src/satc.rs:76: unimplemented!()",
+        "src/satc.rs:79: unimplemented!()",
+        "src/satc.rs:82: unimplemented!()",
+        "src/satc.rs:85: unimplemented!()",
+        "src/satc.rs:88: unimplemented!()",
+        "src/satc.rs:91: unimplemented!()",
+        "src/satc.rs:94: unimplemented!()",
+        "src/satc.rs:97: unimplemented!()",
+        "src/satc.rs:100: unimplemented!()",
+        "src/satc.rs:103: unimplemented!()",
+        "src/satc.rs:106: unimplemented!()",
+        "src/satc.rs:109: unimplemented!()",
+        "src/satc.rs:112: unimplemented!()",
+        "src/satc.rs:115: unimplemented!()",
+        "src/satc.rs:118: unimplemented!()",
+        "src/satc.rs:121: unimplemented!()",
+        "src/satc.rs:124: unimplemented!()"
+      ],
+      "unsafe_keyword": [],
+      "raw_pointer_casts": [],
+      "transmute": [],
+      "ffi": [],
+      "pointer_ops": [],
+      "clippy_allow": [],
+      "unwrap_expect_panic": []
+    }
+  },
+  "protected_restored": [],
+  "own_files": [
+    "src/lib.rs",
+    "src/satc.rs"
+  ],
+  "score": [
+    1,
+    0,
+    -33,
+    0,
+    0,
+    -3,
+    -72
+  ],
+  "success": false,
+  "headline": "build=OK | tests 0/4 | interface problems=0 | unimplemented!=33 | unsafe[lexical-fallback] lexical=0 | clippy(own) correctness=0 style=2 complexity=1 perf=0 other=0 | rustc warnings(own)=72",
+  "duration_s": 3.8
+}

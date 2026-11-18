@@ -1,0 +1,123 @@
+{
+  "label": "iter_01",
+  "build_ok": true,
+  "check": {
+    "errors": [],
+    "warnings_own": []
+  },
+  "build_output_tail": "Compiling satc v0.1.0 (C:\\Users\\andym\\Desktop\\CS598JBR-Team-12\\MP4\\translations\\project_1)\nwarning: unused import: `satc::satc`\n --> src\\bin\\satc_test.rs:1:5\n  |\n1 | use satc::satc;\n  |     ^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\nwarning: function `satc_nearest_hundredth` is never used\n --> src\\bin\\satc_test.rs:3:4\n  |\n3 | fn satc_nearest_hundredth(n: f64) -> f64 {\n  |    ^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\nwarning: `satc` (bin \"satc_test\") generated 2 warnings (run `cargo fix --bin \"satc_test\"` to apply 1 suggestion)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.42s",
+  "tests": {
+    "compiled": true,
+    "timed_out": false,
+    "total": 4,
+    "passed": 0,
+    "benchmark_status": {
+      "src/bin/satc_test.rs::satc_point_scale_xy_test": "not run",
+      "src/bin/satc_test.rs::satc_polygon_get_centroid_test": "not run",
+      "src/bin/satc_test.rs::satc_collision_test": "not run",
+      "src/bin/satc_test.rs::satc_point_test": "not run"
+    },
+    "all_results": [],
+    "failed": [],
+    "failure_details": {},
+    "raw_tail": "",
+    "duration_s": 1.78
+  },
+  "clippy": {
+    "ok": true,
+    "by_group": {
+      "correctness": {
+        "own": 0,
+        "protected": 0
+      },
+      "style": {
+        "own": 0,
+        "protected": 0
+      },
+      "complexity": {
+        "own": 0,
+        "protected": 0
+      },
+      "perf": {
+        "own": 0,
+        "protected": 0
+      },
+      "other": {
+        "own": 0,
+        "protected": 0
+      }
+    },
+    "own": [],
+    "protected": [],
+    "rustc_own": [],
+    "total_all_files": 0
+  },
+  "safety": {
+    "tool": "lexical-fallback",
+    "ok": true,
+    "metrics": null,
+    "lexical": {
+      "unimplemented": 0,
+      "unsafe_keyword": 0,
+      "raw_pointer_casts": 0,
+      "transmute": 0,
+      "ffi": 0,
+      "pointer_ops": 0,
+      "clippy_allow": 1,
+      "unwrap_expect_panic": 0,
+      "locations": {
+        "unimplemented": [],
+        "unsafe_keyword": [],
+        "raw_pointer_casts": [],
+        "transmute": [],
+        "ffi": [],
+        "pointer_ops": [],
+        "clippy_allow": [
+          "src/satc.rs:291: #[allow(clippy::too_many_arguments)]"
+        ],
+        "unwrap_expect_panic": []
+      }
+    },
+    "primary_total": 0
+  },
+  "interface": [],
+  "static": {
+    "unimplemented": 0,
+    "unsafe_keyword": 0,
+    "raw_pointer_casts": 0,
+    "transmute": 0,
+    "ffi": 0,
+    "pointer_ops": 0,
+    "clippy_allow": 1,
+    "unwrap_expect_panic": 0,
+    "locations": {
+      "unimplemented": [],
+      "unsafe_keyword": [],
+      "raw_pointer_casts": [],
+      "transmute": [],
+      "ffi": [],
+      "pointer_ops": [],
+      "clippy_allow": [
+        "src/satc.rs:291: #[allow(clippy::too_many_arguments)]"
+      ],
+      "unwrap_expect_panic": []
+    }
+  },
+  "protected_restored": [],
+  "own_files": [
+    "src/lib.rs",
+    "src/satc.rs"
+  ],
+  "score": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "success": false,
+  "headline": "build=OK | tests 0/4 | interface problems=0 | unimplemented!=0 | unsafe[lexical-fallback] lexical=0 | clippy(own) correctness=0 style=0 complexity=0 perf=0 other=0 | rustc warnings(own)=0",
+  "duration_s": 3.7
+}

@@ -8,10 +8,11 @@
     "model": "auto",
     "model_preferences": [
       "qwen3-coder",
+      "kimi-k[3-9]",
       "kimi-k2(?!.*thinking)",
       "deepseek-v3",
-      "glm-?[45]",
       "minimax",
+      "glm-?[4-9]",
       "qwen3.*(instruct|next)",
       "gpt-oss-120b",
       "kimi",

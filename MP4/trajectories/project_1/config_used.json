@@ -1,0 +1,101 @@
+{
+  "_comment": "Free hosted open-weight models on NVIDIA's API catalog (build.nvidia.com, free developer key, no credit card, about 40 requests/min per account). The free catalog changes over time (e.g. qwen3-coder-480b-a35b-instruct was retired on 2026-06-11), so model is \"auto\": at the start of a run the pipeline lists the endpoint's models, walks model_preferences (regexes, newest id first within a family) and keeps the first model that answers a tool-call probe. The chosen id is logged, stored in state.json (reused by --resume) and recorded in summary.json. Pin a model with --model <id>. Key: export NVIDIA_API_KEY=nvapi-... (or a Colab secret of that name); never commit it. Check: python3 MP4/src/pipeline.py --project 1 --config MP4/configs/config.nvidia.json --check-llm",
+  "toolchain": "nightly-2025-05-13",
+  "llm": {
+    "provider": "nvidia-api-catalog",
+    "base_url": "https://integrate.api.nvidia.com/v1",
+    "api_key_env": "NVIDIA_API_KEY",
+    "model": "moonshotai/kimi-k3.1-pro",
+    "tool_mode": "native",
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 8192,
+    "seed": 598,
+    "parallel_tool_calls": null,
+    "request_timeout_s": 600,
+    "max_retries": 8,
+    "max_backoff_s": 120,
+    "min_seconds_between_requests": 2,
+    "extra_headers": {
+      "X-Title": "CS598JBR-MP4-c2rust-agent"
+    },
+    "extra_body": {},
+    "model_preferences": [
+      "qwen3-coder",
+      "kimi-k[3-9]",
+      "kimi-k2(?!.*thinking)",
+      "deepseek-v3",
+      "minimax",
+      "glm-?[4-9]",
+      "qwen3.*(instruct|next)",
+      "gpt-oss-120b",
+      "kimi",
+      "deepseek",
+      "nemotron.*(ultra|super)",
+      "llama-4-maverick"
+    ],
+    "model_exclude": "embed|rerank|guard|reward|safety|vision|-vl|ocr|parse|retriev|clip|translat|audio|asr|tts",
+    "model_probe_limit": 15,
+    "probe_max_tokens": 1024
+  },
+  "budget": {
+    "_comment": "Stopping condition: stop at the first of (a) success_criteria all met, (b) max_iterations agent iterations, (c) max_llm_calls / max_total_tokens / wall_clock_limit_min exhausted, (d) `patience` consecutive iterations without a better score, (e) `max_consecutive_llm_errors` iterations in a row ending in an LLM request error (a single error only ends the current iteration).",
+    "max_iterations": 10,
+    "max_steps_per_iteration": 30,
+    "max_nudges": 3,
+    "max_llm_calls": 500,
+    "max_total_tokens": 15000000,
+    "wall_clock_limit_min": 240,
+    "patience": 3,
+    "max_consecutive_llm_errors": 3
+  },
+  "success_criteria": {
+    "require_interface_ok": true,
+    "require_no_unimplemented": true,
+    "max_unsafe_primary": 0,
+    "max_clippy_warnings": 0,
+    "max_rustc_warnings": null
+  },
+  "policy": {
+    "_comment": "inject_forbid_unsafe adds #![forbid(unsafe_code)] to the crate roots so any unsafe becomes a compile error the agent must repair. format_final runs rustfmt on the agent's files (never on benchmark tests) after the loop.",
+    "inject_forbid_unsafe": true,
+    "format_final": true
+  },
+  "context": {
+    "inline_c_sources": false,
+    "inline_rust_max_chars": 120000,
+    "max_context_chars": 400000,
+    "keep_recent_messages": 10
+  },
+  "feedback": {
+    "max_items": 12,
+    "max_section_chars": 12000
+  },
+  "tools": {
+    "schema_file": "configs/tools.json",
+    "max_read_chars": 60000,
+    "max_tool_output_chars": 16000,
+    "log_tool_result_chars": 8000,
+    "log_command_output_chars": 20000,
+    "log_diff_chars": 40000,
+    "check_interface_on_write": true,
+    "use_newmetrics": true,
+    "timeouts_s": {
+      "build": 300,
+      "test": 300,
+      "clippy": 300,
+      "metrics": 900
+    }
+  },
+  "prompts": {
+    "dir": "configs/prompts",
+    "files": {
+      "system": "system.md",
+      "initial_task": "initial_task.md",
+      "repair_task": "repair_task.md",
+      "text_protocol": "text_tool_protocol.md",
+      "nudge": "nudge.md",
+      "truncated_nudge": "truncated_nudge.md"
+    }
+  }
+}
