@@ -204,7 +204,14 @@ class ToolBox:
             hint = ""
             first = old_string.strip().splitlines()[0].strip() if old_string.strip() else ""
             if first and first in before:
-                hint = " (the first line exists - check indentation/whitespace of the following lines)"
+                # show what the file really contains there, so the model can copy it instead of guessing again
+                lines = before.splitlines()
+                start = next(i for i, ln in enumerate(lines) if first in ln)
+                span = max(1, len(old_string.strip("\n").splitlines()))
+                actual = "\n".join(lines[start:start + span + 2])
+                hint = (" (the first line exists but the following lines differ). The file currently has, from line "
+                        f"{start + 1}:\n```\n{actual}\n```\nUse this exact text as old_string, or rewrite the whole "
+                        "file with write_file")
             if re.match(r"\s*\d+\|", old_string):
                 hint = " (do not include the `NNNNN| ` line-number prefix from read_file)"
             raise ToolError(f"old_string not found in {rel}{hint}. Re-read the file and copy the text exactly.")
